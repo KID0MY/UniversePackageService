@@ -4,10 +4,7 @@ public class animations : MonoBehaviour
 {
     public Animator anim_; 
     
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
+   
     
    public void fadeInAnim()
     {

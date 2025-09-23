@@ -13,8 +13,8 @@ public class sceneManager_ : MonoBehaviour
 
     public void returnToMain()
     {
-        animScript.anim_.Play("fadeIn", 0, 0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        StartCoroutine(returing());
+
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -42,6 +42,14 @@ public class sceneManager_ : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
          
+
+    }
+    IEnumerator returing()
+    {
+        animScript.anim_.Play("fadeIn", 0, 0);
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+
 
     }
 }
