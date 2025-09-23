@@ -15,7 +15,6 @@ public class Stats : MonoBehaviour
     void FixedUpdate()
     {
         speed = Mathf.Floor(this.GetComponent<Rigidbody>().linearVelocity.magnitude * 3.6f);
-        Debug.Log(speed);
     }
     private void OnTriggerEnter(Collider other)
     {

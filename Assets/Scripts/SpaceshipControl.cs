@@ -54,6 +54,7 @@ public class SpaceshipControl : MonoBehaviour
         rb.AddForce(rb.transform.right * moveInput.x * speedMult, ForceMode.VelocityChange);
 
         // Rotation from mouse
+        // might break later
         if (Time.timeSinceLevelLoad > 1)
         {
             rb.AddTorque(rb.transform.right * speedMultAngle * mouseInput.y * -1, ForceMode.VelocityChange);
