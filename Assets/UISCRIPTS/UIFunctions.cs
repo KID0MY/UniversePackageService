@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 using TMPro; 
 public class UIFunctions : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class UIFunctions : MonoBehaviour
     public TMP_Text updateItemText;
     public int numofCollected=0;
     public int highestNum=0;
+    public Animator anim; 
 
     
 
@@ -20,7 +23,9 @@ public class UIFunctions : MonoBehaviour
         if (isOver)
         {
             popUpPanel.SetActive(isOver);
-            panelText.text = ("Woah! You've collected " + numofCollected + " packages. Your highscore is " + highestNum + ". Would you like to try again and beat it?"); 
+            StartCoroutine(flashBox());
+            panelText.text = ("Woah! You've collected " + numofCollected + " packages. Your highscore is " + highestNum + ". Would you like to try again and beat it?");
+            StopCoroutine(flashBox());
         }
         else
         {
@@ -57,5 +62,12 @@ public class UIFunctions : MonoBehaviour
         //call everytime a package is picked up
         updateItemText.text = "Packages Collected: " + numofCollected;
     }
-    
+     IEnumerator flashBox()
+    {
+        anim.SetBool("gameOver", true);
+        yield return new WaitForSeconds(2.0f);
+        anim.SetBool("gameOver", false);
+      anim.SetBool("end",true);
+
+    }
 }
