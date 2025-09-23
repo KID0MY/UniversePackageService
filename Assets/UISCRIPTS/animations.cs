@@ -1,16 +1,20 @@
 using UnityEngine;
-
+using System.Collections;
 public class animations : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Animator anim_; 
+    
+    void Awake()
     {
-        
+        DontDestroyOnLoad(this.gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+   public void fadeInAnim()
     {
-        
+        anim_.SetBool("fading",true);
+    }
+    public void fadeOutAnim()
+    {
+        anim_.SetBool("fading",false);
     }
 }

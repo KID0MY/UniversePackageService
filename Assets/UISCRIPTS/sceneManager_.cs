@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 public class sceneManager_ : MonoBehaviour
@@ -8,16 +9,20 @@ public class sceneManager_ : MonoBehaviour
     public int currentScene;
     public int newScene;
     public string sceneName;
+    public animations animScript; 
 
     public void returnToMain()
     {
+        animScript.anim_.Play("fadeIn", 0, 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
     }
 
     public void loadNextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //animScript.fadeOutAnim();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(loadIn());
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
     }
@@ -30,5 +35,13 @@ public class sceneManager_ : MonoBehaviour
     {
         Debug.Log("ResettingScene");
         //for starting the game over again
+    }
+    IEnumerator loadIn()
+    {
+        animScript.anim_.Play("fadeIn",0,0);
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+         
+
     }
 }
