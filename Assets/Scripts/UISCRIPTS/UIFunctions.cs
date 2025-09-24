@@ -11,16 +11,17 @@ public class UIFunctions : MonoBehaviour
     public TMP_Text panelText;
     public TMP_Text updateItemText;
     public int highestNum=0;
-    public Animator anim;
-
-
+    public Animator anim; 
+    public SpaceshipControl spaceship;
 
 
     public void gameOver()
     {
         if (isOver)
         {
+            Cursor.lockState = CursorLockMode.None;
             popUpPanel.SetActive(isOver);
+            spaceship.enabled = false;
             StartCoroutine(flashBox());
             panelText.text = ("Woah! You've collected " + PlayerStats.collectibles + " packages. Your highscore is " + highestNum + ". Would you like to try again and beat it?");
             StopCoroutine(flashBox());
