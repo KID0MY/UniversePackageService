@@ -4,19 +4,17 @@ using System.Collections;
 using TMPro; 
 public class UIFunctions : MonoBehaviour
 {
-
+    public Stats PlayerStats;
     public GameObject popUpPanel;
     public bool isOver;
     public float speed;
     public TMP_Text panelText;
     public TMP_Text updateItemText;
-    public int numofCollected=0;
     public int highestNum=0;
-    public Animator anim; 
+    public Animator anim;
 
-    
 
-   
+
 
     public void gameOver()
     {
@@ -24,7 +22,7 @@ public class UIFunctions : MonoBehaviour
         {
             popUpPanel.SetActive(isOver);
             StartCoroutine(flashBox());
-            panelText.text = ("Woah! You've collected " + numofCollected + " packages. Your highscore is " + highestNum + ". Would you like to try again and beat it?");
+            panelText.text = ("Woah! You've collected " + PlayerStats.collectibles + " packages. Your highscore is " + highestNum + ". Would you like to try again and beat it?");
             StopCoroutine(flashBox());
         }
         else
@@ -46,8 +44,8 @@ public class UIFunctions : MonoBehaviour
     {
         if (isOver)
         {
-            if (numofCollected > highestNum) {
-                highestNum = numofCollected;
+            if (PlayerStats.collectibles > highestNum) {
+                highestNum = PlayerStats.collectibles;
                     }
             else
             {
@@ -60,7 +58,7 @@ public class UIFunctions : MonoBehaviour
     void updateItemsCollectedUI()
     {
         //call everytime a package is picked up
-        updateItemText.text = "Packages Collected: " + numofCollected;
+        updateItemText.text = "Packages Collected: " + PlayerStats.collectibles;
     }
      IEnumerator flashBox()
     {
