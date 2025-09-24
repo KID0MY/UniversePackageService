@@ -1,14 +1,18 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject packagePrefab;
+    public List<GameObject> packagePrefabs = new List<GameObject>();
 
     public int maxRange;
     public int minRange;
 
     public int maxCount = 100;
     int Count;
+
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +27,7 @@ public class Spawner : MonoBehaviour
         {
             SpawnPackage();
             Count++;
+
         }
     }
 
@@ -32,8 +37,10 @@ public class Spawner : MonoBehaviour
         int spawnPointY = Random.Range(minRange, maxRange);
         int spawnPointZ = Random.Range(minRange, maxRange);
 
+        int packageType = Random.Range(0, 2);
+
         Vector3 spawnPoint = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
 
-        Instantiate(packagePrefab, spawnPoint, Quaternion.identity);
+        Instantiate(packagePrefabs[packageType], spawnPoint, Quaternion.identity);
     }
 }
