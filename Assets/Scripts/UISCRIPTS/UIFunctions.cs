@@ -34,6 +34,11 @@ public class UIFunctions : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        updateItemsCollectedUI();
+    }
+
     public void SetCountDown()
     {
 
@@ -69,4 +74,5 @@ public class UIFunctions : MonoBehaviour
       anim.SetBool("end",true);
 
     }
+
 }
