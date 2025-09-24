@@ -29,6 +29,7 @@ public class sceneManager_ : MonoBehaviour
     public void exitGame()
     {
         Debug.Log("Exiting!");
+        Application.Quit();
     }
 
     public void resetScene()

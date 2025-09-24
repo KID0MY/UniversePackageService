@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject packagePrefabs, packagePrefabs1;
+    public GameObject[] packagePrefabs;
 
     public int maxRange;
     public int minRange;
@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
 
         Vector3 spawnPoint = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
 
-        if(packageType == 0){Instantiate(packagePrefabs, spawnPoint, Quaternion.identity);}
-        else{Instantiate(packagePrefabs1, spawnPoint, Quaternion.identity);}
+        if(packageType == 0){Instantiate(packagePrefabs[1], spawnPoint, Quaternion.identity);}
+        else{Instantiate(packagePrefabs[0], spawnPoint, Quaternion.identity);}
     }
 }

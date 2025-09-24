@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 31b12f55b39e45e4a897140c798b34a5, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -677,8 +677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d928a7e049bb75b498a4601cf2470853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  packagePrefabs: {fileID: 4147777552835832961, guid: b88703c7a82b3434eb035983b67f34a7, type: 3}
-  packagePrefabs1: {fileID: 7613171290797924950, guid: f501b9b143250534ba070ec415d22326, type: 3}
+  packagePrefabs:
+  - {fileID: 4147777552835832961, guid: b88703c7a82b3434eb035983b67f34a7, type: 3}
+  - {fileID: 7613171290797924950, guid: f501b9b143250534ba070ec415d22326, type: 3}
   maxRange: 1000
   minRange: -1000
   maxCount: 10000
