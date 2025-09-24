@@ -35,6 +35,7 @@ public class sceneManager_ : MonoBehaviour
     {
         Debug.Log("ResettingScene");
         //for starting the game over again
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     IEnumerator loadIn()
     {

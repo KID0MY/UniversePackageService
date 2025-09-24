@@ -1,27 +1,27 @@
+using TMPro;
 using UnityEngine;
-using TMPro; 
+
 public class Timer : MonoBehaviour
 {
     public float timeRemaining;
     public TMP_Text timerText;
     public UIFunctions uiFunc;
-    bool timerStarted;
-    void Start()
+    private bool timerStarted;
+
+    private void Start()
     {
         uiFunc = GetComponent<UIFunctions>();
         timerStarted = true;
     }
 
 
-    void Update()
+    private void Update()
     {
-        if (timerStarted) { 
-        checkTimer();
-    }
+        if (timerStarted) checkTimer();
     }
 
 
-    void checkTimer()
+    private void checkTimer()
     {
         if (timerStarted)
         {
@@ -39,20 +39,18 @@ public class Timer : MonoBehaviour
             }
         }
     }
-    void updateTimer(float currentTime)
+
+    private void updateTimer(float currentTime)
     {
         currentTime += 1;
         float mins = Mathf.FloorToInt(currentTime / 60);
-        float secs = Mathf.FloorToInt(currentTime %60);
-        timerText.text = string.Format("{0:00} : {1:00}",mins,secs);
+        float secs = Mathf.FloorToInt(currentTime % 60);
+        timerText.text = string.Format("{0:00} : {1:00}", mins, secs);
     }
-    void resetTimer()
+
+    private void resetTimer()
     {
         timerStarted = false;
         timeRemaining = 20; //whatever the times ends up being
-
     }
 }
-
-
-

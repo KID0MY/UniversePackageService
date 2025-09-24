@@ -17,6 +17,7 @@ public class UIFunctions : MonoBehaviour
 
     public void gameOver()
     {
+        highScoreTrack();
         if (isOver)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -47,10 +48,9 @@ public class UIFunctions : MonoBehaviour
         {
             if (PlayerStats.collectibles > highestNum) {
                 highestNum = PlayerStats.collectibles;
-                    }
+            }
             else
             {
-
                 highestNum = highestNum;
             }
         }
