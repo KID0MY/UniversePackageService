@@ -13,7 +13,7 @@ public class UIFunctions : MonoBehaviour
     public int numofCollected=0;
     public int highestNum=0;
     public Animator anim; 
-
+    public SpaceshipControl spaceship;
     
 
    
@@ -22,7 +22,9 @@ public class UIFunctions : MonoBehaviour
     {
         if (isOver)
         {
+            Cursor.lockState = CursorLockMode.None;
             popUpPanel.SetActive(isOver);
+            spaceship.enabled = false;
             StartCoroutine(flashBox());
             panelText.text = ("Woah! You've collected " + numofCollected + " packages. Your highscore is " + highestNum + ". Would you like to try again and beat it?");
             StopCoroutine(flashBox());

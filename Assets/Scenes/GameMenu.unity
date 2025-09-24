@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 205083074}
   - component: {fileID: 205083073}
   m_Layer: 0
-  m_Name: SpaceCube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2282,6 +2282,7 @@ MonoBehaviour:
   numofCollected: 0
   highestNum: 0
   anim: {fileID: 194355619}
+  spaceship: {fileID: 205083075}
 --- !u!114 &1369431847
 MonoBehaviour:
   m_ObjectHideFlags: 0
