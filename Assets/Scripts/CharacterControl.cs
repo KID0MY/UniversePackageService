@@ -8,19 +8,19 @@ public class CharacterControl : MonoBehaviour
     private PlayerInput playerInput;
 
     private Vector2 moveInput;
-    private Vector2 mouseInput;
-    private bool canInteract;
 
     private Interactable currentInteractable;
 
     private Interactable currentPickup;
 
     [SerializeField] float moveSpeed;
+    [SerializeField] float jumpSpeed;
     [SerializeField] private Vector3 interactionRayPoint = default;
     [SerializeField] private float interactionDistance = default;
     [SerializeField] private LayerMask interactionLayer = default;
 
     public Camera playerCamera;
+    public bool canJump;
     public bool isHolding;
 
 
@@ -36,6 +36,15 @@ public class CharacterControl : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (canJump)
+        {
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            canJump = false;
+        }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
