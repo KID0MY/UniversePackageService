@@ -11,10 +11,13 @@ public class SpaceshipControl : MonoBehaviour
     private float rollInput;
 
     private PlayerInput playerInput;
+    public GameObject shipMesh;
+    Quaternion targetRotation;
 
     [SerializeField] private float speedMult = 1;
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
+    [Range(0.0f,90.0f)] public float speedRollMult = 45;
 
 
     private void Awake()
@@ -64,7 +67,16 @@ public class SpaceshipControl : MonoBehaviour
 
         // Roll
         rb.AddTorque(rb.transform.forward * speedRollMultAngle * rollInput, ForceMode.VelocityChange);
-
         
+        if (moveInput.x != 0 && rollInput == 0 )
+        {
+            targetRotation = Quaternion.Euler(0.0f, 0.0f, -45.0f * moveInput.x);
+        }
+        else
+        {
+            targetRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        }
+
+        shipMesh.transform.localRotation = Quaternion.Lerp(shipMesh.transform.localRotation,targetRotation,Time.deltaTime * 5f);
     }
 }
