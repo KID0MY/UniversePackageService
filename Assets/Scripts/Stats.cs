@@ -5,10 +5,15 @@ public class Stats : MonoBehaviour
     public int collectibles = 0;
 
     public float speed;
+
+    [SerializeField] AudioClip grabClip;
+
+    private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,7 +27,7 @@ public class Stats : MonoBehaviour
         {
             Destroy(other.gameObject);
             collectibles++;
-            Debug.Log(collectibles);
+            audioSource.PlayOneShot(grabClip);
         }
     }
 

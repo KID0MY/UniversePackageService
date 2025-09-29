@@ -10,10 +10,12 @@ public class SpaceshipControl : MonoBehaviour
     private Vector2 mouseInput;     // Mouse X + Mouse Y
     private float rollInput;
     private PlayerInput playerInput;
+    public bool isMoving;
 
     private AudioSource audioSource;
 
     [SerializeField] private AudioClip thrusterClip;
+    [SerializeField] private AudioClip thrusterEndClip;
     [SerializeField] private float speedMult = 1;
     [SerializeField] private float boostMult = 2;
     [SerializeField] private float speedMultAngle = 0.5f;
@@ -77,6 +79,13 @@ public class SpaceshipControl : MonoBehaviour
         {
             audioSource.clip = thrusterClip;
             audioSource.Play();
+            isMoving = true;
+        }
+        if (moveInput.y == 0 && moveInput.x ==0 && audioSource.clip != thrusterEndClip)
+        {
+            audioSource.clip = thrusterEndClip; 
+            audioSource.Play();
+            isMoving = false;
         }
         // Translation
         rb.AddForce(rb.transform.forward * moveInput.y * speedMult, ForceMode.VelocityChange);

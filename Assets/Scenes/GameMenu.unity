@@ -833,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectibles: 0
   speed: 0
+  grabClip: {fileID: 8300000, guid: 00580b1b1d8f89b4ea726923a2e0c3e7, type: 3}
 --- !u!114 &205083074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,7 +1016,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff8327b35d31f64da604841706e282e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
   thrusterClip: {fileID: 8300000, guid: 54a5ad6ae7bf4e9478085a222fef3588, type: 3}
+  thrusterEndClip: {fileID: 8300000, guid: d65cb1a9afe3e9d45a9093c075c4b60c, type: 3}
   speedMult: 1
   boostMult: 2
   speedMultAngle: 0.007
@@ -2420,8 +2423,7 @@ MonoBehaviour:
   timeRemaining: 180
   timerText: {fileID: 2137102123}
   uiFunc: {fileID: 1369431846}
-  warningTime: 160
-  warning: {fileID: 0}
+  warningTime: 30
 --- !u!82 &1369431848
 AudioSource:
   m_ObjectHideFlags: 0
