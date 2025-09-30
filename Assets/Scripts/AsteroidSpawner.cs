@@ -36,7 +36,7 @@ public class AsteroidSpawner : MonoBehaviour
 
         Vector3 spawnPoint = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
 
-        if (spawnCheck.Length == 0)
+        if (spawnCheck.Length == 1)
         {
             Instantiate(rockPrefabs[rockType], spawnPoint, Quaternion.identity);
         }
