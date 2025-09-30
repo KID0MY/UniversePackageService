@@ -11,6 +11,8 @@ public class AsteroidSpawner : MonoBehaviour
     public int maxCount = 100;
     int Count;
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -27,7 +29,7 @@ public class AsteroidSpawner : MonoBehaviour
         int spawnPointY = Random.Range(minRange, maxRange);
         int spawnPointZ = Random.Range(minRange, maxRange);
 
-        int rockType = Random.Range(0, 7);
+        int rockType = Random.Range(0, rockPrefabs.Length);
 
         SphereCollider col = rockPrefabs[rockType].GetComponent<SphereCollider>();
         Collider[] spawnCheck = Physics.OverlapSphere(col.center, col.radius);
