@@ -9,12 +9,25 @@ public class SpaceshipControl : MonoBehaviour
     private Vector2 moveInput;      // Horizontal (x) + Vertical (y)
     private Vector2 mouseInput;     // Mouse X + Mouse Y
     private float rollInput;
-
     private PlayerInput playerInput;
+    private bool isMoving;
+    public bool isBoosting;
 
+    private AudioSource audioSource;
+
+    [SerializeField] private AudioClip thrusterClip;
+    [SerializeField] private AudioClip thrusterEndClip;
     [SerializeField] private float speedMult = 1;
+    [SerializeField] private float boostMult = 2;
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
+    [SerializeField] private float timeLoss;
+
+    public Timer time;
+    //[SerializeField] private float timeLossVal = 2;
+    //public float timeLossMult = 1;
+
+
 
 
     private void Awake()
@@ -27,7 +40,7 @@ public class SpaceshipControl : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         Cursor.lockState = CursorLockMode.Locked;
         rb.angularVelocity = Vector3.zero;
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // ---------------- INPUT CALLBACKS ----------------
@@ -45,10 +58,44 @@ public class SpaceshipControl : MonoBehaviour
     {
         rollInput = context.ReadValue<float>();
     }
+
+    public void OnBoost(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            rb.AddForce(rb.transform.forward * moveInput.y * boostMult, ForceMode.Impulse);
+            rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
+            time.timeRemaining -= timeLoss;
+            isBoosting = !isBoosting;
+        }
+        //if (context.ReadValue<float>() == 1)
+        //{
+        //    speedMult = boostMult;
+        //    timeLossMult = timeLossVal;
+
+        //}
+        //else
+        //{
+        //    speedMult = 1;
+        //    timeLossMult = 1;
+        //}
+    }
     // -------------------------------------------------
 
     private void FixedUpdate()
     {
+        if ((moveInput.y < 0 || moveInput.y > 0 || moveInput.x < 0 || moveInput.x > 0) && !audioSource.isPlaying)
+        {
+            audioSource.clip = thrusterClip;
+            audioSource.Play();
+            isMoving = true;
+        }
+        if (moveInput.y == 0 && moveInput.x ==0 && audioSource.clip != thrusterEndClip)
+        {
+            audioSource.clip = thrusterEndClip; 
+            audioSource.Play();
+            isMoving = false;
+        }
         // Translation
         rb.AddForce(rb.transform.forward * moveInput.y * speedMult, ForceMode.VelocityChange);
         rb.AddForce(rb.transform.right * moveInput.x * speedMult, ForceMode.VelocityChange);

@@ -3,15 +3,22 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    //public SpaceshipControl player;
     public float timeRemaining;
     public TMP_Text timerText;
     public UIFunctions uiFunc;
     private bool timerStarted;
+    private bool hasWarned;
+
+    [SerializeField] private float warningTime;
+
+    private AudioSource audioSource;
 
     private void Start()
     {
         uiFunc = GetComponent<UIFunctions>();
         timerStarted = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -46,6 +53,11 @@ public class Timer : MonoBehaviour
         float mins = Mathf.FloorToInt(currentTime / 60);
         float secs = Mathf.FloorToInt(currentTime % 60);
         timerText.text = string.Format("{0:00} : {1:00}", mins, secs);
+        if (timeRemaining <= warningTime && !hasWarned)
+        {
+            audioSource.Play();
+            hasWarned = true;
+        }
     }
 
     private void resetTimer()
