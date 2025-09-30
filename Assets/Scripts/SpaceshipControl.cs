@@ -18,6 +18,8 @@ public class SpaceshipControl : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public ParticleSystem BoosterLeft, BoosterRight;
+
     [SerializeField] private AudioClip thrusterClip;
     [SerializeField] private AudioClip thrusterEndClip;
     [SerializeField] private float speedMult = 1;
@@ -83,19 +85,23 @@ public class SpaceshipControl : MonoBehaviour
         {
             _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, 60.0f, Time.deltaTime);
         }
-        
+
         
         if ((moveInput.y < 0 || moveInput.y > 0 || moveInput.x < 0 || moveInput.x > 0) && !audioSource.isPlaying)
         {
             audioSource.clip = thrusterClip;
             audioSource.Play();
             isMoving = true;
+            BoosterLeft.Play();
+            BoosterRight.Play();
         }
         if (moveInput.y == 0 && moveInput.x ==0 && audioSource.clip != thrusterEndClip)
         {
             audioSource.clip = thrusterEndClip; 
             audioSource.Play();
             isMoving = false;
+            BoosterLeft.Pause();
+            BoosterRight.Pause();
         }
         // Translation
         rb.AddForce(rb.transform.forward * moveInput.y * speedMult, ForceMode.VelocityChange);
