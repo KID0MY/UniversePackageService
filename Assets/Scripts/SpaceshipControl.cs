@@ -10,6 +10,8 @@ public class SpaceshipControl : MonoBehaviour
     private Vector2 mouseInput;     // Mouse X + Mouse Y
     private float rollInput;
     private PlayerInput playerInput;
+    public GameObject shipMesh;
+    Quaternion targetRotation;
     private bool isMoving;
     public bool isBoosting;
 
@@ -21,6 +23,7 @@ public class SpaceshipControl : MonoBehaviour
     [SerializeField] private float boostMult = 2;
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
+    [Range(0.0f,90.0f)] public float speedRollMult = 45;
     [SerializeField] private float timeLoss;
 
     public Timer time;
@@ -111,7 +114,16 @@ public class SpaceshipControl : MonoBehaviour
 
         // Roll
         rb.AddTorque(rb.transform.forward * speedRollMultAngle * rollInput, ForceMode.VelocityChange);
-
         
+        if (moveInput.x != 0 && rollInput == 0 )
+        {
+            targetRotation = Quaternion.Euler(0.0f, 0.0f, -speedRollMult * moveInput.x);
+        }
+        else
+        {
+            targetRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f) ;
+        }
+
+        shipMesh.transform.localRotation = Quaternion.Lerp(shipMesh.transform.localRotation,targetRotation,Time.deltaTime * 5f);
     }
 }
