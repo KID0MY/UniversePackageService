@@ -1128,15 +1128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff8327b35d31f64da604841706e282e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoving: 0
+  isBoosting: 0
   thrusterClip: {fileID: 8300000, guid: 54a5ad6ae7bf4e9478085a222fef3588, type: 3}
   thrusterEndClip: {fileID: 8300000, guid: d65cb1a9afe3e9d45a9093c075c4b60c, type: 3}
   speedMult: 1
-  boostMult: 2
+  boostMult: 50
   speedMultAngle: 0.007
   speedRollMultAngle: 0.05
-  timeLossVal: 2
-  timeLossMult: 1
+  timeLoss: 5
+  time: {fileID: 1788954939}
 --- !u!54 &728512296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2730,7 +2730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bef6a1e9b9ec9b4385bed87327672e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 728512295}
   timeRemaining: 180
   timerText: {fileID: 441950174}
   uiFunc: {fileID: 1788954938}
@@ -2876,6 +2875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   timer: {fileID: 1788954939}
   timeLoss: 10
+  bounceStrength: 30
 --- !u!1 &1832184010
 GameObject:
   m_ObjectHideFlags: 0

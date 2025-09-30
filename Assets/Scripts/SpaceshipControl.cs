@@ -10,7 +10,8 @@ public class SpaceshipControl : MonoBehaviour
     private Vector2 mouseInput;     // Mouse X + Mouse Y
     private float rollInput;
     private PlayerInput playerInput;
-    public bool isMoving;
+    private bool isMoving;
+    public bool isBoosting;
 
     private AudioSource audioSource;
 
@@ -20,11 +21,12 @@ public class SpaceshipControl : MonoBehaviour
     [SerializeField] private float boostMult = 2;
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
-    [SerializeField] private float timeLossVal = 2;
+    [SerializeField] private float timeLoss;
 
-    //public Timer time;
-    public float timeLossMult = 1;
-    
+    public Timer time;
+    //[SerializeField] private float timeLossVal = 2;
+    //public float timeLossMult = 1;
+
 
 
 
@@ -59,17 +61,24 @@ public class SpaceshipControl : MonoBehaviour
 
     public void OnBoost(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() == 1)
+        if (context.performed)
         {
-            speedMult = boostMult;
-            timeLossMult = timeLossVal;
-            
+            rb.AddForce(rb.transform.forward * moveInput.y * boostMult, ForceMode.Impulse);
+            rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
+            time.timeRemaining -= timeLoss;
+            isBoosting = !isBoosting;
         }
-        else
-        {
-            speedMult = 1;
-            timeLossMult = 1;
-        }
+        //if (context.ReadValue<float>() == 1)
+        //{
+        //    speedMult = boostMult;
+        //    timeLossMult = timeLossVal;
+
+        //}
+        //else
+        //{
+        //    speedMult = 1;
+        //    timeLossMult = 1;
+        //}
     }
     // -------------------------------------------------
 
