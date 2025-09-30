@@ -1022,16 +1022,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipMesh: {fileID: 101701418}
-  isMoving: 0
+  _camera: {fileID: 91622137}
+  isBoosting: 0
   thrusterClip: {fileID: 8300000, guid: 54a5ad6ae7bf4e9478085a222fef3588, type: 3}
   thrusterEndClip: {fileID: 8300000, guid: d65cb1a9afe3e9d45a9093c075c4b60c, type: 3}
   speedMult: 1
-  boostMult: 2
+  boostMult: 3
   speedMultAngle: 0.007
   speedRollMultAngle: 0.05
   speedRollMult: 45
-  timeLossVal: 2
-  timeLossMult: 1
+  cameraFOVChange: 90
+  timeLoss: 0
+  time: {fileID: 1369431847}
 --- !u!54 &205083076
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1585,9 +1587,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 212578337}
     m_Modifications:
+    - target: {fileID: 6345112927864511559, guid: 736034e35ab45c144a94f0547fd3672f, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6553361347212245693, guid: 736034e35ab45c144a94f0547fd3672f, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6553361347212245693, guid: 736034e35ab45c144a94f0547fd3672f, type: 3}
       propertyPath: m_ProvidesContacts
@@ -1596,6 +1602,10 @@ PrefabInstance:
     - target: {fileID: 8490993682110291953, guid: 736034e35ab45c144a94f0547fd3672f, type: 3}
       propertyPath: m_Name
       value: BigShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792769764552606597, guid: 736034e35ab45c144a94f0547fd3672f, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9123661076283868491, guid: 736034e35ab45c144a94f0547fd3672f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2434,7 +2444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bef6a1e9b9ec9b4385bed87327672e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 205083075}
   timeRemaining: 180
   timerText: {fileID: 2137102123}
   uiFunc: {fileID: 1369431846}

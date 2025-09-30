@@ -11,6 +11,7 @@ public class SpaceshipControl : MonoBehaviour
     private float rollInput;
     private PlayerInput playerInput;
     public GameObject shipMesh;
+    public Camera _camera;
     Quaternion targetRotation;
     private bool isMoving;
     public bool isBoosting;
@@ -24,6 +25,7 @@ public class SpaceshipControl : MonoBehaviour
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
     [Range(0.0f,90.0f)] public float speedRollMult = 45;
+    [Range(0.0f,90.0f)] public float cameraFOVChange = 45;
     [SerializeField] private float timeLoss;
 
     public Timer time;
@@ -64,29 +66,25 @@ public class SpaceshipControl : MonoBehaviour
 
     public void OnBoost(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            rb.AddForce(rb.transform.forward * moveInput.y * boostMult, ForceMode.Impulse);
-            rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
-            time.timeRemaining -= timeLoss;
-            isBoosting = !isBoosting;
-        }
-        //if (context.ReadValue<float>() == 1)
-        //{
-        //    speedMult = boostMult;
-        //    timeLossMult = timeLossVal;
-
-        //}
-        //else
-        //{
-        //    speedMult = 1;
-        //    timeLossMult = 1;
-        //}
+        isBoosting = context.performed; 
     }
     // -------------------------------------------------
 
     private void FixedUpdate()
     {
+        if (isBoosting && (moveInput.x != 0 || moveInput.y != 0))
+        {
+            _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, cameraFOVChange, Time.deltaTime);
+            rb.AddForce(rb.transform.forward * moveInput.y * boostMult, ForceMode.Impulse);
+            rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
+            time.timeRemaining -= timeLoss;
+        }
+        else
+        {
+            _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, 60.0f, Time.deltaTime);
+        }
+        
+        
         if ((moveInput.y < 0 || moveInput.y > 0 || moveInput.x < 0 || moveInput.x > 0) && !audioSource.isPlaying)
         {
             audioSource.clip = thrusterClip;
