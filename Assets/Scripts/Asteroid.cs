@@ -5,6 +5,7 @@ public class Asteroid : MonoBehaviour
     public Timer timer;
     [SerializeField] private float timeLoss;
     [SerializeField] private float bounceStrength;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void OnCollisionEnter(Collision collision)

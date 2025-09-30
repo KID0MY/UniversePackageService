@@ -976,7 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectibles: 0
   speed: 0
-  grabClip: {fileID: 8300000, guid: 00580b1b1d8f89b4ea726923a2e0c3e7, type: 3}
+  grabClip: {fileID: 8300000, guid: a0520ccecb151974d8368338552730a8, type: 3}
 --- !u!114 &728512294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,13 +1159,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff8327b35d31f64da604841706e282e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipMesh: {fileID: 2120366842}
+  _camera: {fileID: 224650481}
   isBoosting: 0
-  thrusterClip: {fileID: 8300000, guid: 54a5ad6ae7bf4e9478085a222fef3588, type: 3}
-  thrusterEndClip: {fileID: 8300000, guid: d65cb1a9afe3e9d45a9093c075c4b60c, type: 3}
+  BoosterLeft: {fileID: 0}
+  BoosterRight: {fileID: 0}
+  thrusterClip: {fileID: 8300000, guid: 005c87f9fc517c743a0a2ce6bedbca34, type: 3}
+  hit: {fileID: 8300000, guid: 12fa094310aceb5408a581fbdba384fc, type: 3}
   speedMult: 1
   boostMult: 50
   speedMultAngle: 0.007
   speedRollMultAngle: 0.05
+  speedRollMult: 45
+  cameraFOVChange: 45
   timeLoss: 5
   time: {fileID: 1788954939}
 --- !u!54 &728512296
@@ -2780,133 +2786,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1811314847
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1811314851}
-  - component: {fileID: 1811314850}
-  - component: {fileID: 1811314849}
-  - component: {fileID: 1811314848}
-  - component: {fileID: 1811314852}
-  m_Layer: 0
-  m_Name: Asteroid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!135 &1811314848
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811314847}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1811314849
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811314847}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1811314850
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811314847}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1811314851
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811314847}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2, y: 62.5, z: 737.04}
-  m_LocalScale: {x: 20, y: 20, z: 20}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1811314852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811314847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b6160475f06cc4e82b5df1aa826345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
-  timer: {fileID: 1788954939}
-  timeLoss: 10
-  bounceStrength: 30
 --- !u!1 &1832184010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3094,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 72.506, y: 36.142, z: 65.306}
+--- !u!1 &2120366842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 493202653635332231, guid: e265d76b10d5970458751bafff01e587, type: 3}
+  m_PrefabInstance: {fileID: 668356131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8899339549939073054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 62.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 737.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653804794244910928, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854382549709247103, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1788954939}
+    - target: {fileID: 7262259011936547746, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
+      propertyPath: m_Name
+      value: Asteroid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b1fcffe892442246a4ee90dd48f8fe9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3227,5 +3172,5 @@ SceneRoots:
   - {fileID: 728512298}
   - {fileID: 698849659}
   - {fileID: 1839416785}
-  - {fileID: 1811314851}
+  - {fileID: 8899339549939073054}
   - {fileID: 176438617}

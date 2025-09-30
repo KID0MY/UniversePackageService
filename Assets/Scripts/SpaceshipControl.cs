@@ -21,18 +21,16 @@ public class SpaceshipControl : MonoBehaviour
     public ParticleSystem BoosterLeft, BoosterRight;
 
     [SerializeField] private AudioClip thrusterClip;
-    [SerializeField] private AudioClip thrusterEndClip;
+    [SerializeField] private AudioClip hit;
     [SerializeField] private float speedMult = 1;
     [SerializeField] private float boostMult = 2;
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
     [Range(0.0f,90.0f)] public float speedRollMult = 45;
     [Range(0.0f,90.0f)] public float cameraFOVChange = 45;
-    [SerializeField] private float timeLoss;
 
-    public Timer time;
-    //[SerializeField] private float timeLossVal = 2;
-    //public float timeLossMult = 1;
+    [SerializeField] private float timeLossVal = 2;
+    public float timeLossMult = 1;
 
 
 
@@ -79,11 +77,12 @@ public class SpaceshipControl : MonoBehaviour
             _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, cameraFOVChange, Time.deltaTime);
             rb.AddForce(rb.transform.forward * moveInput.y * boostMult, ForceMode.Impulse);
             rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
-            time.timeRemaining -= timeLoss;
+            timeLossMult = timeLossVal;
         }
         else
         {
             _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, 60.0f, Time.deltaTime);
+            timeLossMult = 1;
         }
 
         
@@ -95,10 +94,8 @@ public class SpaceshipControl : MonoBehaviour
             BoosterLeft.Play();
             BoosterRight.Play();
         }
-        if (moveInput.y == 0 && moveInput.x ==0 && audioSource.clip != thrusterEndClip)
+        if (moveInput.y == 0 && moveInput.x ==0)
         {
-            audioSource.clip = thrusterEndClip; 
-            audioSource.Play();
             isMoving = false;
             BoosterLeft.Pause();
             BoosterRight.Pause();
@@ -129,5 +126,13 @@ public class SpaceshipControl : MonoBehaviour
         }
 
         shipMesh.transform.localRotation = Quaternion.Lerp(shipMesh.transform.localRotation,targetRotation,Time.deltaTime * 5f);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            audioSource.PlayOneShot(hit);
+        }
     }
 }

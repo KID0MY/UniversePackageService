@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    //public SpaceshipControl player;
+    public SpaceshipControl player;
     public float timeRemaining;
     public TMP_Text timerText;
     public UIFunctions uiFunc;
@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
         {
             if (timeRemaining > 0)
             {
-                timeRemaining -= Time.deltaTime;
+                timeRemaining -= Time.deltaTime * player.timeLossMult;
                 updateTimer(timeRemaining);
             }
             else
