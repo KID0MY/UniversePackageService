@@ -3,40 +3,53 @@ using UnityEngine.InputSystem;
 
 public class CharacterCamera : MonoBehaviour
 {
-    [SerializeField] float minViewDistance = 25f;
-    [SerializeField] Transform playerOrientation;
+    [Header("Camera Sensitivity")]
+    [Range(0.0f, 30.0f)] public float lookSensitivity = 10.0f;
+    [Range(100.0f, 300.0f)] public float controllerSensitivity = 200.0f;
 
-    private PlayerInput playerInput;
+    [Header("References")]
+    public Transform playerBody;
+    public Transform cameraBody;   // actual camera
 
-    public float mouseSensitivity = 100f;
+    private Vector2 lookInput;
+    private float rollInput;
+    private float xRotation = 0f;
 
-    float xRotation = 0f;
-
-    public Vector2 mouseInput;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Mode
+    private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
-
+        Cursor.visible = false;
     }
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        mouseInput = context.ReadValue<Vector2>();
+        // Detect control scheme
+        if (context.control.device is Mouse)
+        {
+            lookInput = context.ReadValue<Vector2>() * lookSensitivity;
+        }
+        else if (context.control.device is Gamepad)
+        {
+            lookInput = context.ReadValue<Vector2>() * controllerSensitivity;
+        }
+    }
+    
+
+    private void Update()
+    { 
+        HandleLookGravity();
     }
 
-    // Update is called once per frame
-    void Update()
+    void HandleLookGravity()
     {
-        Vector2 mouse = mouseInput * Time.deltaTime * mouseSensitivity;
+        float mouseX = lookInput.x * Time.deltaTime;
+        float mouseY = lookInput.y * Time.deltaTime;
 
-        this.transform.Rotate(Vector3.up * mouse.x);
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f); // no flipping
 
-        this.xRotation -= mouse.y;
-        this.xRotation = Mathf.Clamp(this.xRotation, -90f, minViewDistance);
-
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerOrientation.Rotate(Vector3.up * mouse.x);
+        cameraBody.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }

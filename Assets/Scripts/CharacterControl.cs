@@ -25,17 +25,17 @@ public class CharacterControl : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         Cursor.lockState = CursorLockMode.Locked;
-        rb.freezeRotation = true;
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        print(moveInput);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -86,7 +86,10 @@ public class CharacterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
+        //rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        print(moveInput);
+        rb.AddForce(move * moveSpeed * Time.deltaTime, ForceMode.Force);
         InteractionCheck();
     }
 

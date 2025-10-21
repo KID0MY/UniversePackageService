@@ -2072,7 +2072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::sceneManager_
   currentScene: 0
-  newScene: 0
+  newScene: 1
   sceneName: 
   animScript: {fileID: 605596223}
 --- !u!1 &1488714602
