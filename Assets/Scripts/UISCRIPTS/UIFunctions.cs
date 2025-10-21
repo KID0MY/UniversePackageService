@@ -1,0 +1,78 @@
+using UnityEngine;
+using System.Collections;
+
+using TMPro; 
+public class UIFunctions : MonoBehaviour
+{
+    public Stats PlayerStats;
+    public GameObject popUpPanel;
+    public bool isOver;
+    public float speed;
+    public TMP_Text panelText;
+    public TMP_Text updateItemText;
+    public int highestNum=0;
+    public Animator anim; 
+    public SpaceshipControl spaceship;
+
+
+    public void gameOver()
+    {
+        highScoreTrack();
+        if (isOver)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            popUpPanel.SetActive(isOver);
+            spaceship.enabled = false;
+            StartCoroutine(flashBox());
+            panelText.text = ("Woah! You've collected " + PlayerStats.collectibles + " packages. Your highscore is " + highestNum + ". Would you like to try again and beat it?");
+            StopCoroutine(flashBox());
+        }
+        else
+        {
+            isOver = false;
+            popUpPanel.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        updateItemsCollectedUI();
+    }
+
+    public void SetCountDown()
+    {
+
+    }
+    public void showSpeed()
+    {
+
+    }
+    void highScoreTrack()
+    {
+        if (isOver)
+        {
+            if (PlayerStats.collectibles > highestNum) {
+                highestNum = PlayerStats.collectibles;
+            }
+            else
+            {
+                highestNum = highestNum;
+            }
+        }
+    }
+
+    void updateItemsCollectedUI()
+    {
+        //call everytime a package is picked up
+        updateItemText.text = "Packages Collected: " + PlayerStats.collectibles;
+    }
+     IEnumerator flashBox()
+    {
+        anim.SetBool("gameOver", true);
+        yield return new WaitForSeconds(2.0f);
+        anim.SetBool("gameOver", false);
+      anim.SetBool("end",true);
+
+    }
+
+}
