@@ -35,7 +35,6 @@ public class CharacterControl : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        print(moveInput);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -49,7 +48,7 @@ public class CharacterControl : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             if (currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interactionLayer) && !isHolding)
             {
@@ -84,13 +83,18 @@ public class CharacterControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        print(moveInput);
-        rb.AddForce(move * moveSpeed * Time.deltaTime, ForceMode.Force);
+        rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
+        //Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        //rb.AddForce(move * moveSpeed * Time.deltaTime * 100, ForceMode.Force);
         InteractionCheck();
+    }
+
+    public RaycastHit CanDropObject() //Not used lmao
+    {
+        Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance + 1);
+        return hit;
     }
 
     public void PickUpObject(Interactable obj)
