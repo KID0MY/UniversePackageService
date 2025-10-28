@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isInShipCollisionZone)
         {
-            print("GAY PORN"); // 👈 This will happen when the button is pressed while inside the zone
             sceneManager.loadNextScene();
         }
         // You don't need to read the value into isPressing anymore if you use 'context.performed'
