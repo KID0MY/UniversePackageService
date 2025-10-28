@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class ShipTransition : Interactable
 {
     public sceneManager_ sceneMan;
+    public bool returnShip;
     public override void OnFocus()
     {
 
@@ -11,7 +12,14 @@ public class ShipTransition : Interactable
 
     public override void OnInteract()
     {
-        sceneMan.loadNextScene();
+        if (!returnShip)
+        {
+            sceneMan.loadNextScene();
+        }
+        else
+        {
+            sceneMan.returnToMain();
+        }
     }
 
     public override void OnLoseFocus()

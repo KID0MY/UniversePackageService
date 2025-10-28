@@ -39,10 +39,13 @@ public class CharacterControl : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (canJump)
+        if (context.performed)
         {
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            canJump = false;
+            if (canJump)
+            {
+                rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+                canJump = false;
+            }
         }
     }
 
