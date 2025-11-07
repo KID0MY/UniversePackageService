@@ -23,7 +23,7 @@ public class QuestManager : MonoBehaviour
         AddActiveQuest();
         for (int i = 0; i <= 3; i++)
         {
-            print(_questList[i].GetComponent<Quest>()._questName + " to " + _questList[i].GetComponent<Quest>()._destination + ": " + _questList[i].GetComponent<Quest>()._description);
+            print(_questList[i].GetComponent<Quest>()._questName + " to " + _questList[i].GetComponent<Quest>()._destination + ": " + _questList[i].GetComponent<Quest>()._description + " For $" + _questList[i].GetComponent<Quest>()._payAmount);
         }
     }
 
