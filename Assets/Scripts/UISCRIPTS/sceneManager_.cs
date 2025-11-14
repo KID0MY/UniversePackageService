@@ -31,6 +31,11 @@ public class sceneManager_ : MonoBehaviour
         Debug.Log("Exiting!");
         Application.Quit();
     }
+    public void loadSettings()
+    {
+        SceneManager.LoadScene(3);
+
+    }
 
     public void resetScene()
     {
