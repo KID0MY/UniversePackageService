@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour
 {
+    public int _dangerLevel;
     public string _questName;
     public string _destination;
     public string _description;
     public int _payAmount; //Everything that sets this is a placeholder value
+    public float _startTime;
 
     void Start()
     {
@@ -23,7 +25,11 @@ public class Quest : MonoBehaviour
     public void GenerateDeliveryType()
     {
         _description = "Yup, this sure is a package.";
-        int _questIndex = Random.Range(0, 4);
+        int _questIndex = 0;
+        if (_dangerLevel == 0)
+        {
+            _questIndex = Random.Range(0, 4);
+        }
         switch (_questIndex)
         {
             case 0:
