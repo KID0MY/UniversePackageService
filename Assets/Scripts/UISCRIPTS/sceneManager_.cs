@@ -9,8 +9,20 @@ public class sceneManager_ : MonoBehaviour
     public int currentScene;
     public int newScene;
     public string sceneName;
-    public animations animScript; 
+    public animations animScript;
+    public GameObject pausePanel;
+    bool paused=false;
 
+
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            paused = !paused;
+                pauseGame();
+            
+        }
+    }
     public void returnToMain()
     {
         StartCoroutine(returing());
@@ -43,6 +55,21 @@ public class sceneManager_ : MonoBehaviour
         //for starting the game over again
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void pauseGame()
+    {
+        if (paused)
+        {
+            Time.timeScale = 0.0f;
+            pausePanel.SetActive(true);
+        }
+        if (!paused)
+        {
+            Time.timeScale = 1.0f;
+            pausePanel.SetActive(false);
+
+        }
+    }
     IEnumerator loadIn()
     {
         animScript.anim_.Play("fadeIn",0,0);
@@ -55,7 +82,7 @@ public class sceneManager_ : MonoBehaviour
     {
         animScript.anim_.Play("fadeIn", 0, 0);
         yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        SceneManager.LoadScene(0);
 
 
     }
