@@ -37,8 +37,11 @@ public class CharacterCamera : MonoBehaviour
     
 
     private void Update()
-    { 
-        HandleLookGravity();
+    {
+        if (Time.timeSinceLevelLoad > 1)
+        {
+            HandleLookGravity();
+        }
     }
 
     void HandleLookGravity()

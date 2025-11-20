@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     // Components
     private CharacterController controller; 
     private PlayerInput playerInput;
+    private Rigidbody rb;
     public sceneManager_ sceneManager;
     
     private bool isInShipCollisionZone;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
+        velocity.x = 0;
     }
 
     // Input System callback
@@ -31,14 +33,26 @@ public class PlayerMovement : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
-    public void OnInteract()
+    public void OnInteract(InputAction.CallbackContext context)
     {
         if (isInShipCollisionZone)
         {
-            print("GAY PORN"); // 👈 This will happen when the button is pressed while inside the zone
             sceneManager.loadNextScene();
         }
         // You don't need to read the value into isPressing anymore if you use 'context.performed'
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        //jump();
+    }
+
+    void jump()
+    {
+        if (controller.isGrounded)
+        {
+            velocity.y = 5;
+        }
     }
 
     private void Update()
@@ -47,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * moveSpeed * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        if (controller.isGrounded)
+        {
+            velocity.y = -1;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
