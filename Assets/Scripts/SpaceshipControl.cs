@@ -16,6 +16,8 @@ public class SpaceshipControl : MonoBehaviour
     private bool isMoving;
     public bool isBoosting;
 
+    public sceneManager_ sceneMan;
+
     private AudioSource audioSource;
 
     public ParticleSystem BoosterLeft, BoosterRight;
@@ -133,6 +135,14 @@ public class SpaceshipControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Asteroid"))
         {
             audioSource.PlayOneShot(hit);
+        }
+        else if (collision.gameObject.CompareTag("Planet1"))
+        {
+            sceneMan.returnToMain();
+        }
+        else if (collision.gameObject.CompareTag("Planet2"))
+        {
+            sceneMan.loadNextScene();
         }
     }
 }

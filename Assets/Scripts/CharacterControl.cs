@@ -35,23 +35,25 @@ public class CharacterControl : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        print(moveInput);
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (canJump)
+        if (context.performed)
         {
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            canJump = false;
+            if (canJump)
+            {
+                rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+                canJump = false;
+            }
         }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            if (currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interactionLayer) && !isHolding)
+            if (currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interactionLayer) && (currentInteractable.GetComponent<PickUp>() == null || currentPickup == null))
             {
                 currentInteractable.OnInteract();
             }
@@ -66,7 +68,7 @@ public class CharacterControl : MonoBehaviour
     {
         if (Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance))
         {
-            if (hit.collider.gameObject.layer == 6 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable") && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
             {
                 hit.collider.TryGetComponent(out currentInteractable);
 
@@ -84,13 +86,18 @@ public class CharacterControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        print(moveInput);
-        rb.AddForce(move * moveSpeed * Time.deltaTime, ForceMode.Force);
+        rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
+        //Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        //rb.AddForce(move * moveSpeed * Time.deltaTime * 100, ForceMode.Force);
         InteractionCheck();
+    }
+
+    public RaycastHit CanDropObject() //Not used lmao
+    {
+        Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance + 1);
+        return hit;
     }
 
     public void PickUpObject(Interactable obj)
