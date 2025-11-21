@@ -15,6 +15,8 @@ public class SpaceshipControl : MonoBehaviour
     Quaternion targetRotation;
     private bool isMoving;
     public bool isBoosting;
+    public bool _questMenuOpen = false;
+    public GameObject _questMenu;
 
     public sceneManager_ sceneMan;
 
@@ -69,6 +71,23 @@ public class SpaceshipControl : MonoBehaviour
     public void OnBoost(InputAction.CallbackContext context)
     {
         isBoosting = context.performed; 
+    }
+
+    public void OpenQuestList(InputAction.CallbackContext context)
+    {
+        if (_questMenuOpen)
+        {
+            _questMenuOpen = !context.performed;
+            _questMenu.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            _questMenuOpen = context.performed;
+            _questMenu.SetActive(true);
+            _questMenu.GetComponent<QuestListSetter>().SetQuests();
+            Time.timeScale = 0f;
+        }
     }
     // -------------------------------------------------
 
