@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/mainMenu.unity
+    path: Assets/Scenes/MAIN_Menu.unity
     guid: b8660a5bf3b04474aaf5e8282e6d810d
   - enabled: 1
-    path: Assets/Scenes/Greyboxing_import.unity
+    path: Assets/Scenes/MAIN_Greybox1.unity
     guid: fa9afe0defd685c4fbf0140e64374b3b
   - enabled: 1
-    path: Assets/Scenes/MainGameScene.unity
+    path: Assets/Scenes/MAIN_GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/greyboxing_2.unity
+    path: Assets/Scenes/MAIN_Greybox2.unity
     guid: c45df59e4ff3b2845bd46d6e5e89c0c5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

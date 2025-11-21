@@ -6,11 +6,11 @@ public class PickUp : Interactable
     public GameObject player;
     public Transform holdPos;
     public Transform baseSize;
-    public BoxCollider collider;
+    public Collider collider;
 
     private void Start()
     {
-        collider = GetComponent<BoxCollider>();
+        collider = GetComponent<Collider>();
     }
     public override void OnFocus()
     {
@@ -37,11 +37,10 @@ public class PickUp : Interactable
             this.gameObject.layer = 6;
             collider.enabled = true;
             player.GetComponent<CharacterControl>().PickUpObject(null);
-            this.transform.localScale = new Vector3(1f, 1f, 1f);
             this.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 0));
             holdPos.DetachChildren();
             this.GetComponent<Rigidbody>().isKinematic = false;
-            this.transform.localScale = Vector3.one;
+            this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //transform.position = hit.point;
         }
     }

@@ -7345,6 +7345,7 @@ MonoBehaviour:
   newScene: 0
   sceneName: 
   animScript: {fileID: 0}
+  pausePanel: {fileID: 0}
 --- !u!4 &1839933187
 Transform:
   m_ObjectHideFlags: 0
