@@ -1742,7 +1742,7 @@ GameObject:
   - component: {fileID: 3312075438688223623}
   - component: {fileID: 1244843449683000831}
   m_Layer: 5
-  m_Name: P_Quest_List_Canvas
+  m_Name: P_Old_Quest_List_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
