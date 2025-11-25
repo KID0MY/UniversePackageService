@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_SkyboxPlanet_1
+  m_Name: M_SkyboxPlanet_2
   m_Shader: {fileID: 4800000, guid: a2de3a35310e84d459725af4c8d664e1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -29,8 +29,8 @@ Material:
     - _blendSkyStrength: 0.62
     - _powerStrength: 1
     m_Colors:
-    - _BottomColor: {r: 0.14226899, g: 0.11685653, b: 0.24528301, a: 1}
-    - _HorizonColor: {r: 0.4433962, g: 0.06065327, b: 0.3684687, a: 1}
-    - _SkyColor: {r: 0.74580693, g: 0.36356357, b: 0.8113208, a: 1}
+    - _BottomColor: {r: 0.4716981, g: 0.3209728, b: 0.1713243, a: 1}
+    - _HorizonColor: {r: 0.526366, g: 0.5660378, b: 0.17354932, a: 1}
+    - _SkyColor: {r: 0.3647059, g: 0.8117647, b: 0.4807539, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
