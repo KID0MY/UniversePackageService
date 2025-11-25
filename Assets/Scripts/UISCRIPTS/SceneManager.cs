@@ -7,6 +7,7 @@ using System.Collections;
 public class sceneManager_ : MonoBehaviour
 {
     public int currentScene;
+    public int previousScene; 
     public int newScene;
     public string sceneName;
     public animations animScript;
@@ -45,10 +46,14 @@ public class sceneManager_ : MonoBehaviour
     }
     public void loadSettings()
     {
+        savePreviousScene();    
         SceneManager.LoadScene(3);
 
     }
-
+    public void returnToScene()
+    {
+        SceneManager.LoadScene(previousScene);
+    }
     public void resetScene()
     {
         Debug.Log("ResettingScene");
@@ -69,6 +74,10 @@ public class sceneManager_ : MonoBehaviour
             pausePanel.SetActive(false);
 
         }
+    }
+    void savePreviousScene()
+    {
+        previousScene=currentScene;
     }
     IEnumerator loadIn()
     {
