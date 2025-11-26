@@ -17,6 +17,7 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
     void Start() //Basic implementation to just shove a quest. None of the code in start will be in the final game.
     {
         AddActiveQuest();
@@ -35,6 +36,7 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
-        _timePassed += (Time.deltaTime);
+        //_timePassed += (Time.deltaTime * 1000000);
+        //print(_timePassed);
     }
 }

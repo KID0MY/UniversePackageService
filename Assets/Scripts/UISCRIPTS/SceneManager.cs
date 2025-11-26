@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEngine.InputSystem;
 
 
 public class sceneManager_ : MonoBehaviour
@@ -12,32 +11,22 @@ public class sceneManager_ : MonoBehaviour
     public string sceneName;
     public animations animScript;
     public GameObject pausePanel;
-    public bool _questMenuOpen = false;
-    public GameObject _questMenu;
     bool paused=false;
 
 
     public void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            OpenQuestMenu();
-        }
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            if (_questMenuOpen)
-            {
-                OpenQuestMenu(); //Closes the quest menu if it's open
-            }
-            else
-            {
-                paused = !paused; //Otherwise pauses
+            paused = !paused;
                 pauseGame();
-            }
+            
         }
     }
     public void returnToMain()
     {
+        Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(returing());
 
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
@@ -58,6 +47,8 @@ public class sceneManager_ : MonoBehaviour
     }
     public void loadSettings()
     {
+        Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(3);
 
     }
@@ -68,26 +59,13 @@ public class sceneManager_ : MonoBehaviour
         //for starting the game over again
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void OpenQuestMenu()
-    {
-        if (_questMenuOpen)
-        {
-            _questMenu.SetActive(false);
-            Time.timeScale = 1f;
-        }
-        else
-        {
-            _questMenu.SetActive(true);
-            _questMenu.GetComponent<QuestListSetter>().SetQuests();
-            Time.timeScale = 0f;
-        }
-        _questMenuOpen = !_questMenuOpen;
-    }
 
     public void pauseGame()
     {
+        Debug.Log(paused);
         if (paused)
         {
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.0f;
             pausePanel.SetActive(true);
         }
@@ -95,7 +73,7 @@ public class sceneManager_ : MonoBehaviour
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
-
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
     IEnumerator loadIn()
