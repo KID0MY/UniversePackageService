@@ -18,6 +18,7 @@ public class QuestManager : MonoBehaviour
     }
 
     void Start() //Basic implementation to just shove 4 quests and print them all to console. None of the code in start will be in the final game.
+    void Start() //Basic implementation to just shove a quest. None of the code in start will be in the final game.
     {
         AddActiveQuest();
         AddActiveQuest();
@@ -42,7 +43,11 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
+<<<<<<< HEAD
         //_timePassed += (Time.deltaTime * 1000000);
         //print(_timePassed);
+=======
+        _timePassed += (Time.deltaTime);
+>>>>>>> parent of 1ea7142 (Merge pull request #37 from KID0MY/main)
     }
 }
