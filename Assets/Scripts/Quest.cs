@@ -28,7 +28,7 @@ public class Quest : MonoBehaviour
         int _questIndex = 0;
         if (_dangerLevel == 0)
         {
-            _questIndex = Random.Range(0, 4);
+            _questIndex = Random.Range(-1, 4);
         }
         switch (_questIndex)
         {
@@ -62,7 +62,7 @@ public class Quest : MonoBehaviour
 
     public void GenerateDeliveryDestination()
     {
-        int _planetIndex = Random.Range(0, 2);
+        int _planetIndex = Random.Range(1, 1);
         switch (_planetIndex)
         {
             case 0:

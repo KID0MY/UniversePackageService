@@ -12,13 +12,21 @@ public class ShipTransition : Interactable
 
     public override void OnInteract()
     {
-        if (!returnShip)
+        if (GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
         {
-            sceneMan.loadNextScene();
+            GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = true;
         }
         else
         {
-            sceneMan.returnToMain();
+            GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = false;
+        }
+        if (!returnShip)
+        {
+                sceneMan.loadNextScene();
+        }
+        else
+        {
+            sceneMan.loadLastScene();
         }
     }
 

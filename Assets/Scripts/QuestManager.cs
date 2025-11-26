@@ -10,6 +10,7 @@ public class QuestManager : MonoBehaviour
     public int _dangerLevel = 0;
     public List<GameObject> _questList = new List<GameObject>();
     public float _timePassed = 0f;
+    public bool hasQuestObject;
 
     void Awake() //Makes this node persist between scenes
     {

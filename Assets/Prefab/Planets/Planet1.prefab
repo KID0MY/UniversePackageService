@@ -100,11 +100,11 @@ GameObject:
   - component: {fileID: 7254509118351416484}
   m_Layer: 0
   m_Name: Planet1
-  m_TagString: Untagged
+  m_TagString: Planet1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7254509118351416484
 Transform:
   m_ObjectHideFlags: 0
