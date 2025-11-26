@@ -17,11 +17,8 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-<<<<<<< HEAD
+
     void Start() //Basic implementation to just shove a quest. None of the code in start will be in the final game.
-=======
-    void Start() //Basic implementation to just shove 4 quests and print them all to console. None of the code in start will be in the final game.
->>>>>>> parent of 5baa157 (quest stuff)
     {
         AddActiveQuest();
     }
