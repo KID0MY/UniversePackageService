@@ -94,6 +94,11 @@ public class CharacterControl : MonoBehaviour
         InteractionCheck();
     }
 
+    private void Update()
+    {
+        
+    }
+
     public RaycastHit CanDropObject() //Not used lmao
     {
         Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance + 1);
@@ -103,6 +108,14 @@ public class CharacterControl : MonoBehaviour
     public void PickUpObject(Interactable obj)
     {
         currentPickup = obj;
+        if (obj == null)
+        {
+            isHolding = false;
+        }
+        else
+        {
+            isHolding = true;
+        }
     }
 
     public Interactable GetPickUp()
