@@ -21,7 +21,6 @@ public class PickUp : Interactable
     {
         if (player.GetComponent<CharacterControl>().isHolding == false)
         {
-            player.GetComponent<CharacterControl>().isHolding = true;
             this.gameObject.layer = 7;
             collider.enabled = false;
             player.GetComponent<CharacterControl>().PickUpObject(this);
@@ -33,11 +32,9 @@ public class PickUp : Interactable
         }
         else if (player.GetComponent<CharacterControl>().isHolding == true && player.GetComponent<CharacterControl>().GetPickUp() == this)
         {
-            player.GetComponent<CharacterControl>().isHolding = false;
             this.gameObject.layer = 6;
             collider.enabled = true;
             player.GetComponent<CharacterControl>().PickUpObject(null);
-            this.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 0));
             holdPos.DetachChildren();
             this.GetComponent<Rigidbody>().isKinematic = false;
             this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
