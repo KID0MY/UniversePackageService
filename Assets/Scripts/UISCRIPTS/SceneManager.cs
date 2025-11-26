@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 
 public class sceneManager_ : MonoBehaviour
@@ -12,16 +13,28 @@ public class sceneManager_ : MonoBehaviour
     public string sceneName;
     public animations animScript;
     public GameObject pausePanel;
+    public bool _questMenuOpen = false;
+    public GameObject _questMenu;
     bool paused=false;
 
 
     public void Update()
     {
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            OpenQuestMenu();
+        }
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            paused = !paused;
+            if (_questMenuOpen)
+            {
+                OpenQuestMenu(); //Closes the quest menu if it's open
+            }
+            else
+            {
+                paused = !paused; //Otherwise pauses
                 pauseGame();
-            
+            }
         }
     }
     public void returnToMain()
@@ -59,6 +72,21 @@ public class sceneManager_ : MonoBehaviour
         Debug.Log("ResettingScene");
         //for starting the game over again
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void OpenQuestMenu()
+    {
+        if (_questMenuOpen)
+        {
+            _questMenu.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            _questMenu.SetActive(true);
+            _questMenu.GetComponent<QuestListSetter>().SetQuests();
+            Time.timeScale = 0f;
+        }
+        _questMenuOpen = !_questMenuOpen;
     }
 
     public void pauseGame()

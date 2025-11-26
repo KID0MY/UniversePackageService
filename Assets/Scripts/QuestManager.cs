@@ -17,16 +17,9 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start() //Basic implementation to just shove 4 quests and print them all to console. None of the code in start will be in the final game.
+    void Start() //Basic implementation to just shove a quest. None of the code in start will be in the final game.
     {
         AddActiveQuest();
-        AddActiveQuest();
-        AddActiveQuest();
-        AddActiveQuest();
-        for (int i = 0; i <= 3; i++)
-        {
-            print(_questList[i].GetComponent<Quest>()._questName + " to " + _questList[i].GetComponent<Quest>()._destination + ": " + _questList[i].GetComponent<Quest>()._description + " For $" + _questList[i].GetComponent<Quest>()._payAmount);
-        }
     }
 
     void AddActiveQuest() //Creates a quest then adds in to _questList :3
@@ -42,7 +35,6 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
-        _timePassed += (Time.deltaTime * 1000000);
-        print(_timePassed);
+        _timePassed += (Time.deltaTime);
     }
 }
