@@ -25,6 +25,8 @@ public class sceneManager_ : MonoBehaviour
     }
     public void returnToMain()
     {
+        Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(returing());
 
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
@@ -45,6 +47,8 @@ public class sceneManager_ : MonoBehaviour
     }
     public void loadSettings()
     {
+        Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(3);
 
     }
@@ -58,8 +62,10 @@ public class sceneManager_ : MonoBehaviour
 
     public void pauseGame()
     {
+        Debug.Log(paused);
         if (paused)
         {
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.0f;
             pausePanel.SetActive(true);
         }
@@ -67,7 +73,7 @@ public class sceneManager_ : MonoBehaviour
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
-
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
     IEnumerator loadIn()
