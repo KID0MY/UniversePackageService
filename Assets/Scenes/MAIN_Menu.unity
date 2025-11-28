@@ -566,7 +566,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470459714}
         m_TargetAssemblyTypeName: sceneManager_, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: loadSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -770,10 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
-  _dangerLevel: 0
   _questList: []
-  _timePassed: 0
-  hasQuestObject: 0
 --- !u!4 &711040563
 Transform:
   m_ObjectHideFlags: 0
@@ -2467,9 +2464,6 @@ MonoBehaviour:
   newScene: 1
   sceneName: 
   animScript: {fileID: 605596223}
-  pausePanel: {fileID: 0}
-  _questMenuOpen: 0
-  _questMenu: {fileID: 0}
 --- !u!1 &1488714602
 GameObject:
   m_ObjectHideFlags: 0

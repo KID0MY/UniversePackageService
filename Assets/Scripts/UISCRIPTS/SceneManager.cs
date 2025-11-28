@@ -99,7 +99,6 @@ public class sceneManager_ : MonoBehaviour
         if (paused)
         {
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible =true;
             Time.timeScale = 0.0f;
             pausePanel.SetActive(true);
         }
@@ -108,7 +107,6 @@ public class sceneManager_ : MonoBehaviour
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
     public void OpenQuestMenu()
