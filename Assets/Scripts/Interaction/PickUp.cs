@@ -8,9 +8,11 @@ public class PickUp : Interactable
     public Transform baseSize;
     public Collider collider;
 
-    private void Start()
+    public override void Awake()
     {
         collider = GetComponent<Collider>();
+        player = GameObject.Find("Player");
+        holdPos = GameObject.Find("HoldPosition").transform;
     }
     public override void OnFocus()
     {

@@ -6,8 +6,17 @@ public class DialogueTrigger : MonoBehaviour
         
         public GameObject dialogueBox;
 
+        public GameObject questObjectPrefab;
+
+        public bool isQuestGiver;
+
+        public bool isQuestReciever;
+
+        private GameObject questObject;
+
         private bool playerInRange;
 
+        private bool hasQuest;
    
         private void Awake()
         {
@@ -19,15 +28,39 @@ public class DialogueTrigger : MonoBehaviour
         {
         if (playerInRange)
         {
-            visualCue.SetActive(true);
+            if (isQuestGiver)
+            {
+                visualCue.SetActive(true);
+            }
+            else if (isQuestReciever)
+            {
+                visualCue.SetActive(false);
+            }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueBox.SetActive(true);
+                if (!hasQuest && isQuestGiver)
+                {
+                    hasQuest = true;
+                    questObject = Instantiate(questObjectPrefab, this.transform.position + Vector3.right, Quaternion.identity);
+                    questObject.GetComponent<PickUp>().OnInteract();
+                }
+                if (hasQuest && GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
+                {
+                    Destroy(GameObject.Find("HoldPosition").GetComponentInChildren<GameObject>());
+                }
             }
         }
         else
         {
-            visualCue.SetActive(false);
+            if (isQuestGiver)
+            {
+                visualCue.SetActive(false);
+            }
+            else if (isQuestReciever)
+            {
+                visualCue.SetActive(true);
+            }
             dialogueBox.SetActive(false);
         }
         }
@@ -37,6 +70,10 @@ public class DialogueTrigger : MonoBehaviour
             if (other.gameObject.tag == "Player")
             {
                 playerInRange = true;
+            }
+            if (isQuestReciever && other.gameObject.tag == "Package")
+            {
+                Destroy(other.gameObject);
             }
         }
 

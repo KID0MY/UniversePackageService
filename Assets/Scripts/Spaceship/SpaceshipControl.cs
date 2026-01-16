@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class SpaceshipControl : MonoBehaviour
 {
@@ -136,11 +137,19 @@ public class SpaceshipControl : MonoBehaviour
         {
             audioSource.PlayOneShot(hit);
         }
-        else if (collision.gameObject.CompareTag("Planet1"))
+        //temp
+        if (collision.gameObject.CompareTag("ShipDoor"))
         {
-            sceneMan.returnToMain();
+            sceneMan.loadShipScene();
         }
-        else if (collision.gameObject.CompareTag("Planet2"))
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Planet1"))
+        {
+            sceneMan.loadLastScene();
+        }
+        else if (other.gameObject.CompareTag("Planet2"))
         {
             sceneMan.loadNextScene();
         }

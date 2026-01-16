@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CharacterControl : MonoBehaviour
 
     private Interactable currentPickup;
 
+
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpSpeed;
     [SerializeField] private Vector3 interactionRayPoint = default;
@@ -22,6 +24,8 @@ public class CharacterControl : MonoBehaviour
     public Camera playerCamera;
     public bool canJump;
     public bool isHolding;
+    public GameObject questObjectPrefab;
+    public GameObject? questObject;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +34,15 @@ public class CharacterControl : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         Cursor.lockState = CursorLockMode.Locked;
+        if (GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject)
+        {
+                questObject = Instantiate(questObjectPrefab);
+                questObject.GetComponent<PickUp>().OnInteract();
+        }
+        else
+        {
+            questObject = this.gameObject;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -121,5 +134,14 @@ public class CharacterControl : MonoBehaviour
     public Interactable GetPickUp()
     {
         return currentPickup;
+    }
+
+    //temp
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ExitDoor"))
+        {
+            GameObject.Find("SceneManager").GetComponent<sceneManager_>().loadSpaceScene();
+        }
     }
 }
