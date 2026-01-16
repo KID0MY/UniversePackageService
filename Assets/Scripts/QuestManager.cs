@@ -43,6 +43,6 @@ public class QuestManager : MonoBehaviour
     void Update()
     {
         _timePassed += (Time.deltaTime * 1000000);
-        print(_timePassed);
+        //print(_timePassed);
     }
 }
