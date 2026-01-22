@@ -3,20 +3,26 @@ using UnityEngine;
 public class setting_ : MonoBehaviour
 {
     public GameObject settingPanel;
-    //public
-   public bool inGame=false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool inGame=false;
+    
+
+
+
+
+    public void adjustVolume()
     {
-        
+        //empty for now as we have no sound
     }
 
-    // Update is called once per frame
-    void Update()
+    public void adjustResolution()
     {
-        
+        //placeholder method
     }
 
+    public void adjustMouseSensetivity()
+    {
+        //dont know if i will implement this method yet 
+    }
 
     public void showSettings()
     {
