@@ -9,10 +9,19 @@ public class sceneManager_ : MonoBehaviour
     public int currentScene;
     public int previousScene; 
     public int newScene;
+
     public string sceneName;
+
     public animations animScript;
     public GameObject pausePanel;
+
     bool paused=false;
+    public setting_ settingScript;
+
+    private void Start()
+    {
+        currentScene= SceneManager.GetActiveScene().buildIndex;
+    }
 
 
     public void Update()
@@ -46,8 +55,26 @@ public class sceneManager_ : MonoBehaviour
     }
     public void loadSettings()
     {
-        savePreviousScene();    
-        SceneManager.LoadScene(3);
+
+        if (SceneManager.GetActiveScene().name != "Main_Settings")
+        {
+            settingScript.inGame = true;
+        }
+        if (settingScript.inGame==true)
+        {
+          //  Time.timeScale = 0.0f;
+            settingScript.showSettings();
+            Debug.LogWarning("1");
+        }
+        else if (settingScript.inGame == false)
+        {
+
+            savePreviousScene();
+            SceneManager.LoadScene("MAIN_Settings");
+            Debug.LogWarning("2");
+
+
+        }
 
     }
     public void returnToScene()
@@ -65,11 +92,13 @@ public class sceneManager_ : MonoBehaviour
     {
         if (paused)
         {
+            Cursor.visible = true;
             Time.timeScale = 0.0f;
             pausePanel.SetActive(true);
         }
         if (!paused)
         {
+            Cursor.visible = false;
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
 
@@ -95,4 +124,5 @@ public class sceneManager_ : MonoBehaviour
 
 
     }
+    
 }

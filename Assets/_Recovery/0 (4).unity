@@ -2457,7 +2457,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 161263031}
+      - m_Target: {fileID: 1470459714}
         m_TargetAssemblyTypeName: sceneManager_, Assembly-CSharp
         m_MethodName: loadSettings
         m_Mode: 1
@@ -5531,7 +5531,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 161263031}
+      - m_Target: {fileID: 1470459714}
         m_TargetAssemblyTypeName: sceneManager_, Assembly-CSharp
         m_MethodName: exitGame
         m_Mode: 1
@@ -7342,7 +7342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 161263031}
+      - m_Target: {fileID: 1470459714}
         m_TargetAssemblyTypeName: sceneManager_, Assembly-CSharp
         m_MethodName: loadNextScene
         m_Mode: 1
@@ -8437,6 +8437,7 @@ GameObject:
   - component: {fileID: 1470459711}
   - component: {fileID: 1470459713}
   - component: {fileID: 1470459712}
+  - component: {fileID: 1470459714}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -8505,6 +8506,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470459710}
   m_CullTransparentMesh: 1
+--- !u!114 &1470459714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470459710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf167872956026b4d9f01fa2a6659065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::sceneManager_
+  currentScene: 0
+  previousScene: 0
+  newScene: 1
+  sceneName: 
+  animScript: {fileID: 605596223}
+  pausePanel: {fileID: 0}
+  settingScript: {fileID: 0}
 --- !u!1 &1487657109
 GameObject:
   m_ObjectHideFlags: 0
