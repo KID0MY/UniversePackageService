@@ -16,10 +16,10 @@ public class Quest : MonoBehaviour
         
     }
 
-    public void GenerateRandomQuest()
+    public void GenerateRandomQuest(int planet_exclusion)
     {
         _payAmount = 0;
-        GenerateDeliveryDestination();
+        GenerateDeliveryDestination(planet_exclusion);
         GenerateRecipient();
         GenerateDeliveryType();
         this.name = _questName;
@@ -56,17 +56,18 @@ public class Quest : MonoBehaviour
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", specifically to the core of the planet, cause that's where the recipient lives.";
                 _payAmount = 40;
                 break;
-            case 4: //Unused
-                _questName = "Courier's Rasher";
-                _description = "Bring this over to fucking Choral Chambers in 5 minutes and don't get hit or so help me god I will actually kill you.";
-                _payAmount = 0;
-                break;
         }
     }
 
-    public void GenerateDeliveryDestination()
+    public void GenerateDeliveryDestination(int planet_exclusion)
     {
-        int _planetIndex = Random.Range(1, 2); //Set first number to 0 to include planet 1
+        int _planetIndex = Random.Range(0, 2);
+        print(_planetIndex);
+        if (planet_exclusion == _planetIndex)
+        {
+            _planetIndex++;
+        }
+        print(_planetIndex);
         switch (_planetIndex)
         {
             case 0:
@@ -74,6 +75,9 @@ public class Quest : MonoBehaviour
                 break;
             case 1:
                 _destination = "Planet 2";
+                break;
+            case 2:
+                _destination = "Planet 1";
                 break;
         }
     }

@@ -103,7 +103,7 @@ public class DialogueTrigger : MonoBehaviour
         _hasQuest = false;
         questObject = Instantiate(questObjectPrefab, this.transform.position + Vector3.right, Quaternion.identity);
         questObject.GetComponent<PickUp>().OnInteract();
-        _questManager.AddActiveQuest();
+        _questManager.AddActiveQuest(_planetNum);
     }
 
     private void OnTriggerEnter(Collider other)

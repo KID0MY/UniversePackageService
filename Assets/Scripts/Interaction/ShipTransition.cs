@@ -22,7 +22,7 @@ public class ShipTransition : Interactable
         }
         if (!returnShip)
         {
-                sceneMan.loadNextScene();
+            sceneMan.loadNextScene();
         }
         else
         {

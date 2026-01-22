@@ -34,7 +34,7 @@ public class QuestManager : MonoBehaviour
         
     }
 
-    public void AddActiveQuest() //Creates a quest then adds in to _questList :3
+    public void AddActiveQuest(int planet_exclusion) //Creates a quest then adds in to _questList :3
     {
         GameObject child;
         child = Instantiate(_questPrefab) as GameObject;
@@ -42,7 +42,7 @@ public class QuestManager : MonoBehaviour
         child.GetComponent<Quest>()._dangerLevel = _dangerLevel;
         child.GetComponent<Quest>()._startTime = _timePassed;
         _questList.Add(child);
-        _questList[_questList.Count - 1].GetComponent<Quest>().GenerateRandomQuest();
+        _questList[_questList.Count - 1].GetComponent<Quest>().GenerateRandomQuest(planet_exclusion);
     }
 
     public void FinishActiveQuest(Quest quest)
