@@ -37,7 +37,7 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
-        //_timePassed += (Time.deltaTime * 1000000);
+        _timePassed += (Time.deltaTime * 1000000);
         //print(_timePassed);
     }
 }
