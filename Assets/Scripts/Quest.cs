@@ -9,6 +9,7 @@ public class Quest : MonoBehaviour
     public string _description;
     public string _recipient;
     public int _payAmount; //Everything that sets this is a placeholder value
+    public int _latenessLeeway;
     public float _startTime;
 
     void Start()
@@ -40,21 +41,25 @@ public class Quest : MonoBehaviour
                 _questName = "Basic Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _payAmount = 20;
+                _latenessLeeway = 30;
                 break;
             case 1:
                 _questName = "Speedy Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", make it quick, those contents aren't gonna last long.";
                 _payAmount = 30;
+                _latenessLeeway = 10;
                 break;
             case 2:
                 _questName = "Fragile Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + " carefully. That package is fragile, and I'm not paying you if it breaks.";
                 _payAmount = 30;
+                _latenessLeeway = 25;
                 break;
             case 3:
                 _questName = "Obscure Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", specifically to the core of the planet, cause that's where the recipient lives.";
                 _payAmount = 40;
+                _latenessLeeway = 40;
                 break;
         }
     }

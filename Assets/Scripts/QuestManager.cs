@@ -52,7 +52,17 @@ public class QuestManager : MonoBehaviour
             if (_questList[x].GetComponent<Quest>() == quest)
             {
                 int payout = quest._payAmount; //Nothing actually happens with this value.
-                int tips = 50 - ((int)_timePassed - (int)quest._startTime);
+                int time_taken = 50 - ((int)_timePassed - (int)quest._startTime);
+                if (time_taken < quest._latenessLeeway) //Subtracts the time taken to deliver by the quests given lateness leeway
+                {
+                    time_taken = 0;
+                }
+                else
+                {
+                    time_taken -= quest._latenessLeeway;
+                }
+                int tips = time_taken;
+                tips += Random.Range(0, 20); //Adds randomness to the tip value
                 if (tips < 0)
                 {
                     tips = 0;
@@ -93,21 +103,21 @@ public class QuestManager : MonoBehaviour
     void Update()
     {
         _timePassed += (Time.deltaTime);
-        if (_enableDebug)
+        if (_enableDebug) //Debug commands, set this boolean to false to disable them
         {
-            if (Input.GetKeyUp(KeyCode.Alpha0))
+            if (Input.GetKeyUp(KeyCode.Alpha0)) //0: warp to space
             {
                 SceneManager.LoadScene("MAIN_GameScene");
             }
-            if (Input.GetKeyUp(KeyCode.Alpha1))
+            if (Input.GetKeyUp(KeyCode.Alpha1)) //1: warp to planet 1
             {
                 SceneManager.LoadScene("MAIN_Greybox1");
             }
-            if (Input.GetKeyUp(KeyCode.Alpha2))
+            if (Input.GetKeyUp(KeyCode.Alpha2)) //2: warp to planet 2
             {
                 SceneManager.LoadScene("MAIN_Greybox2");
             }
-            if (Input.GetKeyUp(KeyCode.G))
+            if (Input.GetKeyUp(KeyCode.G)) //G: load a package into the ship, does not create a quest
             {
                 hasQuestObject = true;
             }
