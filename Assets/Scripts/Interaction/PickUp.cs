@@ -44,6 +44,12 @@ public class PickUp : Interactable
         }
     }
 
+    public void KILLYOURSELF()
+    {
+        print("sure man");
+        Destroy(this.gameObject);
+    }
+
     public override void OnLoseFocus()
     {
 

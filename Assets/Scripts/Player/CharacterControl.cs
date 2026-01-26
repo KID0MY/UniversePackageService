@@ -12,7 +12,9 @@ public class CharacterControl : MonoBehaviour
 
     private Interactable currentInteractable;
 
-    private Interactable currentPickup;
+    public Interactable currentPickup;
+
+    public bool _isDropDisabled = false;
 
 
     [SerializeField] float moveSpeed;
@@ -70,10 +72,11 @@ public class CharacterControl : MonoBehaviour
             {
                 currentInteractable.OnInteract();
             }
-            else if (currentPickup != null)
+            else if (currentPickup != null && !_isDropDisabled)
             {
                 currentPickup.OnInteract();
             }
+            print(_isDropDisabled);
         }
     }
 

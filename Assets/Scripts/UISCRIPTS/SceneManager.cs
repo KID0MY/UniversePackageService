@@ -95,7 +95,7 @@ public class sceneManager_ : MonoBehaviour
 
     public void pauseGame()
     {
-        Debug.Log(paused);
+        //Debug.Log(paused);
         if (paused)
         {
             Cursor.lockState = CursorLockMode.None;

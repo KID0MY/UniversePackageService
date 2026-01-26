@@ -2,52 +2,84 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-        public GameObject visualCue;
+    public QuestManager _questManager;    
+
+    public GameObject visualCue;
         
-        public GameObject dialogueBox;
+    public GameObject dialogueBox;
 
-        public GameObject questObjectPrefab;
+    public GameObject questObjectPrefab;
 
-        public bool isQuestGiver;
+    public string name;
 
-        public bool isQuestReciever;
+    public int _planetNum;
 
-        private GameObject questObject;
+    public bool isQuestGiver;
 
-        private bool playerInRange;
+    public bool isQuestReciever;
 
-        private bool hasQuest;
+    public int _recieverNameId;
+
+    private GameObject questObject;
+
+    private bool playerInRange;
+
+    private bool _hasQuest;
+
+    private bool _wantsQuest;
    
-        private void Awake()
-        {
-            playerInRange = false;
-            visualCue.SetActive(false);
-        }
+    private void Awake()
+    {
+        playerInRange = false;
+        visualCue.SetActive(false);
+    }
 
-        private void Update()
+    private void Start()
+    {
+        _hasQuest = true;
+        _wantsQuest = false;
+        _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
+        if (isQuestReciever)
+        {
+            if (_planetNum == 0)
+            {
+                name = _questManager._planetOneRecipientNames[_recieverNameId];
+            }
+            else
+            {
+                name = _questManager._planetTwoRecipientNames[_recieverNameId];
+            }
+            if (_questManager.IsMatchingRecipient(name))
+            {
+                _wantsQuest = true;
+            }
+        }
+    }
+
+    private void Update()
         {
         if (playerInRange)
         {
-            if (isQuestGiver)
+            if (isQuestGiver && _hasQuest)
             {
                 visualCue.SetActive(true);
             }
-            else if (isQuestReciever)
+            else if (_wantsQuest)
             {
                 visualCue.SetActive(false);
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueBox.SetActive(true);
-                if (!hasQuest && isQuestGiver)
+                if (_hasQuest && isQuestGiver)
                 {
-                    hasQuest = true;
-                    questObject = Instantiate(questObjectPrefab, this.transform.position + Vector3.right, Quaternion.identity);
-                    questObject.GetComponent<PickUp>().OnInteract();
+                    GivePackage();
                 }
-                if (hasQuest && GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
+                if (_wantsQuest && _questManager.hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
                 {
-                    Destroy(GameObject.Find("HoldPosition").GetComponentInChildren<GameObject>());
+                    GameObject.Find("Player").GetComponent<CharacterControl>().currentPickup.GetComponent<PickUp>().KILLYOURSELF();
+                    _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
+                    _wantsQuest = false;
                 }
             }
         }
@@ -57,31 +89,38 @@ public class DialogueTrigger : MonoBehaviour
             {
                 visualCue.SetActive(false);
             }
-            else if (isQuestReciever)
+            else if (_wantsQuest)
             {
                 visualCue.SetActive(true);
             }
             dialogueBox.SetActive(false);
         }
-        }
+    }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.tag == "Player")
-            {
-                playerInRange = true;
-            }
-            if (isQuestReciever && other.gameObject.tag == "Package")
-            {
-                Destroy(other.gameObject);
-            }
-        }
+    public void GivePackage()
+    {
+        print("god giveth");
+        _hasQuest = false;
+        questObject = Instantiate(questObjectPrefab, this.transform.position + Vector3.right, Quaternion.identity);
+        questObject.GetComponent<PickUp>().OnInteract();
+        _questManager.AddActiveQuest(_planetNum);
+    }
 
-        private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            if (other.gameObject.tag == "Player")
-            {
-                playerInRange = false;
-            }
+            playerInRange = true;
+            other.transform.parent.GetComponent<CharacterControl>()._isDropDisabled = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            playerInRange = false;
+            other.transform.parent.GetComponent<CharacterControl>()._isDropDisabled = false;
+        }
+    }
 }
