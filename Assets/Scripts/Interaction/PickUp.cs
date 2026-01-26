@@ -8,9 +8,11 @@ public class PickUp : Interactable
     public Transform baseSize;
     public Collider collider;
 
-    private void Start()
+    public override void Awake()
     {
         collider = GetComponent<Collider>();
+        player = GameObject.Find("Player");
+        holdPos = GameObject.Find("HoldPosition").transform;
     }
     public override void OnFocus()
     {
@@ -40,6 +42,12 @@ public class PickUp : Interactable
             this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //transform.position = hit.point;
         }
+    }
+
+    public void KILLYOURSELF()
+    {
+        print("sure man");
+        Destroy(this.gameObject);
     }
 
     public override void OnLoseFocus()

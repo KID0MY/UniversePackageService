@@ -9,6 +9,8 @@ TagManager:
   - shipCollision
   - Planet2
   - Planet1
+  - ShipDoor
+  - ExitDoor
   layers:
   - Default
   - TransparentFX
