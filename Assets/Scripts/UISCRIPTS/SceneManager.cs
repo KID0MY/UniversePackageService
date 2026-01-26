@@ -8,9 +8,7 @@ public class sceneManager_ : MonoBehaviour
 {
     public int currentScene;
     public int newScene;
-
     public string sceneName;
-
     public animations animScript;
     public GameObject pausePanel;
     public bool _questMenuOpen = false;
@@ -106,7 +104,6 @@ public class sceneManager_ : MonoBehaviour
         }
         if (!paused)
         {
-            Cursor.visible = false;
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
@@ -169,5 +166,4 @@ public class sceneManager_ : MonoBehaviour
 
 
     }
-    
 }
