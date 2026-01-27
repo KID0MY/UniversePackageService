@@ -35,7 +35,7 @@ public class Quest : MonoBehaviour
         _health = 1; //Default value of health
         if (_dangerLevel == 0)
         {
-            _questIndex = Random.Range(0, 4);
+            _questIndex = Random.Range(0, 3);
         }
         switch (_questIndex)
         {
@@ -43,14 +43,14 @@ public class Quest : MonoBehaviour
                 _questName = "Basic Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _payAmount = 20;
-                _damageMultiplier = 1.2f;
+                _damageMultiplier = 1f;
                 _latenessLeeway = 30;
                 break;
             case 1:
                 _questName = "Speedy Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", make it quick, those contents aren't gonna last long.";
                 _payAmount = 30;
-                _damageMultiplier = 1f;
+                _damageMultiplier = 0.8f;
                 _latenessLeeway = 10;
                 break;
             case 2:
@@ -116,5 +116,11 @@ public class Quest : MonoBehaviour
     public void TakeDamage(float amount)
     {
         _health -= ((amount*_damageMultiplier)/100);
+        print(_health);
+    }
+
+    public float GetTimeTaken()
+    {
+        return transform.parent.GetComponent<QuestManager>()._timePassed - _startTime;
     }
 }

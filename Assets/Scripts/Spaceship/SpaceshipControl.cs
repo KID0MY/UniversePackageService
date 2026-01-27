@@ -147,7 +147,6 @@ public class SpaceshipControl : MonoBehaviour
                 if (_speedDelta > 0.0f)
                 {
                     _questScr.TakeDamage(_speedDelta);
-                    print(_questScr._health);
                 }
             }
             _speedLastFrame = _speed;

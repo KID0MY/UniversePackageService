@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour
 {
+    public int _money;
     public bool _enableDebug;
     public List<string> _planetOneRecipientNames = new List<string>();
     public List<string> _planetTwoRecipientNames = new List<string>();
@@ -14,6 +15,7 @@ public class QuestManager : MonoBehaviour
     public int _dangerLevel = 0;
     public List<GameObject> _questList = new List<GameObject>();
     public float _timePassed = 0f;
+    public float _displayVanishTimer;
     public bool hasQuestObject;
 
     void Awake() //Makes this node persist between scenes
@@ -53,23 +55,28 @@ public class QuestManager : MonoBehaviour
             if (_questList[x].GetComponent<Quest>() == quest)
             {
                 int payout = quest._payAmount; //Nothing actually happens with this value.
-                int time_taken = 50 - ((int)_timePassed - (int)quest._startTime);
-                if (time_taken < quest._latenessLeeway) //Subtracts the time taken to deliver by the quests given lateness leeway
-                {
-                    time_taken = 0;
-                }
-                else
-                {
-                    time_taken -= quest._latenessLeeway;
-                }
+                int time_taken = 50 + (int)(quest._startTime - _timePassed + quest._latenessLeeway);
                 int tips = time_taken;
-                tips = (int)(tips * quest._health);
                 tips += Random.Range(0, 20); //Adds randomness to the tip value
+                tips = (int)(tips * quest._health);
                 if (tips < 0)
                 {
                     tips = 0;
                 }
                 payout += tips;
+                if (quest._health <= 0 || time_taken <= 0)
+                {
+                    payout = 0;
+                }
+                _money += payout;
+                if (payout > 0)
+                {
+                    GameObject _moneyDisplay = GameObject.Find("Canvas");
+                    _moneyDisplay = _moneyDisplay.transform.GetChild(4).GameObject(); //jfc i fucking hate this code
+                    _moneyDisplay.SetActive(true);
+                    _moneyDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "$" + _money.ToString();
+                    _displayVanishTimer = _timePassed + 5;
+                }
                 Destroy(quest.gameObject);
                 hasQuestObject = false;
                 _questList.RemoveAt(x);
@@ -105,6 +112,17 @@ public class QuestManager : MonoBehaviour
     void Update()
     {
         _timePassed += (Time.deltaTime);
+        if (_displayVanishTimer != -1)
+        {
+            if (_displayVanishTimer < _timePassed)
+            {
+                if (GameObject.Find("P_CurrencyPopup") != null)
+                {
+                    GameObject.Find("P_CurrencyPopup").SetActive(false);
+                    _displayVanishTimer = -1;
+                }
+            }
+        }
         if (_enableDebug) //Debug commands, set this boolean to false to disable them
         {
             if (Input.GetKeyUp(KeyCode.Alpha0)) //0: warp to space
@@ -138,6 +156,14 @@ public class QuestManager : MonoBehaviour
                     FinishActiveQuest(_questList[0].GetComponent<Quest>());
                 }
                 AddActiveQuest(-1);
+            }
+            if (Input.GetKeyUp(KeyCode.T)) //T: cause one minute to pass
+            {
+                _timePassed += 60;
+            }
+            if (Input.GetKeyUp(KeyCode.M)) //M: prints the current amount of money
+            {
+                print(_money);
             }
         }
     }
