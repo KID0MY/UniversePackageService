@@ -53,6 +53,7 @@ public class PickUp : Interactable
     public void KILLYOURSELF()
     {
         print("sure man");
+        player.GetComponent<CharacterControl>().PickUpObject(null);
         Destroy(this.gameObject);
     }
 

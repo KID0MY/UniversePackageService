@@ -60,7 +60,7 @@ public class DialogueTrigger : MonoBehaviour
         {
         if (playerInRange)
         {
-            if (isQuestGiver && _hasQuest)
+            if (isQuestGiver && _hasQuest && _questManager._questList.Count == 0)
             {
                 visualCue.SetActive(true);
             }
@@ -71,7 +71,7 @@ public class DialogueTrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueBox.SetActive(true);
-                if (_hasQuest && isQuestGiver)
+                if (_hasQuest && isQuestGiver && _questManager._questList.Count == 0)
                 {
                     GivePackage();
                 }

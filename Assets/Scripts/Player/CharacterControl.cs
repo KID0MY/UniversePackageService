@@ -76,7 +76,6 @@ public class CharacterControl : MonoBehaviour
             {
                 currentPickup.OnInteract();
             }
-            print(_isDropDisabled);
         }
     }
 
