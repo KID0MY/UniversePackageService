@@ -112,7 +112,10 @@ public class CharacterControl : MonoBehaviour
 
     private void Update()
     {
-        
+        if (transform.position.y < -100)
+        {
+            transform.position = new Vector3(0, 10, 0);
+        }
     }
 
     public RaycastHit CanDropObject() //Not used lmao

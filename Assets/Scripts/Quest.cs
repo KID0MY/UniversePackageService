@@ -4,6 +4,7 @@ using UnityEngine;
 public class Quest : MonoBehaviour
 {
     public int _dangerLevel;
+    public float _health;
     public string _questName;
     public string _destination;
     public string _description;
@@ -31,6 +32,7 @@ public class Quest : MonoBehaviour
     {
         _description = "Yup, this sure is a package.";
         int _questIndex = 0;
+        _health = 1; //Default value of health
         if (_dangerLevel == 0)
         {
             _questIndex = Random.Range(0, 4);
@@ -53,11 +55,17 @@ public class Quest : MonoBehaviour
                 _questName = "Fragile Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + " carefully. That package is fragile, and I'm not paying you if it breaks.";
                 _payAmount = 30;
-                _latenessLeeway = 25;
+                _latenessLeeway = 35;
                 break;
             case 3:
                 _questName = "Obscure Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", specifically to the core of the planet, cause that's where the recipient lives.";
+                _payAmount = 40;
+                _latenessLeeway = 40;
+                break;
+            case 4:
+                _questName = "Final Delivery";
+                _description = "Bring this package to " + _recipient + " on " + _destination + ". This package is vital, get it delivered flawlessly.";
                 _payAmount = 40;
                 _latenessLeeway = 40;
                 break;
@@ -67,12 +75,10 @@ public class Quest : MonoBehaviour
     public void GenerateDeliveryDestination(int planet_exclusion)
     {
         int _planetIndex = Random.Range(0, 2);
-        print(_planetIndex);
         if (planet_exclusion == _planetIndex)
         {
             _planetIndex++;
         }
-        print(_planetIndex);
         switch (_planetIndex)
         {
             case 0:
@@ -99,5 +105,16 @@ public class Quest : MonoBehaviour
             names = transform.parent.GetComponent<QuestManager>()._planetTwoRecipientNames;
         }
         _recipient = names[Random.Range(0, names.Count)];
+    }
+
+    public void TakeDamage(float amount)
+    {
+        float _damageMultiplier = 1f;
+        if (this.name == "Fragile Delivery")
+        {
+            print("oof ouchie");
+            _damageMultiplier = 3f;
+        }
+        _health -= ((amount*_damageMultiplier)/100);
     }
 }

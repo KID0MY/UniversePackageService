@@ -7,12 +7,18 @@ public class PickUp : Interactable
     public Transform holdPos;
     public Transform baseSize;
     public Collider collider;
+    public Rigidbody _body;
+    public QuestManager _questManager;
+    public float _speed;
+    public float _speedLastFrame;
 
     public override void Awake()
     {
         collider = GetComponent<Collider>();
+        _body = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
         holdPos = GameObject.Find("HoldPosition").transform;
+        _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
     }
     public override void OnFocus()
     {
@@ -57,6 +63,19 @@ public class PickUp : Interactable
 
     private void Update()
     {
-
+        _speed = Vector3.Magnitude(_body.linearVelocity);
+        if (_speed < _speedLastFrame && !player.GetComponent<CharacterControl>().isHolding)
+        {
+            float _speedDelta = _speedLastFrame - _speed;
+            _questManager._questList[0].GetComponent<Quest>().TakeDamage(_speedDelta);
+            print(_questManager._questList[0].GetComponent<Quest>()._health);
+        }
+        _speedLastFrame = _speed;
+        if (transform.position.y < -100)
+        {
+            transform.position = new Vector3(0, 10, 0);
+            _body.linearVelocity = new Vector3(0, 0, 0);
+            _speedLastFrame = 0f;
+        }
     }
 }

@@ -16,7 +16,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public bool isQuestGiver;
 
-    public bool isQuestReciever;
+    public bool isQuestReceiver;
 
     public int _recieverNameId;
 
@@ -39,7 +39,7 @@ public class DialogueTrigger : MonoBehaviour
         _hasQuest = true;
         _wantsQuest = false;
         _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
-        if (isQuestReciever)
+        if (isQuestReceiver)
         {
             if (_planetNum == 0)
             {

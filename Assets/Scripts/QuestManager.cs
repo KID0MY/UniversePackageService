@@ -62,6 +62,7 @@ public class QuestManager : MonoBehaviour
                     time_taken -= quest._latenessLeeway;
                 }
                 int tips = time_taken;
+                tips = (int)(tips * quest._health);
                 tips += Random.Range(0, 20); //Adds randomness to the tip value
                 if (tips < 0)
                 {
@@ -120,6 +121,10 @@ public class QuestManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.G)) //G: load a package into the ship, does not create a quest
             {
                 hasQuestObject = true;
+            }
+            if (Input.GetKeyUp(KeyCode.R)) //R: reset player rotation
+            {
+                GameObject.Find("Player").transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
     }
