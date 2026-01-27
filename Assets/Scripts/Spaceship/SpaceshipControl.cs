@@ -52,7 +52,10 @@ public class SpaceshipControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         rb.angularVelocity = Vector3.zero;
         audioSource = GetComponent<AudioSource>();
-        _questScr = GameObject.Find("QuestManager").GetComponent<QuestManager>()._questList[0].GetComponent<Quest>();
+        if (GameObject.Find("QuestManager").GetComponent<QuestManager>()._questList.Count > 0)
+        {
+            _questScr = GameObject.Find("QuestManager").GetComponent<QuestManager>()._questList[0].GetComponent<Quest>();
+        }
     }
 
     // ---------------- INPUT CALLBACKS ----------------
@@ -158,7 +161,7 @@ public class SpaceshipControl : MonoBehaviour
             audioSource.PlayOneShot(hit);
         }
         //temp
-        if (collision.gameObject.CompareTag("ShipDoor"))
+        if (collision.gameObject.CompareTag("ShipDoor")) //Slamming into the door damages the package if you have one btw
         {
             sceneMan.loadShipScene();
         }
