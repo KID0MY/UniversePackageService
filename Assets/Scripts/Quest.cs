@@ -112,7 +112,6 @@ public class Quest : MonoBehaviour
         float _damageMultiplier = 1f;
         if (this.name == "Fragile Delivery")
         {
-            print("oof ouchie");
             _damageMultiplier = 3f;
         }
         _health -= ((amount*_damageMultiplier)/100);

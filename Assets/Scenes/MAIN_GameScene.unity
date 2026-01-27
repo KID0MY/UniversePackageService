@@ -1177,6 +1177,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b63b0bfb-65e5-432c-a0a0-4d051f122a7e
     m_ActionName: ShipControl/Boost
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6434e3b3-a529-427b-aa9a-edce1fe3b0a6
+    m_ActionName: 'UI/Tab[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc197dee-0c21-42c1-8708-3853c26cb7c3
+    m_ActionName: 'ShipControl/OpenQuests[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: ShipControl
@@ -1206,10 +1214,12 @@ MonoBehaviour:
   boostMult: 3
   speedMultAngle: 0.007
   speedRollMultAngle: 0.05
+  _paddingStrength: 3
   speedRollMult: 45
   cameraFOVChange: 90
   timeLossVal: 2
   timeLossMult: 1
+  _questScr: {fileID: 0}
 --- !u!54 &205083076
 Rigidbody:
   m_ObjectHideFlags: 0

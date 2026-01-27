@@ -61,14 +61,13 @@ public class PickUp : Interactable
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _speed = Vector3.Magnitude(_body.linearVelocity);
         if (_speed < _speedLastFrame && !player.GetComponent<CharacterControl>().isHolding)
         {
             float _speedDelta = _speedLastFrame - _speed;
             _questManager._questList[0].GetComponent<Quest>().TakeDamage(_speedDelta);
-            print(_questManager._questList[0].GetComponent<Quest>()._health);
         }
         _speedLastFrame = _speed;
         if (transform.position.y < -100)

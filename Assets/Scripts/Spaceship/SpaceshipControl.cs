@@ -29,11 +29,14 @@ public class SpaceshipControl : MonoBehaviour
     [SerializeField] private float boostMult = 2;
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
+    [SerializeField] private float _paddingStrength = 4f;
     [Range(0.0f,90.0f)] public float speedRollMult = 45;
     [Range(0.0f,90.0f)] public float cameraFOVChange = 45;
 
     [SerializeField] private float timeLossVal = 2;
     public float timeLossMult = 1;
+    public Quest _questScr;
+    float _speedLastFrame;
 
 
 
@@ -49,6 +52,7 @@ public class SpaceshipControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         rb.angularVelocity = Vector3.zero;
         audioSource = GetComponent<AudioSource>();
+        _questScr = GameObject.Find("QuestManager").GetComponent<QuestManager>()._questList[0].GetComponent<Quest>();
     }
 
     // ---------------- INPUT CALLBACKS ----------------
@@ -129,6 +133,22 @@ public class SpaceshipControl : MonoBehaviour
         }
 
         shipMesh.transform.localRotation = Quaternion.Lerp(shipMesh.transform.localRotation,targetRotation,Time.deltaTime * 5f);
+        if (_questScr != null)
+        {
+            float _speed = Vector3.Magnitude(rb.linearVelocity);
+            if (_speed < _speedLastFrame)
+            {
+                float _speedDelta = _speedLastFrame - _speed;
+                _speedDelta -= _paddingStrength;
+                _speedDelta = _speedDelta / _paddingStrength;
+                if (_speedDelta > 0.0f)
+                {
+                    _questScr.TakeDamage(_speedDelta);
+                    print(_questScr._health);
+                }
+            }
+            _speedLastFrame = _speed;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
