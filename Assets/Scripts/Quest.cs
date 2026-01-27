@@ -11,6 +11,7 @@ public class Quest : MonoBehaviour
     public string _recipient;
     public int _payAmount; //Everything that sets this is a placeholder value
     public int _latenessLeeway;
+    public float _damageMultiplier;
     public float _startTime;
 
     void Start()
@@ -25,7 +26,6 @@ public class Quest : MonoBehaviour
         GenerateRecipient();
         GenerateDeliveryType();
         this.name = _questName;
-        print(transform.parent.GetComponent<QuestManager>().IsMatchingRecipient("GAY FURRY PORN"));
     }
 
     public void GenerateDeliveryType()
@@ -43,31 +43,36 @@ public class Quest : MonoBehaviour
                 _questName = "Basic Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _payAmount = 20;
+                _damageMultiplier = 1.2f;
                 _latenessLeeway = 30;
                 break;
             case 1:
                 _questName = "Speedy Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", make it quick, those contents aren't gonna last long.";
                 _payAmount = 30;
+                _damageMultiplier = 1f;
                 _latenessLeeway = 10;
                 break;
             case 2:
                 _questName = "Fragile Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + " carefully. That package is fragile, and I'm not paying you if it breaks.";
                 _payAmount = 30;
+                _damageMultiplier = 3f;
                 _latenessLeeway = 35;
                 break;
             case 3:
                 _questName = "Obscure Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", specifically to the core of the planet, cause that's where the recipient lives.";
                 _payAmount = 40;
+                _damageMultiplier = 1f;
                 _latenessLeeway = 40;
                 break;
             case 4:
                 _questName = "Final Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ". This package is vital, get it delivered flawlessly.";
-                _payAmount = 40;
-                _latenessLeeway = 40;
+                _payAmount = 100;
+                _damageMultiplier = 3f;
+                _latenessLeeway = 10;
                 break;
         }
     }
@@ -105,15 +110,11 @@ public class Quest : MonoBehaviour
             names = transform.parent.GetComponent<QuestManager>()._planetTwoRecipientNames;
         }
         _recipient = names[Random.Range(0, names.Count)];
+        print(_recipient);
     }
 
     public void TakeDamage(float amount)
     {
-        float _damageMultiplier = 1f;
-        if (this.name == "Fragile Delivery")
-        {
-            _damageMultiplier = 3f;
-        }
         _health -= ((amount*_damageMultiplier)/100);
     }
 }

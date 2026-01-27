@@ -17,7 +17,7 @@ public class CharacterControl : MonoBehaviour
     public bool _isDropDisabled = false;
 
 
-    [SerializeField] float moveSpeed;
+    public float moveSpeed;
     [SerializeField] float jumpSpeed;
     [SerializeField] private Vector3 interactionRayPoint = default;
     [SerializeField] private float interactionDistance = default;

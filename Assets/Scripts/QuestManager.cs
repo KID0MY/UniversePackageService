@@ -20,18 +20,19 @@ public class QuestManager : MonoBehaviour
     {
         _instance = this;
         DontDestroyOnLoad(gameObject);
-        SetupNameList();
     }
 
     private void SetupNameList() //I hate lists
     {
-        _planetOneRecipientNames.Add("Metal Gleepglorp");
-        _planetTwoRecipientNames.Add("Wild Gleepglorp");
+        _planetOneRecipientNames.Add("Chrome");
+        _planetOneRecipientNames.Add("Vanada");
+        _planetTwoRecipientNames.Add("Orchid");
+        _planetTwoRecipientNames.Add("Azalea");
     }
 
     void Start()
     {
-        
+        SetupNameList();
     }
 
     public void AddActiveQuest(int planet_exclusion) //Creates a quest then adds in to _questList :3
@@ -125,6 +126,18 @@ public class QuestManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.R)) //R: reset player rotation
             {
                 GameObject.Find("Player").transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            if (Input.GetKeyUp(KeyCode.F)) //F: increase character speed
+            {
+                GameObject.Find("Player").GetComponent<CharacterControl>().moveSpeed = 50f;
+            }
+            if (Input.GetKeyUp(KeyCode.P)) //P: create a new quest, automatically completing the last one if it existed, does not generate a package
+            {
+                if (_questList.Count > 0)
+                {
+                    FinishActiveQuest(_questList[0].GetComponent<Quest>());
+                }
+                AddActiveQuest(-1);
             }
         }
     }
