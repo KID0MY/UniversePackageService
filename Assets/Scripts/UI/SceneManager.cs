@@ -8,12 +8,18 @@ public class sceneManager_ : MonoBehaviour
 {
     public int currentScene;
     public int newScene;
+
     public string sceneName;
+
     public animations animScript;
+
     public GameObject pausePanel;
+    public GameObject settingsPanel;
+
     public bool _questMenuOpen = false;
     public GameObject _questMenu;
     bool paused =false;
+
 
 
     public void Update()
@@ -80,10 +86,18 @@ public class sceneManager_ : MonoBehaviour
     }
     public void loadSettings()
     {
-        Time.timeScale = 1.0f;
-        Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(3);
+        //if we want time to pause in settings
+        Time.timeScale = 0.0f;
 
+        //Cursor.lockState = CursorLockMode.None;
+        //SceneManager.LoadScene(3);
+        settingsPanel.SetActive(true);
+        Debug.Log("Loading Settings");
+
+    }
+    public void resetTime()
+    {
+        Time.timeScale = 1.0f;
     }
 
     public void resetScene()
@@ -108,6 +122,10 @@ public class sceneManager_ : MonoBehaviour
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
+        //if (settingsPanel.activeSelf)
+        //{
+        //    paused=!paused;
+        //}
     }
     public void OpenQuestMenu()
     {
