@@ -14,8 +14,8 @@ public class QuestManager : MonoBehaviour
     public GameObject _questPrefab;
     public int _dangerLevel = 0;
     public List<GameObject> _questList = new List<GameObject>();
+    public CurrencyCounter _currencyCounter;
     public float _timePassed = 0f;
-    public float _displayVanishTimer;
     public bool hasQuestObject;
 
     void Awake() //Makes this node persist between scenes
@@ -71,11 +71,7 @@ public class QuestManager : MonoBehaviour
                 _money += payout;
                 if (payout > 0)
                 {
-                    GameObject _moneyDisplay = GameObject.Find("Canvas");
-                    _moneyDisplay = _moneyDisplay.transform.GetChild(4).GameObject(); //jfc i fucking hate this code
-                    _moneyDisplay.SetActive(true);
-                    _moneyDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "$" + _money.ToString();
-                    _displayVanishTimer = _timePassed + 5;
+                    _currencyCounter.ShowGainedMoney(payout, _money);
                 }
                 Destroy(quest.gameObject);
                 hasQuestObject = false;
@@ -112,17 +108,6 @@ public class QuestManager : MonoBehaviour
     void Update()
     {
         _timePassed += (Time.deltaTime);
-        if (_displayVanishTimer != -1)
-        {
-            if (_displayVanishTimer < _timePassed)
-            {
-                if (GameObject.Find("P_CurrencyPopup") != null)
-                {
-                    GameObject.Find("P_CurrencyPopup").SetActive(false);
-                    _displayVanishTimer = -1;
-                }
-            }
-        }
         if (_enableDebug) //Debug commands, set this boolean to false to disable them
         {
             if (Input.GetKeyUp(KeyCode.Alpha0)) //0: warp to space

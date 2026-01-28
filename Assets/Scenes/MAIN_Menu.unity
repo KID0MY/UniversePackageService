@@ -770,14 +770,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   _money: 0
-  _enableDebug: 1
+  _enableDebug: 0
   _planetOneRecipientNames: []
   _planetTwoRecipientNames: []
   _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
   _dangerLevel: 0
   _questList: []
+  _currencyCounter: {fileID: 0}
   _timePassed: 0
-  _displayVanishTimer: -1
   hasQuestObject: 0
 --- !u!4 &711040563
 Transform:
