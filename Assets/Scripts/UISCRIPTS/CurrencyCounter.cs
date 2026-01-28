@@ -24,6 +24,7 @@ public class CurrencyCounter : MonoBehaviour
         _money = _totalMoney;
         alphaLevel = 0f;
         gameObject.SetActive(true);
+        _totalText.text = "$" + (_money - _gainedMoney).ToString();
         _gainText.text = "+$" + _gainedMoney.ToString();
         _toBeGained = _gainedMoney;
         _vanishTimer = 6;
