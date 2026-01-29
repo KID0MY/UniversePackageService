@@ -53,8 +53,8 @@ public class sceneManager_ : MonoBehaviour
 
     public void loadNextScene()
     {
-        //animScript.fadeOutAnim();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        animScript.fadeOutAnim();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         StartCoroutine(loadIn());
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
@@ -89,11 +89,19 @@ public class sceneManager_ : MonoBehaviour
         //if we want time to pause in settings
         Time.timeScale = 0.0f;
 
-        //Cursor.lockState = CursorLockMode.None;
-        //SceneManager.LoadScene(3);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+       
         settingsPanel.SetActive(true);
         Debug.Log("Loading Settings");
 
+    }
+    public void closeSettings()
+    {
+        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = false;
+        resetTime();
     }
     public void resetTime()
     {
@@ -109,7 +117,8 @@ public class sceneManager_ : MonoBehaviour
 
     public void pauseGame()
     {
-        //Debug.Log(paused);
+     
+        Debug.Log(paused);
         if (paused)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -124,7 +133,7 @@ public class sceneManager_ : MonoBehaviour
         }
         //if (settingsPanel.activeSelf)
         //{
-        //    paused=!paused;
+        //paused = !paused;
         //}
     }
     public void OpenQuestMenu()
