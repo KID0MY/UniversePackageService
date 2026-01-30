@@ -779,6 +779,7 @@ MonoBehaviour:
   _currencyCounter: {fileID: 0}
   _timePassed: 0
   hasQuestObject: 0
+  _tutorialFlagsCompleted: 99
 --- !u!4 &711040563
 Transform:
   m_ObjectHideFlags: 0
