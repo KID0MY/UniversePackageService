@@ -15,6 +15,7 @@ public class CharacterControl : MonoBehaviour
     public Interactable currentPickup;
 
     public bool _isDropDisabled = false;
+    private float _timeMoved = 0f;
 
 
     public float moveSpeed;
@@ -28,6 +29,7 @@ public class CharacterControl : MonoBehaviour
     public bool isHolding;
     public GameObject questObjectPrefab;
     public GameObject? questObject;
+    public QuestManager _questManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,10 +38,11 @@ public class CharacterControl : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         Cursor.lockState = CursorLockMode.Locked;
-        if (GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject)
+        _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
+        if (_questManager.hasQuestObject)
         {
-                questObject = Instantiate(questObjectPrefab);
-                questObject.GetComponent<PickUp>().OnInteract();
+            questObject = Instantiate(questObjectPrefab);
+            questObject.GetComponent<PickUp>().OnInteract();
         }
         else
         {
@@ -50,6 +53,14 @@ public class CharacterControl : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        if (_timeMoved < 2f)
+        {
+            _timeMoved += Time.deltaTime;
+            if (_timeMoved >= 2f)
+            {
+                _questManager.FinishTutorialFlag();
+            }
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)

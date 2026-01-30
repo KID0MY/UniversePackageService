@@ -17,6 +17,7 @@ public class QuestManager : MonoBehaviour
     public CurrencyCounter _currencyCounter;
     public float _timePassed = 0f;
     public bool hasQuestObject;
+    public int _tutorialFlagsCompleted;
 
     void Awake() //Makes this node persist between scenes
     {
@@ -104,6 +105,18 @@ public class QuestManager : MonoBehaviour
         }
         return null;
     }
+
+    public void FinishTutorialFlag()
+    {
+        _tutorialFlagsCompleted++;
+        if (_tutorialFlagsCompleted == 1)
+        {
+            //spawn a package maybe?
+        }
+        if (_tutorialFlagsCompleted == 2)
+        {
+            AddActiveQuest(1);
+        }
 
     void Update()
     {

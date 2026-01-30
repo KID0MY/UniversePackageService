@@ -35,39 +35,52 @@ public class Quest : MonoBehaviour
         _health = 1; //Default value of health
         if (_dangerLevel == 0)
         {
-            _questIndex = Random.Range(0, 3);
+            _questIndex = 0;
+        }
+        if (_dangerLevel == 1)
+        {
+            _questIndex = Random.Range(1, 4);
         }
         switch (_questIndex)
         {
             case 0:
+                _questName = "Practice Delivery";
+                _description = "Bring this package to " + _recipient + " on " + _destination + ".";
+                _payAmount = 10;
+                _destination = "Planet 1";
+                _recipient = transform.parent.GetComponent<QuestManager>()._planetOneRecipientNames[0];
+                _damageMultiplier = 0f;
+                _latenessLeeway = 99999;
+                break;
+            case 1:
                 _questName = "Basic Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _payAmount = 20;
                 _damageMultiplier = 1f;
                 _latenessLeeway = 30;
                 break;
-            case 1:
+            case 2:
                 _questName = "Speedy Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", make it quick, those contents aren't gonna last long.";
                 _payAmount = 30;
                 _damageMultiplier = 0.8f;
                 _latenessLeeway = 10;
                 break;
-            case 2:
+            case 3:
                 _questName = "Fragile Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + " carefully. That package is fragile, and I'm not paying you if it breaks.";
                 _payAmount = 30;
                 _damageMultiplier = 3f;
                 _latenessLeeway = 35;
                 break;
-            case 3:
+            case 4:
                 _questName = "Obscure Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", specifically to the core of the planet, cause that's where the recipient lives.";
                 _payAmount = 40;
                 _damageMultiplier = 1f;
                 _latenessLeeway = 40;
                 break;
-            case 4:
+            case 5:
                 _questName = "Final Delivery";
                 _description = "Bring this package to " + _recipient + " on " + _destination + ". This package is vital, get it delivered flawlessly.";
                 _payAmount = 100;

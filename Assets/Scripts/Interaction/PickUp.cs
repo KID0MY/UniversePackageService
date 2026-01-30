@@ -48,6 +48,10 @@ public class PickUp : Interactable
             this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //transform.position = hit.point;
         }
+        if (_questManager._tutorialFlagsCompleted <= 1)
+        {
+            _questManager.FinishTutorialFlag();
+        }
     }
 
     public void KILLYOURSELF()

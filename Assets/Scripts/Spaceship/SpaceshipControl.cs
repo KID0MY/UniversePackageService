@@ -29,12 +29,13 @@ public class SpaceshipControl : MonoBehaviour
     [SerializeField] private float boostMult = 2;
     [SerializeField] private float speedMultAngle = 0.5f;
     [SerializeField] private float speedRollMultAngle = 0.05f;
-    [SerializeField] private float _paddingStrength = 4f;
+    [SerializeField] private float _paddingStrength;
     [Range(0.0f,90.0f)] public float speedRollMult = 45;
     [Range(0.0f,90.0f)] public float cameraFOVChange = 45;
 
     [SerializeField] private float timeLossVal = 2;
     public float timeLossMult = 1;
+    public QuestManager _questManager;
     public Quest _questScr;
     float _speedLastFrame;
 
@@ -52,9 +53,10 @@ public class SpaceshipControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         rb.angularVelocity = Vector3.zero;
         audioSource = GetComponent<AudioSource>();
-        if (GameObject.Find("QuestManager").GetComponent<QuestManager>()._questList.Count > 0)
+        _questManager = GetComponent<QuestManager>();
+        if (_questManager._questList.Count > 0)
         {
-            _questScr = GameObject.Find("QuestManager").GetComponent<QuestManager>()._questList[0].GetComponent<Quest>();
+            _questScr = _questManager._questList[0].GetComponent<Quest>();
         }
     }
 
