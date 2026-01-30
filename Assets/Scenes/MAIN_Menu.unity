@@ -774,7 +774,7 @@ MonoBehaviour:
   _planetOneRecipientNames: []
   _planetTwoRecipientNames: []
   _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
-  _dangerLevel: 0
+  _dangerLevel: 1
   _questList: []
   _currencyCounter: {fileID: 0}
   _timePassed: 0

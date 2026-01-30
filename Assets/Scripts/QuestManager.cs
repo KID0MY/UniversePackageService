@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
     public List<string> _planetTwoRecipientNames = new List<string>();
     public static QuestManager _instance;
     public GameObject _questPrefab;
-    public int _dangerLevel = 0;
+    public int _dangerLevel;
     public List<GameObject> _questList = new List<GameObject>();
     public CurrencyCounter _currencyCounter;
     public float _timePassed = 0f;
@@ -109,14 +109,15 @@ public class QuestManager : MonoBehaviour
     public void FinishTutorialFlag()
     {
         _tutorialFlagsCompleted++;
-        if (_tutorialFlagsCompleted == 1)
+        if (_tutorialFlagsCompleted == 1) //Theoretically the flag that decides the player knows how to move
         {
             //spawn a package maybe?
         }
-        if (_tutorialFlagsCompleted == 2)
+        if (_tutorialFlagsCompleted == 2) //Theoretically the flag that decides the player knows how to pick shit up
         {
-            AddActiveQuest(1);
+            AddActiveQuest(-1);
         }
+    }
 
     void Update()
     {
