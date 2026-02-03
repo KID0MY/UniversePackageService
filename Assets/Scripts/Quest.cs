@@ -33,11 +33,11 @@ public class Quest : MonoBehaviour
         _description = "Yup, this sure is a package.";
         int _questIndex = 0;
         _health = 1; //Default value of health
-        if (_dangerLevel == 0)
+        if (_dangerLevel == 0) //Tutorial level
         {
             _questIndex = 0;
         }
-        if (_dangerLevel == 1)
+        if (_dangerLevel == 1) //Base level
         {
             _questIndex = Random.Range(1, 4);
         }
