@@ -45,12 +45,12 @@ public class Quest : MonoBehaviour
         {
             case 0:
                 _questName = "Practice Delivery";
-                _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _payAmount = 10;
                 _destination = "Planet 1";
                 _recipient = transform.parent.GetComponent<QuestManager>()._planetOneRecipientNames[0];
+                _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _damageMultiplier = 0f;
-                _latenessLeeway = 99999;
+                _latenessLeeway = 999999;
                 break;
             case 1:
                 _questName = "Basic Delivery";

@@ -20,6 +20,7 @@ public class PickUp : Interactable
         holdPos = GameObject.Find("HoldPosition").transform;
         _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
     }
+
     public override void OnFocus()
     {
 
@@ -48,7 +49,7 @@ public class PickUp : Interactable
             this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //transform.position = hit.point;
         }
-        if (_questManager._tutorialFlagsCompleted <= 1)
+        if (_questManager._tutorialFlagsCompleted < 4)
         {
             _questManager.FinishTutorialFlag();
         }
@@ -56,7 +57,6 @@ public class PickUp : Interactable
 
     public void KILLYOURSELF()
     {
-        print("sure man");
         player.GetComponent<CharacterControl>().PickUpObject(null);
         Destroy(this.gameObject);
     }
@@ -72,7 +72,10 @@ public class PickUp : Interactable
         if (_speed < _speedLastFrame && !player.GetComponent<CharacterControl>().isHolding)
         {
             float _speedDelta = _speedLastFrame - _speed;
-            _questManager._questList[0].GetComponent<Quest>().TakeDamage(_speedDelta);
+            if (_questManager._questList.Count > 0)
+            {
+                _questManager._questList[0].GetComponent<Quest>().TakeDamage(_speedDelta);
+            }
         }
         _speedLastFrame = _speed;
         if (transform.position.y < -100)

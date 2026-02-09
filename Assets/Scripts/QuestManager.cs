@@ -14,6 +14,7 @@ public class QuestManager : MonoBehaviour
     public GameObject _questPrefab;
     public int _dangerLevel;
     public List<GameObject> _questList = new List<GameObject>();
+    public GameObject _questObjectPrefab;
     public CurrencyCounter _currencyCounter;
     public float _timePassed = 0f;
     public bool hasQuestObject;
@@ -56,8 +57,17 @@ public class QuestManager : MonoBehaviour
             if (_questList[x].GetComponent<Quest>() == quest)
             {
                 int payout = quest._payAmount; //Nothing actually happens with this value.
-                int time_taken = 50 + (int)(quest._startTime - _timePassed + quest._latenessLeeway);
-                int tips = time_taken;
+                int tips = 50;
+                int time_taken = (int)(quest._startTime - _timePassed);
+                if (quest._latenessLeeway > time_taken)
+                {
+                    time_taken = 0;
+                }
+                else
+                {
+                    time_taken -= quest._latenessLeeway;
+                }
+                tips -= time_taken;
                 tips += Random.Range(0, 20); //Adds randomness to the tip value
                 tips = (int)(tips * quest._health);
                 if (tips < 0)
@@ -65,7 +75,7 @@ public class QuestManager : MonoBehaviour
                     tips = 0;
                 }
                 payout += tips;
-                if (quest._health <= 0 || time_taken <= 0)
+                if (quest._health <= 0 || time_taken >= 50)
                 {
                     payout = 0;
                 }
@@ -109,13 +119,40 @@ public class QuestManager : MonoBehaviour
     public void FinishTutorialFlag()
     {
         _tutorialFlagsCompleted++;
-        if (_tutorialFlagsCompleted == 1) //Theoretically the flag that decides the player knows how to move
+        if (_tutorialFlagsCompleted == 1) //Player knows how to move
         {
-            //spawn a package maybe?
+            
         }
-        if (_tutorialFlagsCompleted == 2) //Theoretically the flag that decides the player knows how to pick shit up
+        else if (_tutorialFlagsCompleted == 2) //Player knows how to jump
+        {
+            GameObject _questObject = Instantiate(_questObjectPrefab, new Vector3(0, 10, 0), Quaternion.identity);
+            _questObject.gameObject.layer = 6;
+            _questObject.GetComponent<Rigidbody>().isKinematic = false;
+            _questObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        else if (_tutorialFlagsCompleted == 3) //Player knows how to pick shit up
+        {
+            
+        }
+        else if (_tutorialFlagsCompleted == 4) //Player knows how to put shit down
         {
             AddActiveQuest(-1);
+        }
+        else if (_tutorialFlagsCompleted == 5) //Player knows how to move IN SPACE
+        {
+            
+        }
+        else if (_tutorialFlagsCompleted == 6) //Player knows how to do a barrel roll
+        {
+            
+        }
+        else if (_tutorialFlagsCompleted == 7) //Player knows how to boost
+        {
+
+        }
+        else if (_tutorialFlagsCompleted == 8) //Player knows how to deliver package and finish the tutorial yippee
+        {
+            _dangerLevel = 1;
         }
     }
 
@@ -163,6 +200,16 @@ public class QuestManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.M)) //M: prints the current amount of money
             {
                 print(_money);
+            }
+            if (Input.GetKeyUp(KeyCode.K)) //K: spawns a package object on your head
+            {
+                GameObject _questObject = Instantiate(_questObjectPrefab, GameObject.Find("Player").transform.position + Vector3.up, Quaternion.identity);
+                _questObject.GetComponent<PickUp>().OnInteract();
+            }
+            if (Input.GetKeyUp(KeyCode.L)) //L: automatically end the tutorial
+            {
+                _dangerLevel = 1;
+                _tutorialFlagsCompleted = 1000;
             }
         }
     }

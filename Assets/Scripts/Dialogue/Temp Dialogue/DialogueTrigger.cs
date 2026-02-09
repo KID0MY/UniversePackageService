@@ -101,6 +101,10 @@ public class DialogueTrigger : MonoBehaviour
                     {
                         _dialogueText.text = "Thank you!";
                     }
+                    if (_questManager._tutorialFlagsCompleted <= 7)
+                    {
+                        _questManager.FinishTutorialFlag();
+                    }
                     _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
                     _wantsQuest = false;
                 }

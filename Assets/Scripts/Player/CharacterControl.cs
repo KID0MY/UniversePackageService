@@ -53,24 +53,20 @@ public class CharacterControl : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        if (_timeMoved < 2f)
-        {
-            _timeMoved += Time.deltaTime;
-            if (_timeMoved >= 2f)
-            {
-                _questManager.FinishTutorialFlag();
-            }
-        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            if (canJump)
+            if (canJump && _questManager._tutorialFlagsCompleted > 0)
             {
                 rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
                 canJump = false;
+                if (_questManager._tutorialFlagsCompleted == 1)
+                {
+                    _questManager.FinishTutorialFlag();
+                }
             }
         }
     }
@@ -115,6 +111,14 @@ public class CharacterControl : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
+        if (_timeMoved < 2f && (moveInput != Vector2.zero))
+        {
+            _timeMoved += Time.deltaTime;
+            if (_timeMoved >= 2f && _questManager._tutorialFlagsCompleted <= 0)
+            {
+                _questManager.FinishTutorialFlag();
+            }
+        }
         //Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         //rb.AddForce(move * moveSpeed * Time.deltaTime * 100, ForceMode.Force);
         InteractionCheck();
