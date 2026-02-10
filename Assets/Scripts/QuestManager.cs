@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
     public List<string> _planetOneRecipientNames = new List<string>();
     public List<string> _planetTwoRecipientNames = new List<string>();
     public static QuestManager _instance;
+    public Dialogue _dialoguer;
     public GameObject _questPrefab;
     public int _dangerLevel;
     public List<GameObject> _questList = new List<GameObject>();
@@ -122,7 +123,9 @@ public class QuestManager : MonoBehaviour
         _tutorialFlagsCompleted++;
         if (_tutorialFlagsCompleted == 1) //Player knows how to move
         {
-            
+            _dialoguer.CreateDialogue("Holy hell this guy knows how to move.");
+            _dialoguer.CreateDialogue("Absolute legend.");
+            _dialoguer.CreateDialogue("Anyway I'm gonna need you to press\nSPACE to jump now.");
         }
         else if (_tutorialFlagsCompleted == 2) //Player knows how to jump
         {
@@ -130,29 +133,43 @@ public class QuestManager : MonoBehaviour
             _questObject.gameObject.layer = 6;
             _questObject.GetComponent<Rigidbody>().isKinematic = false;
             _questObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            _dialoguer.CreateDialogue("Now I've seen everything.");
+            _dialoguer.CreateDialogue("We got a guy who can MOVE and JUMP?");
+            _dialoguer.CreateDialogue("Incredible.");
+            _dialoguer.CreateDialogue("Anyway I spawned a package out of thin fucking air.\nJust look at it and press E to pick it up will you?");
         }
         else if (_tutorialFlagsCompleted == 3) //Player knows how to pick shit up
         {
-            
+            _dialoguer.CreateDialogue("Nice, you can also press E to drop it.");
         }
         else if (_tutorialFlagsCompleted == 4) //Player knows how to put shit down
         {
             AddActiveQuest(-1);
+            _dialoguer.CreateDialogue("Yup, you're ready to go into space now.");
+            _dialoguer.CreateDialogue("I've given you a delivery mission, you can check it by pressing TAB.");
+            _dialoguer.CreateDialogue("Anyway, just go to your ship and press E to enter.\nJust play around in space, what could go wrong?");
         }
         else if (_tutorialFlagsCompleted == 5) //Player knows how to move IN SPACE
         {
-            
+            _dialoguer.CreateDialogue("Yup, you've got the basics alright.");
+            _dialoguer.CreateDialogue("You can also press Q and E to rotate your ship.\nTry that out real quick.");
         }
         else if (_tutorialFlagsCompleted == 6) //Player knows how to do a barrel roll
         {
-            
+            _dialoguer.CreateDialogue("wow");
+            _dialoguer.CreateDialogue("Alright, last thing about spacial movement,\nyou can hold SHIFT to boost.");
+            _dialoguer.CreateDialogue("This'll get you to your destination quicker,\nbut going so fast might damage whatever package you're holding.");
         }
         else if (_tutorialFlagsCompleted == 7) //Player knows how to boost
         {
-
+            _dialoguer.CreateDialogue("Good, good.");
+            _dialoguer.CreateDialogue("Next, head on over to that gray planet and\nfind the guy who wants this package.");
         }
         else if (_tutorialFlagsCompleted == 8) //Player knows how to deliver package and finish the tutorial yippee
         {
+            _dialoguer.CreateDialogue("Nice.");
+            _dialoguer.CreateDialogue("Yeah, I think you're about ready for the job.");
+            _dialoguer.CreateDialogue("Good luck lmao.");
             _dangerLevel = 1;
         }
     }

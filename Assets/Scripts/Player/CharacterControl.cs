@@ -57,6 +57,10 @@ public class CharacterControl : MonoBehaviour
         {
             moveInput = context.ReadValue<Vector2>();
         }
+        else
+        {
+            moveInput = Vector2.zero;
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)

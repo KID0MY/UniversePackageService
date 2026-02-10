@@ -12,6 +12,7 @@ public class Dialogue : MonoBehaviour
     private string _targetText;
     private List<string> _textQueue = new List<string>();
     private bool _isRendering;
+    private bool _canProgress;
     [SerializeField] private float _timeBetweenLetters; //In milliseconds
 
     private KeyCode _textProgressKey1 = KeyCode.Space;
@@ -19,12 +20,13 @@ public class Dialogue : MonoBehaviour
     private KeyCode _textSkipKey1 = KeyCode.Space;
     private KeyCode _textSkipKey2 = KeyCode.E;
 
-    void Start()
+    void Awake()
     {
         if (_dialogueText == null)
         {
             _dialogueText = transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
         }
+        GameObject.Find("QuestManager").GetComponent<QuestManager>()._dialoguer = this;
         this.gameObject.SetActive(false);
         _isRendering = false;
     }
@@ -32,7 +34,7 @@ public class Dialogue : MonoBehaviour
     void Update()
     {
         _dialogueText.text = _currentText;
-        if ((Input.GetKeyDown(_textProgressKey1) || Input.GetKeyDown(_textProgressKey2)) && _currentText.Equals(_targetText))
+        if ((Input.GetKeyDown(_textProgressKey1) || Input.GetKeyDown(_textProgressKey2)) && _canProgress)
         {
             if (_textQueue.Count == 0)
             {
@@ -53,9 +55,8 @@ public class Dialogue : MonoBehaviour
                 StartCoroutine(PrintText());
             }
         }
-        else if ((Input.GetKeyDown(_textSkipKey1) || Input.GetKeyDown(_textSkipKey2) && !_currentText.Equals(_targetText)))
+        else if ((Input.GetKeyDown(_textSkipKey1) || Input.GetKeyDown(_textSkipKey2)) && !_currentText.Equals(_targetText) && _currentText.Length > 1)
         {
-            StopCoroutine(PrintText());
             _currentText = _targetText;
         }
     }
@@ -80,11 +81,13 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator PrintText()
     {
+        _canProgress = false;
         int _nextLetter = 0;
         while (!_currentText.Equals(_targetText)) {
             _currentText = _currentText + _targetText.Substring(_nextLetter, 1);
             yield return new WaitForSeconds(_timeBetweenLetters / 1000);
             _nextLetter++;
         }
+        _canProgress = true;
     }
 }
