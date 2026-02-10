@@ -127,10 +127,6 @@ public class DialogueTrigger : MonoBehaviour
                 else
                 {
                     _dialogueScr.CreateDialogue("Good morning.");
-                    _dialogueScr.CreateDialogue("Lmao I lied bad morning.");
-                    _dialogueScr.CreateDialogue("I actually hate you.");
-                    _dialogueScr.CreateDialogue("You genuinely GENUINELY piss me off.");
-                    _dialogueScr.CreateDialogue("Are you TWELVE.");
                 }
             }
         }
