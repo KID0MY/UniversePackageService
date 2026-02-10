@@ -27,6 +27,7 @@ public class CharacterControl : MonoBehaviour
     public Camera playerCamera;
     public bool canJump;
     public bool isHolding;
+    public bool _cutsceneMovementLock;
     public GameObject questObjectPrefab;
     public GameObject? questObject;
     public QuestManager _questManager;
@@ -52,12 +53,15 @@ public class CharacterControl : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
+        if (!_cutsceneMovementLock)
+        {
+            moveInput = context.ReadValue<Vector2>();
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !_cutsceneMovementLock)
         {
             if (canJump && _questManager._tutorialFlagsCompleted > 0)
             {
@@ -73,7 +77,7 @@ public class CharacterControl : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !_cutsceneMovementLock)
         {
             if (currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interactionLayer) && (currentInteractable.GetComponent<PickUp>() == null || currentPickup == null))
             {

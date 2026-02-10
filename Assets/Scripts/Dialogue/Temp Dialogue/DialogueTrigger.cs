@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class DialogueTrigger : MonoBehaviour
         
     public GameObject dialogueBox;
 
-    public TMPro.TextMeshProUGUI _dialogueText;
+    public Dialogue _dialogueScr;
+
+    public CharacterControl _player;
 
     public GameObject questObjectPrefab;
 
@@ -41,7 +44,14 @@ public class DialogueTrigger : MonoBehaviour
         _hasQuest = true;
         _wantsQuest = false;
         _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
-        _dialogueText = dialogueBox.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+        if (_player == null)
+        {
+            _player = GameObject.Find("Player").GetComponent<CharacterControl>();
+        }
+        if (_dialogueScr == null)
+        {
+            _dialogueScr = dialogueBox.GetComponent<Dialogue>();
+        }
         if (isQuestReceiver)
         {
             if (_planetNum == 0)
@@ -71,35 +81,33 @@ public class DialogueTrigger : MonoBehaviour
             {
                 visualCue.SetActive(false);
             }
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !_player._cutsceneMovementLock)
             {
-                _dialogueText.text = "Good morning.";
-                dialogueBox.SetActive(true);
                 if (_hasQuest && isQuestGiver && _questManager._questList.Count == 0)
                 {
                     GivePackage();
                     Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
-                    _dialogueText.text = "Take this and bring it to " + _questObject._recipient + " on " + _questObject._destination + "\nPress Tab to view details.";
+                    _dialogueScr.CreateDialogue("Take this and bring it to " + _questObject._recipient + " on " + _questObject._destination + "\nPress Tab to view details.");
                 }
-                if (_wantsQuest && _questManager.hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
+                else if (_wantsQuest && _questManager.hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
                 {
-                    GameObject.Find("Player").GetComponent<CharacterControl>().currentPickup.GetComponent<PickUp>().KILLYOURSELF();
+                    _player.currentPickup.GetComponent<PickUp>().KILLYOURSELF();
                     Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
                     if (_questObject._health <= 0 && _questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
                     {
-                        _dialogueText.text = "Not only did you take forever, but everything in here is gone. I'm not paying for this.";
+                        _dialogueScr.CreateDialogue("Not only did you take forever, but everything in here is gone. I'm not paying for this.");
                     }
                     else if (_questObject._health <= 0)
                     {
-                        _dialogueText.text = "All of the contents are destroyed! I'm not paying you for this.";
+                        _dialogueScr.CreateDialogue("All of the contents are destroyed! I'm not paying you for this.");
                     }
                     else if (_questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
                     {
-                        _dialogueText.text = "You took too long! I'm not paying you for this.";
+                        _dialogueScr.CreateDialogue("You took too long! I'm not paying you for this.");
                     }
                     else
                     {
-                        _dialogueText.text = "Thank you!";
+                        _dialogueScr.CreateDialogue("Thank you!");
                     }
                     if (_questManager._tutorialFlagsCompleted <= 7)
                     {
@@ -110,11 +118,19 @@ public class DialogueTrigger : MonoBehaviour
                 }
                 else if (_wantsQuest && GameObject.Find("packagetwo_Updated(Clone)") == null)
                 {
-                    _dialogueText.text = "What do you mean you \"lost\" my package???";
+                    _dialogueScr.CreateDialogue("What do you mean you \"lost\" my package???");
                     Destroy(_questManager._questList[0]);
                     _questManager.hasQuestObject = false;
                     _questManager._questList.RemoveAt(0);
                     _wantsQuest = false;
+                }
+                else
+                {
+                    _dialogueScr.CreateDialogue("Good morning.");
+                    _dialogueScr.CreateDialogue("Lmao I lied bad morning.");
+                    _dialogueScr.CreateDialogue("I actually hate you.");
+                    _dialogueScr.CreateDialogue("You genuinely GENUINELY piss me off.");
+                    _dialogueScr.CreateDialogue("Are you TWELVE.");
                 }
             }
         }
@@ -145,7 +161,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = true;
-            other.transform.parent.GetComponent<CharacterControl>()._isDropDisabled = true;
+            _player._isDropDisabled = true;
         }
     }
 
@@ -154,8 +170,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
-            other.transform.parent.GetComponent<CharacterControl>()._isDropDisabled = false;
-            dialogueBox.SetActive(false);
+            _player._isDropDisabled = false;
         }
     }
 }

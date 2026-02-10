@@ -37,6 +37,7 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         SetupNameList();
+        autoendtutorial();
     }
 
     public void AddActiveQuest(int planet_exclusion) //Creates a quest then adds in to _questList :3
@@ -208,9 +209,14 @@ public class QuestManager : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.L)) //L: automatically end the tutorial
             {
-                _dangerLevel = 1;
-                _tutorialFlagsCompleted = 1000;
+                autoendtutorial();
             }
         }
+    }
+
+    void autoendtutorial() //Just a plaaceholder function for funsies
+    {
+        _dangerLevel = 1;
+        _tutorialFlagsCompleted = 1000;
     }
 }
