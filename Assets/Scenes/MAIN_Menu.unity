@@ -547,6 +547,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1488714606}
     m_Modifications:
+    - target: {fileID: 2434704363141122849, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 218.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434704363141122849, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -96.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520900919582693980, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -242.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6785797217145625346, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -627,14 +639,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7346301573960863364, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -217.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7953899884623760201, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
       propertyPath: m_Name
       value: SettingsUI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953899884623760201, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7953899884623760201, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1289121006}
   m_SourcePrefab: {fileID: 100100000, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
 --- !u!1 &605596217
 GameObject:
@@ -1868,6 +1891,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6785797217145625346, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
   m_PrefabInstance: {fileID: 498672020}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &1289121006
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289121004}
+  m_Enabled: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1305343213
 GameObject:
   m_ObjectHideFlags: 0
