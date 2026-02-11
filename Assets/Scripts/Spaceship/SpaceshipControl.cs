@@ -79,7 +79,7 @@ public class SpaceshipControl : MonoBehaviour
         {
             _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, cameraFOVChange, Time.deltaTime);
             rb.AddForce(rb.transform.forward * moveInput.y * boostMult, ForceMode.Impulse);
-            rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
+            // rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
             timeLossMult = timeLossVal;
         }
         else
@@ -105,7 +105,7 @@ public class SpaceshipControl : MonoBehaviour
         }
         // Translation
         rb.AddForce(rb.transform.forward * moveInput.y * speedMult, ForceMode.VelocityChange);
-        rb.AddForce(rb.transform.right * moveInput.x * speedMult, ForceMode.VelocityChange);
+        // rb.AddForce(rb.transform.right * moveInput.x * speedMult, ForceMode.VelocityChange);
 
         // Rotation from mouse
         // might break later
@@ -118,7 +118,7 @@ public class SpaceshipControl : MonoBehaviour
 
         // Roll
         rb.AddTorque(rb.transform.forward * speedRollMultAngle * rollInput, ForceMode.VelocityChange);
-        
+        /*
         if (moveInput.x != 0 && rollInput == 0 )
         {
             targetRotation = Quaternion.Euler(0.0f, 0.0f, -speedRollMult * moveInput.x);
@@ -127,9 +127,9 @@ public class SpaceshipControl : MonoBehaviour
         {
             targetRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f) ;
         }
-
         shipMesh.transform.localRotation = Quaternion.Lerp(shipMesh.transform.localRotation,targetRotation,Time.deltaTime * 5f);
-    }
+        */
+    }   
 
     private void OnCollisionEnter(Collision collision)
     {
