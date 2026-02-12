@@ -118,17 +118,6 @@ public class SpaceshipControl : MonoBehaviour
 
         // Roll
         rb.AddTorque(rb.transform.forward * speedRollMultAngle * rollInput, ForceMode.VelocityChange);
-        /*
-        if (moveInput.x != 0 && rollInput == 0 )
-        {
-            targetRotation = Quaternion.Euler(0.0f, 0.0f, -speedRollMult * moveInput.x);
-        }
-        else
-        {
-            targetRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f) ;
-        }
-        shipMesh.transform.localRotation = Quaternion.Lerp(shipMesh.transform.localRotation,targetRotation,Time.deltaTime * 5f);
-        */
     }   
 
     private void OnCollisionEnter(Collision collision)
