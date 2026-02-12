@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8641893941606530893, guid: a012b9161554c5045bea3d2775fd9bc6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8641893941606530893, guid: a012b9161554c5045bea3d2775fd9bc6, type: 3}
       propertyPath: m_TagString
@@ -459,10 +459,6 @@ PrefabInstance:
     - target: {fileID: 3156800255084386157, guid: 53cea89193f7ec5429154ae584134aa7, type: 3}
       propertyPath: m_Name
       value: Planet2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3156800255084386157, guid: 53cea89193f7ec5429154ae584134aa7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3156800255084386157, guid: 53cea89193f7ec5429154ae584134aa7, type: 3}
       propertyPath: m_TagString
