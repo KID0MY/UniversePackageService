@@ -19,7 +19,6 @@ public class CharacterControl : MonoBehaviour
 
 
     public float moveSpeed;
-    public float gravVal = -9.2f;
     [SerializeField] float jumpSpeed;
     [SerializeField] private Vector3 interactionRayPoint = default;
     [SerializeField] private float interactionDistance = default;
@@ -127,10 +126,6 @@ public class CharacterControl : MonoBehaviour
             {
                 _questManager.FinishTutorialFlag();
             }
-        }
-        if (!canJump)
-        {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + (gravVal * Time.deltaTime), rb.linearVelocity.z);
         }
         //Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         //rb.AddForce(move * moveSpeed * Time.deltaTime * 100, ForceMode.Force);

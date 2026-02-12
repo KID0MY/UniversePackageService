@@ -145,14 +145,14 @@ public class SpaceshipControl : MonoBehaviour
             }
         }
         
-        //if (moveInput.x != 0 && rollInput == 0 )
-        //{
-        //    targetRotation = Quaternion.Euler(0.0f, 0.0f, -speedRollMult * moveInput.x);
-        //}
-        //else
-        //{
-        //    targetRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f) ;
-        //}
+        if (moveInput.x != 0 && rollInput == 0 )
+        {
+            targetRotation = Quaternion.Euler(0.0f, 0.0f, -speedRollMult * moveInput.x);
+        }
+        else
+        {
+            targetRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f) ;
+        }
 
         shipMesh.transform.localRotation = Quaternion.Lerp(shipMesh.transform.localRotation,targetRotation,Time.deltaTime * 5f);
         if (_questScr != null)

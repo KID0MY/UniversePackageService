@@ -878,59 +878,6 @@ Transform:
   - {fileID: 1733474396}
   m_Father: {fileID: 474614598}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &168671832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 168671834}
-  - component: {fileID: 168671833}
-  m_Layer: 0
-  m_Name: Ramp (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &168671833
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168671832}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.9112277, y: 0.80842453, z: 20.04301}
-  m_Center: {x: -0.24826801, y: -0.095796734, z: -7.994486}
---- !u!4 &168671834
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168671832}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.09695532, y: 0.36184213, z: 0.23997289, w: 0.89559084}
-  m_LocalPosition: {x: -3.33, y: 0.39, z: -5.14}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 44, z: 30}
 --- !u!114 &195188187 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
@@ -1642,7 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c649f305af808284ca6aa5a55e9158fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
-  groundToleranceDist: 1.3
+  groundToleranceDist: 2
   player: {fileID: 195188187}
 --- !u!1 &439796008 stripped
 GameObject:
@@ -11253,59 +11200,6 @@ Transform:
   - {fileID: 772004608}
   m_Father: {fileID: 2074491722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2003008096
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003008098}
-  - component: {fileID: 2003008097}
-  m_Layer: 0
-  m_Name: Ramp (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &2003008097
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003008096}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.9112277, y: 0.80842453, z: 20.04301}
-  m_Center: {x: -0.24826801, y: -0.095796734, z: -7.994486}
---- !u!4 &2003008098
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003008096}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.09695531, y: -0.36184207, z: 0.2399729, w: 0.8955909}
-  m_LocalPosition: {x: -15.07, y: 0.38, z: 17.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -44, z: 30}
 --- !u!1 &2010576524 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 393277362837851841, guid: 26d89f657de2b9b41ba02c9ab5236012, type: 3}
@@ -12523,6 +12417,4 @@ SceneRoots:
   - {fileID: 1630283948}
   - {fileID: 1685759198}
   - {fileID: 751400452}
-  - {fileID: 2003008098}
-  - {fileID: 168671834}
   - {fileID: 1332673481}
