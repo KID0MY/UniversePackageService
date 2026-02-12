@@ -10,10 +10,16 @@ public class CharacterCamera : MonoBehaviour
     [Header("References")]
     public Transform playerBody;
     public Transform cameraBody;   // actual camera
+    public CharacterControl _playerScr;
 
     private Vector2 lookInput;
     private float rollInput;
     private float xRotation = 0f;
+
+    private void Awake()
+    {
+        _playerScr = GetComponent<CharacterControl>();
+    }
 
     // Mode
     private void OnEnable()
@@ -24,14 +30,20 @@ public class CharacterCamera : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        // Detect control scheme
-        if (context.control.device is Mouse)
+        if (!_playerScr._cutsceneMovementLock)
         {
-            lookInput = context.ReadValue<Vector2>() * lookSensitivity;
+            if (context.control.device is Mouse)
+            {
+                lookInput = context.ReadValue<Vector2>() * lookSensitivity;
+            }
+            else if (context.control.device is Gamepad)
+            {
+                lookInput = context.ReadValue<Vector2>() * controllerSensitivity;
+            }
         }
-        else if (context.control.device is Gamepad)
+        else
         {
-            lookInput = context.ReadValue<Vector2>() * controllerSensitivity;
+            lookInput = Vector2.zero;
         }
     }
     
