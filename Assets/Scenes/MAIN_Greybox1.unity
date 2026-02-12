@@ -1350,6 +1350,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 537643732}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350731530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8241573290088051555, guid: a9b323af906b8164296ce041549312b9, type: 3}
+  m_PrefabInstance: {fileID: 1158652698}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fb1e05bf2350e42a8c6af9436d33c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
 --- !u!1 &363359112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,6 +1828,7 @@ MonoBehaviour:
   visualCue: {fileID: 136859583}
   dialogueBox: {fileID: 988503312}
   _dialogueScr: {fileID: 0}
+  _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   name: 
   _planetNum: 0
@@ -2768,6 +2780,7 @@ MonoBehaviour:
   visualCue: {fileID: 1998614834}
   dialogueBox: {fileID: 988503312}
   _dialogueScr: {fileID: 0}
+  _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   name: 
   _planetNum: 0
@@ -5067,10 +5080,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   _player: {fileID: 195188187}
   _timeBetweenLetters: 30
-  _textProgressKey1: 32
-  _textProgressKey2: 271
-  _textSkipKey1: 32
-  _textSkipKey2: 271
 --- !u!1 &991218242
 GameObject:
   m_ObjectHideFlags: 0
@@ -7108,6 +7117,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e265d76b10d5970458751bafff01e587, type: 3}
+--- !u!1 &1332673479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332673481}
+  - component: {fileID: 1332673480}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1332673480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332673479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e7ebc6d99bd724cbc64e8f7c2839ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestManager
+  _money: 0
+  _enableDebug: 0
+  _planetOneRecipientNames: []
+  _planetTwoRecipientNames: []
+  _dialoguer: {fileID: 988503316}
+  _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
+  _dangerLevel: 0
+  _questList: []
+  _questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  _currencyCounter: {fileID: 2089560105}
+  _timePassed: 0
+  hasQuestObject: 0
+  _tutorialFlagsCompleted: 0
+--- !u!4 &1332673481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332673479}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 142.20126, y: 5.33051, z: 2.3366}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1338909266
 GameObject:
   m_ObjectHideFlags: 0
@@ -9406,10 +9472,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5484203328448453167, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: _playerScr
+      value: 
+      objectReference: {fileID: 195188187}
     - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: jumpSpeed
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: currentPickup
+      value: 
+      objectReference: {fileID: 350731530}
     - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: questObjectPrefab
       value: 
@@ -11042,6 +11116,7 @@ MonoBehaviour:
   visualCue: {fileID: 1833905586}
   dialogueBox: {fileID: 988503312}
   _dialogueScr: {fileID: 0}
+  _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   name: fucking clanker
   _planetNum: 0
@@ -11825,6 +11900,17 @@ Transform:
   - {fileID: 115961559}
   m_Father: {fileID: 554195082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2089560105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5274226029274530199, guid: 9c5a442cc8603d94dabc8dbaebf3bba7, type: 3}
+  m_PrefabInstance: {fileID: 1653863742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678e25405ded77c4693aea6dce6ecc08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyCounter
 --- !u!1 &2091080960
 GameObject:
   m_ObjectHideFlags: 0
@@ -12047,3 +12133,4 @@ SceneRoots:
   - {fileID: 1630283948}
   - {fileID: 1685759198}
   - {fileID: 751400452}
+  - {fileID: 1332673481}
