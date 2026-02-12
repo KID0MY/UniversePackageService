@@ -1816,7 +1816,7 @@ MonoBehaviour:
   _questManager: {fileID: 0}
   visualCue: {fileID: 136859583}
   dialogueBox: {fileID: 988503312}
-  _dialogueScr: {fileID: 0}
+  _dialogueText: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   name: 
   _planetNum: 0
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   _questManager: {fileID: 0}
   visualCue: {fileID: 1998614834}
   dialogueBox: {fileID: 988503312}
-  _dialogueScr: {fileID: 0}
+  _dialogueText: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   name: 
   _planetNum: 0
@@ -4793,7 +4793,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Glep glorp beblorp begorpy goopy geeby...
+
+    (Press Tab)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4987,14 +4989,13 @@ GameObject:
   - component: {fileID: 988503313}
   - component: {fileID: 988503315}
   - component: {fileID: 988503314}
-  - component: {fileID: 988503316}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &988503313
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5053,24 +5054,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988503312}
   m_CullTransparentMesh: 1
---- !u!114 &988503316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988503312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7c90b67c751dd49998fd7bcf5f6b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  _player: {fileID: 195188187}
-  _timeBetweenLetters: 30
-  _textProgressKey1: 32
-  _textProgressKey2: 271
-  _textSkipKey1: 32
-  _textSkipKey2: 271
 --- !u!1 &991218242
 GameObject:
   m_ObjectHideFlags: 0
@@ -5992,67 +5975,6 @@ Transform:
   - {fileID: 759536103}
   m_Father: {fileID: 2025111211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1147636633
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1202359514920300682, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: _playerObject
-      value: 
-      objectReference: {fileID: 1434712016}
-    - target: {fileID: 6814004020504171425, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_Name
-      value: P_Minimap
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934622807567879087, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 17c4484e918fbdb4b8b1c34796c07041, type: 3}
 --- !u!1 &1148092098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7235,11 +7157,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1653863743}
   - {fileID: 2067720335}
   - {fileID: 988503313}
   - {fileID: 1367983654}
   - {fileID: 1699619460}
+  - {fileID: 1653863743}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9238,7 +9160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2278819830537022286, guid: 9c5a442cc8603d94dabc8dbaebf3bba7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -360
+      value: 460
       objectReference: {fileID: 0}
     - target: {fileID: 2278819830537022286, guid: 9c5a442cc8603d94dabc8dbaebf3bba7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11041,7 +10963,7 @@ MonoBehaviour:
   _questManager: {fileID: 0}
   visualCue: {fileID: 1833905586}
   dialogueBox: {fileID: 988503312}
-  _dialogueScr: {fileID: 0}
+  _dialogueText: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   name: fucking clanker
   _planetNum: 0
@@ -12041,7 +11963,6 @@ SceneRoots:
   - {fileID: 771819633}
   - {fileID: 871053017}
   - {fileID: 1393091197}
-  - {fileID: 1147636633}
   - {fileID: 1355634763}
   - {fileID: 598414878}
   - {fileID: 1630283948}
