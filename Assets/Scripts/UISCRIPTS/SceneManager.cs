@@ -13,15 +13,8 @@ public class sceneManager_ : MonoBehaviour
     public GameObject pausePanel;
     public bool _questMenuOpen = false;
     public GameObject _questMenu;
-    bool paused = false;
+    bool paused =false;
 
-    public void Start()
-    {
-        if (GameObject.Find("QuestManager") == null) //lmao skill issue
-        {
-            SceneManager.LoadScene("MAIN_Menu");
-        }
-    }
 
     public void Update()
     {
