@@ -21,8 +21,15 @@ public class QuestManager : MonoBehaviour
 
     void Awake() //Makes this node persist between scenes
     {
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
+        if (FindFirstObjectByType<QuestManager>().Equals(this))
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void SetupNameList() //I hate lists
@@ -58,7 +65,7 @@ public class QuestManager : MonoBehaviour
             {
                 int payout = quest._payAmount; //Nothing actually happens with this value.
                 int tips = 50;
-                int time_taken = (int)(quest._startTime - _timePassed);
+                int time_taken = (int)(_timePassed - quest._startTime);
                 if (quest._latenessLeeway > time_taken)
                 {
                     time_taken = 0;

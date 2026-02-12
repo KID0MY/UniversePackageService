@@ -7309,7 +7309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   _money: 0
-  _enableDebug: 0
+  _enableDebug: 1
   _planetOneRecipientNames: []
   _planetTwoRecipientNames: []
   _dialoguer: {fileID: 988503316}
