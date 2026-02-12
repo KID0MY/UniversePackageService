@@ -54,6 +54,7 @@ public class sceneManager_ : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         StartCoroutine(returing());
 
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
@@ -131,12 +132,14 @@ public class sceneManager_ : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.0f;
+            Cursor.visible = true;
             pausePanel.SetActive(true);
         }
         if (!paused)
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
         //if (settingsPanel.activeSelf)
