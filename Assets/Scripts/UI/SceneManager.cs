@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 
 public class sceneManager_ : MonoBehaviour
@@ -149,12 +150,16 @@ public class sceneManager_ : MonoBehaviour
         {
             _questMenu.SetActive(false);
             Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
             _questMenu.SetActive(true);
             _questMenu.GetComponent<QuestListSetter>().SetQuests();
             Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
         _questMenuOpen = !_questMenuOpen;
     }
