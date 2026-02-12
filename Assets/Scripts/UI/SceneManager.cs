@@ -2,18 +2,32 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 
 public class sceneManager_ : MonoBehaviour
 {
     public int currentScene;
     public int newScene;
+
     public string sceneName;
+
     public animations animScript;
+
     public GameObject pausePanel;
+    public GameObject settingsPanel;
+
     public bool _questMenuOpen = false;
     public GameObject _questMenu;
-    bool paused =false;
+    bool paused = false;
+
+    public void Start()
+    {
+        if (GameObject.Find("QuestManager") == null) //lmao skill issue
+        {
+            SceneManager.LoadScene("MAIN_Menu");
+        }
+    }
 
 
     public void Update()
@@ -40,6 +54,7 @@ public class sceneManager_ : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         StartCoroutine(returing());
 
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
@@ -47,8 +62,8 @@ public class sceneManager_ : MonoBehaviour
 
     public void loadNextScene()
     {
-        //animScript.fadeOutAnim();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        animScript.fadeOutAnim();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         StartCoroutine(loadIn());
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
@@ -80,10 +95,26 @@ public class sceneManager_ : MonoBehaviour
     }
     public void loadSettings()
     {
-        Time.timeScale = 1.0f;
-        Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(3);
+        //if we want time to pause in settings
+        Time.timeScale = 0.0f;
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+       
+        settingsPanel.SetActive(true);
+        Debug.Log("Loading Settings");
+
+    }
+    public void closeSettings()
+    {
+        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = false;
+        resetTime();
+    }
+    public void resetTime()
+    {
+        Time.timeScale = 1.0f;
     }
 
     public void resetScene()
@@ -95,19 +126,26 @@ public class sceneManager_ : MonoBehaviour
 
     public void pauseGame()
     {
-        //Debug.Log(paused);
+     
+        Debug.Log(paused);
         if (paused)
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.0f;
+            Cursor.visible = true;
             pausePanel.SetActive(true);
         }
         if (!paused)
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+        //if (settingsPanel.activeSelf)
+        //{
+        //paused = !paused;
+        //}
     }
     public void OpenQuestMenu()
     {
@@ -115,12 +153,16 @@ public class sceneManager_ : MonoBehaviour
         {
             _questMenu.SetActive(false);
             Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
             _questMenu.SetActive(true);
             _questMenu.GetComponent<QuestListSetter>().SetQuests();
             Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
         _questMenuOpen = !_questMenuOpen;
     }

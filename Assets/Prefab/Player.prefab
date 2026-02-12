@@ -202,6 +202,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b63b0bfb-65e5-432c-a0a0-4d051f122a7e
     m_ActionName: 'ShipControl/Boost[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6434e3b3-a529-427b-aa9a-edce1fe3b0a6
+    m_ActionName: 'UI/Tab[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc197dee-0c21-42c1-8708-3853c26cb7c3
+    m_ActionName: 'ShipControl/OpenQuests[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -235,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473fee1fbdb35424c904731f8b15c826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterControl
+  currentPickup: {fileID: 0}
+  _isDropDisabled: 0
   moveSpeed: 10
   jumpSpeed: 15
   interactionRayPoint: {x: 0.5, y: 0.5, z: 0}
@@ -245,6 +255,8 @@ MonoBehaviour:
   playerCamera: {fileID: 7555607926762156329}
   canJump: 1
   isHolding: 0
+  questObjectPrefab: {fileID: 0}
+  questObject: {fileID: 0}
 --- !u!54 &8709244625530757313
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -271,7 +283,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &3693647893506788275
 GameObject:
   m_ObjectHideFlags: 0
