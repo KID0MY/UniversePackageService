@@ -4,7 +4,14 @@ using UnityEngine.SceneManagement;
 public class ShipTransition : Interactable
 {
     public sceneManager_ sceneMan;
+    public QuestManager questManager;
+    public CharacterControl player;
     public bool returnShip;
+    private void Start()
+    {
+        questManager = FindAnyObjectByType<QuestManager>();
+        player = FindAnyObjectByType<CharacterControl>();
+    }
     public override void OnFocus()
     {
 
@@ -12,21 +19,28 @@ public class ShipTransition : Interactable
 
     public override void OnInteract()
     {
-        if (GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
+        if (questManager._tutorialFlagsCompleted > 3)
         {
-            GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = true;
+            if (GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
+            {
+                GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = true;
+            }
+            else
+            {
+                GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = false;
+            }
+            if (!returnShip)
+            {
+                sceneMan.loadNextScene();
+            }
+            else
+            {
+                sceneMan.loadLastScene();
+            }
         }
         else
         {
-            GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = false;
-        }
-        if (!returnShip)
-        {
-            sceneMan.loadNextScene();
-        }
-        else
-        {
-            sceneMan.loadLastScene();
+            player.BlowUpPlayer(this.gameObject);
         }
     }
 

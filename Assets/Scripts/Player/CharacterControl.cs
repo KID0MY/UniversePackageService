@@ -29,6 +29,7 @@ public class CharacterControl : MonoBehaviour
     public bool canJump;
     public bool isHolding;
     public bool _cutsceneMovementLock;
+    public bool isExploding = false;
     public GameObject questObjectPrefab;
     public GameObject? questObject;
     public QuestManager _questManager;
@@ -119,7 +120,10 @@ public class CharacterControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
+        if (!isExploding)
+        {
+            rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
+        }
         if (_timeMoved < 2f && (moveInput != Vector2.zero))
         {
             _timeMoved += Time.deltaTime;
@@ -142,6 +146,9 @@ public class CharacterControl : MonoBehaviour
         if (transform.position.y < -100)
         {
             transform.position = new Vector3(0, 10, 0);
+            transform.rotation = Quaternion.identity;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            isExploding = false;
         }
     }
 
@@ -176,5 +183,12 @@ public class CharacterControl : MonoBehaviour
         {
             GameObject.Find("SceneManager").GetComponent<sceneManager_>().loadSpaceScene();
         }
+    }
+
+    public void BlowUpPlayer(GameObject other)
+    {
+        isExploding = true;
+        rb.AddExplosionForce(100000, other.transform.position, 100000);
+        rb.constraints = RigidbodyConstraints.None;
     }
 }

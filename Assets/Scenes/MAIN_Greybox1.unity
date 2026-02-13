@@ -2780,6 +2780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
   sceneMan: {fileID: 771819632}
+  questManager: {fileID: 0}
+  player: {fileID: 0}
   returnShip: 0
 --- !u!64 &675692413
 MeshCollider:
@@ -6450,6 +6452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship_Interactable Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1880433590647106512, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_text
+      value: '[Theseus]'
+      objectReference: {fileID: 0}
     - target: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -8092,20 +8098,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
   m_PrefabInstance: {fileID: 1685759198}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1434712021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434712016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db1386d18c28f3c4f80be2e03bcb437a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JumpFix
-  fallMult: 2
-  lowJumpMult: 2
 --- !u!1 &1436443671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1821657637406544868, guid: 4a565e38412625b48bb34ea0ff127283, type: 3}
@@ -9550,6 +9542,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 195188187}
     - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: gravVal
+      value: -9.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: jumpSpeed
       value: 25
       objectReference: {fileID: 0}
@@ -9609,9 +9605,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1434712021}
     - targetCorrespondingSourceObject: {fileID: 3693647893506788275, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 408556985}

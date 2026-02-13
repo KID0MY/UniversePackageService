@@ -62,8 +62,8 @@ public class sceneManager_ : MonoBehaviour
 
     public void loadNextScene()
     {
-        animScript.fadeOutAnim();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //animScript.fadeOutAnim();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         StartCoroutine(loadIn());
         Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
