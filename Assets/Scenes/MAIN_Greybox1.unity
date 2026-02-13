@@ -1478,17 +1478,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 537643732}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &350731530 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8241573290088051555, guid: a9b323af906b8164296ce041549312b9, type: 3}
-  m_PrefabInstance: {fileID: 1158652698}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fb1e05bf2350e42a8c6af9436d33c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
 --- !u!1 &363359112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,6 +2762,47 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2951998858234440053, guid: 8982ef5281db4174c9ce9c2da1268bb5, type: 3}
   m_PrefabInstance: {fileID: 1383224569}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &675692408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
+  m_PrefabInstance: {fileID: 1158652698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &675692412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675692408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fb1e05bf2350e42a8c6af9436d33c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
+  sceneMan: {fileID: 771819632}
+  returnShip: 0
+--- !u!64 &675692413
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675692408}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1313756716551015643, guid: 4ee3dbf3cd95a394eb79fc8a897b6cbd, type: 3}
 --- !u!1 &688039755
 GameObject:
   m_ObjectHideFlags: 0
@@ -6420,6 +6450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship_Interactable Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8241573290088051555, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: sceneMan
       value: 
@@ -6468,6 +6502,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 675692412}
+    - targetCorrespondingSourceObject: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 675692413}
     - targetCorrespondingSourceObject: {fileID: 8126404992777700297, guid: a9b323af906b8164296ce041549312b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -9516,7 +9556,7 @@ PrefabInstance:
     - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: currentPickup
       value: 
-      objectReference: {fileID: 350731530}
+      objectReference: {fileID: 0}
     - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: questObjectPrefab
       value: 
