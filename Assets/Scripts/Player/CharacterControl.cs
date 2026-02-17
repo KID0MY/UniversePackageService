@@ -16,6 +16,7 @@ public class CharacterControl : MonoBehaviour
 
     public bool _isDropDisabled = false;
     private float _timeMoved = 0f;
+    private float punishment = 0f;
 
 
     public float moveSpeed;
@@ -149,6 +150,23 @@ public class CharacterControl : MonoBehaviour
             transform.rotation = Quaternion.identity;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             isExploding = false;
+        }
+        if (isExploding == true)
+        {
+            
+            if (punishment > 10f)
+            {
+                transform.position = new Vector3(0, 10, 0);
+                transform.rotation = Quaternion.identity;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+                rb.linearVelocity = Vector3.zero;
+                isExploding = false;
+                punishment = 0f;
+            }
+            else
+            {
+                punishment += Time.deltaTime;
+            }
         }
     }
 

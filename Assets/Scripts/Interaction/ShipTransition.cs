@@ -19,7 +19,7 @@ public class ShipTransition : Interactable
 
     public override void OnInteract()
     {
-        if (questManager._tutorialFlagsCompleted > 3)
+        if (questManager._tutorialFlagsCompleted > 2)
         {
             if (GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
             {
