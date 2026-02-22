@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2593427557630787863}
   - component: {fileID: 3880120388997109175}
   - component: {fileID: 5907407252895855304}
+  - component: {fileID: 4105609133997780214}
   m_Layer: 0
   m_Name: Base_Octa
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f8070bc06b1c324bbc46a8fc164dd27, type: 2}
+  - {fileID: 2100000, guid: ec79a366d87e0c84881598f2a6bd9843, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,3 +90,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4105609133997780214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245367953866684746}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9000715049445351601, guid: cb2bb1b4d55c60c429f714890b10c434, type: 3}

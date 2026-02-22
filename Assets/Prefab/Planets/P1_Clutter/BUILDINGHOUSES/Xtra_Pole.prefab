@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6431926209822562000}
   - component: {fileID: 7349386240550108590}
   - component: {fileID: 1619678446526533118}
+  - component: {fileID: 2370009541371287020}
   m_Layer: 0
   m_Name: Xtra_Pole
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a94e2129614aec74eaf6482371226299, type: 2}
+  - {fileID: 2100000, guid: 918e42aa3bb9dbc42a8888f02978748b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,3 +90,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2370009541371287020
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542657161817162120}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19922145
+  m_Height: 2.5106704
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0793425, z: -0.023888484}

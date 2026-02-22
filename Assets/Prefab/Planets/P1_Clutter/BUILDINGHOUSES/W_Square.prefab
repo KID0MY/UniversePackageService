@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a94e2129614aec74eaf6482371226299, type: 2}
+  - {fileID: 2100000, guid: 7238f7e3ef0e9e54c8d899f4c72f4d47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,6 +98,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3139661269147448020}
+  - component: {fileID: 7436488452283829214}
   m_Layer: 0
   m_Name: W_Square
   m_TagString: Untagged
@@ -121,3 +122,24 @@ Transform:
   - {fileID: 677432465145293770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7436488452283829214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8707744091453339878}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7708261, y: 0.7498708, z: 0.34811473}
+  m_Center: {x: -0.0019387007, y: 0.012794748, z: -0.06524582}

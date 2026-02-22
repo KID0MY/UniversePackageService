@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1687610505670001417}
   - component: {fileID: 1357122846744196797}
   - component: {fileID: 2821398434710025419}
+  - component: {fileID: 8009149996776146368}
   m_Layer: 0
   m_Name: W_Rectangle
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a94e2129614aec74eaf6482371226299, type: 2}
+  - {fileID: 2100000, guid: 7238f7e3ef0e9e54c8d899f4c72f4d47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,3 +90,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8009149996776146368
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3714506972336809544}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.272163, y: 0.73701507, z: 0.31768855}
+  m_Center: {x: 0, y: 0, z: -0.055641036}
