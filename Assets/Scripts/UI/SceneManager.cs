@@ -14,12 +14,14 @@ public class sceneManager_ : MonoBehaviour
 
     public animations animScript;
 
+
     public GameObject pausePanel;
     public GameObject settingsPanel;
 
     public bool _questMenuOpen = false;
     public GameObject _questMenu;
     bool paused = false;
+     bool canPause = true; 
 
     public void Start()
     {
@@ -126,16 +128,23 @@ public class sceneManager_ : MonoBehaviour
 
     public void pauseGame()
     {
-     
+     checkIfSettingActive();
         Debug.Log(paused);
-        if (paused)
+        if (paused&&canPause)
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.0f;
             Cursor.visible = true;
             pausePanel.SetActive(true);
         }
-        if (!paused)
+        if (!paused&&!canPause)
+        {
+            settingsPanel.SetActive(false);
+            Time.timeScale = 1.0f;
+            pausePanel.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }else if (!paused)
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
@@ -207,5 +216,25 @@ public class sceneManager_ : MonoBehaviour
         SceneManager.LoadScene(0);
 
 
+    }
+
+    void checkIfSettingActive()
+    {
+        //temp fix-- will rewrite the pause code later
+        if (settingsPanel.activeInHierarchy)
+        {
+            canPause = false;
+            Debug.Log("Settings panel active");
+           
+        }
+        else
+        {
+            canPause = true;
+            Debug.Log("Settings panel inactive");
+
+
+
+
+        }
     }
 }

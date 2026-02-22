@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 572f481b9cb7a5141ade0a9f006d43cd
+guid: cc6d2ffb2d86d1746a3c16b88b882e86
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button 1_0
+      name: questManagerScreen_0
       rect:
         serializedVersion: 2
-        x: 995
-        y: 1156
-        width: 5210
-        height: 3088
+        x: 474
+        y: 1453
+        width: 6066
+        height: 2252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bb580b27d84ec64ebbc851fef53d797
-      internalID: 1866205311
+      spriteID: 52bff481d69d2cc45bf04a365ff5c3ff
+      internalID: -1952944032
       vertices: []
       indices: 
       edges: []
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      button 1_0: 1866205311
+      questManagerScreen_0: -1952944032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
