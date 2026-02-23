@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 public class animations : MonoBehaviour
 {
-    public Animator anim_; 
-    
+    public Animator anim_;
+    public Animator pauseTextAnim; 
    
     
    public void fadeInAnim()
@@ -13,5 +13,10 @@ public class animations : MonoBehaviour
     public void fadeOutAnim()
     {
         anim_.SetBool("fading",false);
+    }
+
+    public void bounceText()
+    {
+        pauseTextAnim.SetBool("moving", true);
     }
 }
