@@ -11,6 +11,7 @@ TagManager:
   - Planet1
   - ShipDoor
   - ExitDoor
+  - ShipExitNode
   layers:
   - Default
   - TransparentFX
