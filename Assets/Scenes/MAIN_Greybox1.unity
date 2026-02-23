@@ -1754,6 +1754,7 @@ MonoBehaviour:
   questManager: {fileID: 0}
   player: {fileID: 0}
   returnShip: 0
+  _dialogueBox: {fileID: 988503312}
 --- !u!64 &675692413
 MeshCollider:
   m_ObjectHideFlags: 0
