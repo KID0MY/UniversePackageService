@@ -10,6 +10,7 @@ public class ShipTransition : Interactable
     public GameObject _dialogueBox;
     private void Start()
     {
+        _dialogueBox = GameObject.Find("Dialogue");
         questManager = FindAnyObjectByType<QuestManager>();
         player = FindAnyObjectByType<CharacterControl>();
     }
