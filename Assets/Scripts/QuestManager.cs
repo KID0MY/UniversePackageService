@@ -44,7 +44,7 @@ public class QuestManager : MonoBehaviour
     {
         SetupNameList();
         //autoendtutorial();
-        _enableDebug = false;
+        _enableDebug = true;
     }
 
     public void AddActiveQuest(int planet_exclusion) //Creates a quest then adds in to _questList :3
