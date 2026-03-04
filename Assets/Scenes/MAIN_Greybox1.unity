@@ -3187,14 +3187,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.94509804}
+  m_Color: {r: 1, g: 0.9631626, b: 0.91132075, a: 0.94509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1739153913, guid: e4394596ca20f984dae43639510bc46c, type: 3}
+  m_Sprite: {fileID: 1753742552, guid: 139a016cbaca29a419ba2e68e44b03c3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6263,6 +6263,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2132793447679945442, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132793447679945442, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -491
+      objectReference: {fileID: 0}
     - target: {fileID: 2527466385828324211, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
       propertyPath: m_SizeDelta.x
       value: 712.9318
@@ -6338,6 +6346,22 @@ PrefabInstance:
     - target: {fileID: 3782982808647177002, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786340222868385238, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786340222868385238, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 35638fe8616f9ed49a815215ad3a5f1b, type: 3}
+    - target: {fileID: 3786340222868385238, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029866696699807915, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4358878052653644763, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8580,6 +8604,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 771819632}
+    - target: {fileID: 2367867471221935723, guid: 34aba8f1da33fd4458beb79c5d02cc78, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: returnToMain
+      objectReference: {fileID: 0}
     - target: {fileID: 3994925714386317480, guid: 34aba8f1da33fd4458beb79c5d02cc78, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
