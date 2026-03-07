@@ -9,6 +9,7 @@ public abstract class Interactable : MonoBehaviour
     public abstract void OnInteract();
     public abstract void OnFocus();
     public abstract void OnLoseFocus();
+    public abstract void CheckThrow();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

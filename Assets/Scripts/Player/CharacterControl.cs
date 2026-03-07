@@ -85,6 +85,13 @@ public class CharacterControl : MonoBehaviour
     {
         if (context.performed && !_cutsceneMovementLock)
         {
+            if (currentPickup != null && !_isDropDisabled)
+            {
+                currentPickup.CheckThrow();
+            }
+        }
+        if (context.canceled && !_cutsceneMovementLock)
+        {
             if (currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interactionLayer) && (currentInteractable.GetComponent<PickUp>() == null || currentPickup == null))
             {
                 currentInteractable.OnInteract();
