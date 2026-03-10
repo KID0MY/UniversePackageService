@@ -142,7 +142,7 @@ public class QuestManager : MonoBehaviour
             _dialoguer.CreateDialogue("Now I've seen everything.");
             _dialoguer.CreateDialogue("We got a guy who can MOVE and JUMP?");
             _dialoguer.CreateDialogue("Incredible.");
-            _dialoguer.CreateDialogue("Anyway I spawned a package out of thin fucking air.\nJust look at it and press E to pick it up will you?");
+            _dialoguer.CreateDialogue("Anyway I spawned a package out of thin air.\nJust look at it and press E to pick it up will you?");
         }
         else if (_tutorialFlagsCompleted == 3) //Player knows how to pick shit up
         {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5978627302739534313}
   - component: {fileID: 7827135582051167950}
   - component: {fileID: 1791386515353485520}
+  - component: {fileID: 3481789739120338425}
   m_Layer: 0
   m_Name: Elec_AC
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 10b2ce64df0664f449b6bf098c6a28ae, type: 2}
+  - {fileID: 2100000, guid: e0373b30ed9f4fa48bc514ba9958e657, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,3 +90,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3481789739120338425
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539764194737008746}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.690827, y: 1.0046594, z: 1.136602}
+  m_Center: {x: 0.05253023, y: 0.5023297, z: -0.033094823}
