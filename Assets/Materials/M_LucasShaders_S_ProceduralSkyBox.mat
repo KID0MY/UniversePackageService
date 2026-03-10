@@ -22,13 +22,17 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _CellSize: 800
     - _CloudContrast: 2.95
     - _CloudLayers: 7
-    - _NoiseSpeed: 5.74
+    - _NoiseSpeed: 0.47
     - _blendGroundStrength: 1.29
     - _blendSkyStrength: 0.54
     - _powerStrength: 84.67

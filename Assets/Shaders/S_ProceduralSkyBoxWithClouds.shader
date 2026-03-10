@@ -9,27 +9,35 @@ Shader "LucasShaders/S_ProceduralSkyBox"
         _blendGroundStrength("Blending Ground", float) = 0.1
         _powerStrength("Power Strength", float) = 1
         
-        _CellSize ("Cell Size", Range(800,5000)) = 800
+        _CellSize("Cell Size", Range(800,5000)) = 800
         _skyStrength("Sky Strength", float) = 0.1
         _NoiseSpeed("Noise Speed", float) = 0.1
         _CloudContrast("Cloud Contrast", float) = 1.5
-        _CloudLayers("Cloud Layers", float) = 5
+        _CloudLayers("Cloud Layers", Range(1, 8)) = 5
+
+        _BaseMap("Base Map", 2D) = "white" {}
     }
 
     SubShader
     {
         Tags
-        {"RenderType"="Background" "Queue"="Background" "RenderPipeline"="UniversalPipeline" "PreviewType"="Skybox"}
+        {
+            "RenderType"="Background" 
+            "Queue"="Background" 
+            "RenderPipeline"="UniversalPipeline" 
+            "PreviewType"="Skybox"
+        }
 
+        // --- PASS 1: SKY GRADIENT ---
         Pass
         {
             Name "SkyboxGradient"
+            ZWrite Off
+            Cull Off
 
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-
-            // Only required include
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             struct Attributes
@@ -56,20 +64,19 @@ Shader "LucasShaders/S_ProceduralSkyBox"
             {
                 Varyings OUT;
                 OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                float3 posWS = TransformObjectToWorld(IN.positionOS.xyz);
-                OUT.positionWS = posWS;
+                OUT.positionWS = TransformObjectToWorld(IN.positionOS.xyz);
                 return OUT;
             }
 
             half4 WorldGradient(float3 dir)
             {
-                half sky = Smootherstep(0, _blendSkyStrength, dir.y);
-                half ground = Smootherstep(0, _blendGroundStrength, -dir.y);
+                half sky = smoothstep(0, _blendSkyStrength, dir.y);
+                half ground = smoothstep(0, _blendGroundStrength, -dir.y);
 
                 half horizon = 1 - (sky + ground);
                 horizon = pow(saturate(horizon), _powerStrength);
 
-                return  _SkyColor * sky + _HorizonColor * horizon + _BottomColor * ground;
+                return _SkyColor * sky + _HorizonColor * horizon + _BottomColor * ground;
             }
 
             half4 frag(Varyings IN) : SV_Target
@@ -80,33 +87,42 @@ Shader "LucasShaders/S_ProceduralSkyBox"
             ENDHLSL
         }
 
+        // --- PASS 2: CLOUDS ---
         Pass
         {
             Name "Clouds"
-            Blend SrcAlpha OneMinusSrcAlpha   // transparency blending
+            ZWrite Off
+            Cull Off
+            Blend SrcAlpha OneMinusSrcAlpha 
             
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
             #pragma target 3.0
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
-            #include "UnityCG.cginc"
-
+            // Parameters
             float _CellSize;
             float _skyStrength;
             float _NoiseSpeed;
             float _CloudContrast;
             int _CloudLayers;
 
+            TEXTURE2D(_BaseMap);
+            SAMPLER(sampler_BaseMap);
+            float4 _BaseMap_ST;
+
             struct Attributes
             {
-                float4 vertex : POSITION;
+                float4 positionOS : POSITION;
+                float2 uv : TEXCOORD0;
             };
 
             struct Varyings
             {
-                float4 pos : SV_POSITION;
+                float4 positionCS : SV_POSITION;
                 float3 worldPos : TEXCOORD0;
+                float2 uv : TEXCOORD1;
             };
 
             // ---------------- Utility ----------------
@@ -121,24 +137,20 @@ Shader "LucasShaders/S_ProceduralSkyBox"
                 return frac(sin(p) * 43758.5453);
             }
 
-            float easeInOut(float t) { return lerp(t*t, 1-(1-t)*(1-t), t); }
+            float easeInOut(float t) { return t * t * (3.0 - 2.0 * t); }
 
             float perlinNoise(float3 value)
             {
                 float3 fraction = frac(value);
-                float ix = easeInOut(fraction.x);
-                float iy = easeInOut(fraction.y);
-                float iz = easeInOut(fraction.z);
+                float3 i = float3(easeInOut(fraction.x), easeInOut(fraction.y), easeInOut(fraction.z));
 
                 float noiseZ[2];
                 for (int z = 0; z <= 1; z++)
                 {
                     float noiseY[2];
-  
                     for (int y = 0; y <= 1; y++)
                     {
                         float noiseX[2];
-      
                         for (int x = 0; x <= 1; x++)
                         {
                             float3 cell = floor(value) + float3(x, y, z);
@@ -146,12 +158,11 @@ Shader "LucasShaders/S_ProceduralSkyBox"
                             float3 diff = fraction - float3(x, y, z);
                             noiseX[x] = dot(gradient, diff);
                         }
-                        noiseY[y] = lerp(noiseX[0], noiseX[1], ix);
+                        noiseY[y] = lerp(noiseX[0], noiseX[1], i.x);
                     }
-                    noiseZ[z] = lerp(noiseY[0], noiseY[1], iy);
+                    noiseZ[z] = lerp(noiseY[0], noiseY[1], i.y);
                 }
-
-                return lerp(noiseZ[0], noiseZ[1], iz);
+                return lerp(noiseZ[0], noiseZ[1], i.z);
             }
 
             float fbm(float3 p)
@@ -165,40 +176,36 @@ Shader "LucasShaders/S_ProceduralSkyBox"
                     freq *= 2.0;
                     amp *= 0.5;
                 }
-
                 return sum;
             }
-
+            
             // ---------------- Vertex / Fragment ----------------
 
             Varyings vert(Attributes v)
             {
                 Varyings o;
-                o.pos = UnityObjectToClipPos(v.vertex);
-                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+                o.positionCS = TransformObjectToHClip(v.positionOS.xyz);
+                o.worldPos = TransformObjectToWorld(v.positionOS.xyz);
+                o.uv = TRANSFORM_TEX(v.uv, _BaseMap);
                 return o;
             }
 
-            float4 frag(Varyings IN) : SV_Target
+            half4 frag(Varyings IN) : SV_Target
             {
-                // animate noise in X direction
-                float3 animatedPos = IN.worldPos / (_CellSize*2) + float3(_Time.x * _NoiseSpeed, 0, 0);
+                half4 baseTex = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv);
+                
+                // Use _Time.y for continuous movement (seconds)
+                float3 animatedPos = IN.worldPos / (_CellSize * 2) + float3(_Time.y * _NoiseSpeed, 0, 0);
 
-                // multi-octave FBM
                 float noise = fbm(animatedPos);
-
-                // normalize to 0..1
                 noise = saturate(noise * 0.5 + 0.5);
-
-                // make clouds softer/fluffy
                 noise = pow(noise, _CloudContrast);
 
-                // mask by height to fade near horizon
+                // Fade near horizon so clouds aren't in the "ground"
                 float mask = smoothstep(0, _skyStrength, normalize(IN.worldPos).y);
-
-                return half4(1,1,1, noise * mask);
+                
+                return half4(baseTex.rgb, noise * mask * baseTex.a);
             }
-
             ENDHLSL
         }
     }
