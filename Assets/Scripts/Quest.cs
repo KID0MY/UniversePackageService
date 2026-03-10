@@ -46,7 +46,7 @@ public class Quest : MonoBehaviour
             case 0:
                 _questName = "Practice Delivery";
                 _payAmount = 10;
-                _destination = "Planet 1";
+                _destination = "Orbitron";
                 _recipient = transform.parent.GetComponent<QuestManager>()._planetOneRecipientNames[0];
                 _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _damageMultiplier = 0f;
@@ -100,13 +100,13 @@ public class Quest : MonoBehaviour
         switch (_planetIndex)
         {
             case 0:
-                _destination = "Planet 1";
+                _destination = "Orbitron";
                 break;
             case 1:
-                _destination = "Planet 2";
+                _destination = "Drasil";
                 break;
             case 2:
-                _destination = "Planet 1";
+                _destination = "Orbitron";
                 break;
         }
     }
@@ -114,11 +114,11 @@ public class Quest : MonoBehaviour
     public void GenerateRecipient()
     {
         List<string> names = new List<string>();
-        if (_destination == "Planet 1")
+        if (_destination == "Orbitron")
         {
             names = transform.parent.GetComponent<QuestManager>()._planetOneRecipientNames;
         }
-        else if (_destination == "Planet 2")
+        else if (_destination == "Drasil")
         {
             names = transform.parent.GetComponent<QuestManager>()._planetTwoRecipientNames;
         }
