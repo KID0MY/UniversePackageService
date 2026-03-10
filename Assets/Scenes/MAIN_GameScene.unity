@@ -1213,7 +1213,7 @@ MonoBehaviour:
   thrusterClip: {fileID: 8300000, guid: 005c87f9fc517c743a0a2ce6bedbca34, type: 3}
   hit: {fileID: 8300000, guid: 12fa094310aceb5408a581fbdba384fc, type: 3}
   speedMult: 1
-  boostMult: 67
+  boostMult: 3
   speedMultAngle: 0.007
   speedRollMultAngle: 0.05
   _paddingStrength: 3
@@ -2843,7 +2843,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim_: {fileID: 1282717664}
-  pauseTextAnim: {fileID: 0}
 --- !u!95 &1282717664
 Animator:
   serializedVersion: 7
@@ -3955,8 +3954,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 40}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -15, y: 41}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859074395
 MonoBehaviour:
@@ -4005,15 +4004,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
