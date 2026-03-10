@@ -55,9 +55,8 @@ public class PickUp : Interactable
             this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             if (_canBeThrown)
             {
-                transform.rotation = new Quaternion(player.transform.rotation.x, player.transform.rotation.y, player.transform.rotation.z, player.transform.rotation.w);
-                _throwForce = transform.forward * 2000 * _throwTimer;
-                print(_throwForce);
+                transform.rotation = new Quaternion(playerCam.transform.rotation.x, player.transform.rotation.y, 0, player.transform.rotation.w);
+                _throwForce = transform.forward * 1000 * _throwTimer;
                 _throwTimer = 0f;
                 _canBeThrown = false;
                 _body.AddForce(_throwForce);
