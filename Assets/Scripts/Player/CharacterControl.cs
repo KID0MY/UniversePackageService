@@ -15,12 +15,9 @@ public class CharacterControl : MonoBehaviour
     public Interactable currentPickup;
 
     public bool _isDropDisabled = false;
-    private float _timeMoved = 0f;
-    private float punishment = 0f;
 
 
-    public float moveSpeed;
-    public float gravVal = -9.2f;
+    [SerializeField] float moveSpeed;
     [SerializeField] float jumpSpeed;
     [SerializeField] private Vector3 interactionRayPoint = default;
     [SerializeField] private float interactionDistance = default;
@@ -29,11 +26,8 @@ public class CharacterControl : MonoBehaviour
     public Camera playerCamera;
     public bool canJump;
     public bool isHolding;
-    public bool _cutsceneMovementLock;
-    public bool isExploding = false;
     public GameObject questObjectPrefab;
     public GameObject? questObject;
-    public QuestManager _questManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,11 +36,10 @@ public class CharacterControl : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         Cursor.lockState = CursorLockMode.Locked;
-        _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
-        if (_questManager.hasQuestObject)
+        if (GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject)
         {
-            questObject = Instantiate(questObjectPrefab);
-            questObject.GetComponent<PickUp>().OnInteract();
+                questObject = Instantiate(questObjectPrefab);
+                questObject.GetComponent<PickUp>().OnInteract();
         }
         else
         {
@@ -56,35 +49,24 @@ public class CharacterControl : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!_cutsceneMovementLock)
-        {
-            moveInput = context.ReadValue<Vector2>();
-        }
-        else
-        {
-            moveInput = Vector2.zero;
-        }
+        moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && !_cutsceneMovementLock)
+        if (context.performed)
         {
-            if (canJump && _questManager._tutorialFlagsCompleted > 0)
+            if (canJump)
             {
                 rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
                 canJump = false;
-                if (_questManager._tutorialFlagsCompleted == 1)
-                {
-                    _questManager.FinishTutorialFlag();
-                }
             }
         }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed && !_cutsceneMovementLock)
+        if (context.performed)
         {
             if (currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interactionLayer) && (currentInteractable.GetComponent<PickUp>() == null || currentPickup == null))
             {
@@ -94,6 +76,7 @@ public class CharacterControl : MonoBehaviour
             {
                 currentPickup.OnInteract();
             }
+            print(_isDropDisabled);
         }
     }
 
@@ -121,22 +104,7 @@ public class CharacterControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!isExploding)
-        {
-            rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
-        }
-        if (_timeMoved < 2f && (moveInput != Vector2.zero))
-        {
-            _timeMoved += Time.deltaTime;
-            if (_timeMoved >= 2f && _questManager._tutorialFlagsCompleted <= 0)
-            {
-                _questManager.FinishTutorialFlag();
-            }
-        }
-        if (!canJump)
-        {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + (gravVal * Time.deltaTime), rb.linearVelocity.z);
-        }
+        rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
         //Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         //rb.AddForce(move * moveSpeed * Time.deltaTime * 100, ForceMode.Force);
         InteractionCheck();
@@ -144,30 +112,7 @@ public class CharacterControl : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < -100)
-        {
-            transform.position = new Vector3(0, 10, 0);
-            transform.rotation = Quaternion.identity;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-            isExploding = false;
-        }
-        if (isExploding == true)
-        {
-            
-            if (punishment > 10f)
-            {
-                transform.position = new Vector3(0, 10, 0);
-                transform.rotation = Quaternion.identity;
-                rb.constraints = RigidbodyConstraints.FreezeRotation;
-                rb.linearVelocity = Vector3.zero;
-                isExploding = false;
-                punishment = 0f;
-            }
-            else
-            {
-                punishment += Time.deltaTime;
-            }
-        }
+        
     }
 
     public RaycastHit CanDropObject() //Not used lmao
@@ -201,12 +146,5 @@ public class CharacterControl : MonoBehaviour
         {
             GameObject.Find("SceneManager").GetComponent<sceneManager_>().loadSpaceScene();
         }
-    }
-
-    public void BlowUpPlayer(GameObject other)
-    {
-        isExploding = true;
-        rb.AddExplosionForce(100000, other.transform.position, 100000);
-        rb.constraints = RigidbodyConstraints.None;
     }
 }

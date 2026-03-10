@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MAIN_GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/MAIN_Greybox2.unity
+    path: Assets/Scenes/MAIN_Greybox@2.unity
     guid: c45df59e4ff3b2845bd46d6e5e89c0c5
   - enabled: 1
     path: Assets/Scenes/MAIN_InsideShip.unity
