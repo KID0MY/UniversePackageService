@@ -674,7 +674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &135499630
 Transform:
   m_ObjectHideFlags: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135499628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d928a7e049bb75b498a4601cf2470853, type: 3}
   m_Name: 
@@ -724,9 +724,9 @@ MonoBehaviour:
   - {fileID: 3383998030992823320, guid: 0b985d3e2a7944849abbef8c944e6b60, type: 3}
   - {fileID: 4270117402183915417, guid: a3e0c2732b26ab54180a8ca66e9e857c, type: 3}
   - {fileID: 6707333885420314667, guid: bc1953e399bed144082bf1477c03ae36, type: 3}
-  maxRange: 800
-  minRange: -800
-  maxCount: 500
+  maxRange: 2000
+  minRange: -2000
+  maxCount: 800
 --- !u!1 &194355614
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
@@ -14,9 +13,9 @@ public class AsteroidSpawner : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        if (Count < maxCount)
+        while(Count < maxCount)
         {
             SpawnPackage();
             Count++;
@@ -35,9 +34,10 @@ public class AsteroidSpawner : MonoBehaviour
         Collider[] spawnCheck = Physics.OverlapSphere(col.center, col.radius);
 
         Vector3 spawnPoint = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
-
+        Instantiate(rockPrefabs[rockType], spawnPoint, Quaternion.identity);
         if (spawnCheck.Length == 1)
         {
+            Debug.Log("pip");
             Instantiate(rockPrefabs[rockType], spawnPoint, Quaternion.identity);
         }
         

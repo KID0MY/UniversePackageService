@@ -43,7 +43,7 @@ public class ShipTransition : Interactable
         else
         {
             _dialogueBox.GetComponent<Dialogue>().CreateDialogue("There's a time and place for everything, but not now.");
-            //player.BlowUpPlayer(this.gameObject);
+            player.BlowUpPlayer(this.gameObject);
         }
     }
 

@@ -9,13 +9,13 @@ public class Asteroid : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        timer = GameObject.FindFirstObjectByType<Timer>();
+        //timer = GameObject.FindFirstObjectByType<Timer>();
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            timer.timeRemaining -= timeLoss;
+            //timer.timeRemaining -= timeLoss;
             Vector3 colVeliocity = collision.gameObject.GetComponent<Rigidbody>().linearVelocity;
             Vector3 normal = collision.contacts[0].normal;
             Vector3 bounceDir = Vector3.Reflect(colVeliocity.normalized, normal);
