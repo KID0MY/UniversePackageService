@@ -2508,7 +2508,7 @@ MonoBehaviour:
   currentScene: 0
   newScene: 1
   sceneName: 
-  animScript: {fileID: 0}
+  animScript: {fileID: 252160861}
   pausePanel: {fileID: 0}
   settingsPanel: {fileID: 1289121004}
   _questMenuOpen: 0
