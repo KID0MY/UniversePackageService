@@ -62,7 +62,9 @@ public class CharacterControl : MonoBehaviour
         }
         else if (_questManager._tutorialFlagsCompleted == 4)
         {
-            _questManager.FinishTutorialFlag();
+            if (false) {
+                _questManager.FinishTutorialFlag();
+            }
         }
     }
 

@@ -54,10 +54,6 @@ public class SpaceshipControl : MonoBehaviour
         {
             _questScr = _questManager._questList[0].GetComponent<Quest>();
         }
-        if (_questManager._tutorialFlagsCompleted <= 3)
-        {
-            _questManager.FinishTutorialFlag();
-        }
     }
 
     // ---------------- INPUT CALLBACKS ----------------
