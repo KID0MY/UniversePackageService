@@ -49,7 +49,7 @@ public class PickUp : Interactable
             this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //transform.position = hit.point;
         }
-        if (_questManager._tutorialFlagsCompleted < 3)
+        if (_questManager._tutorialFlagsCompleted < 4)
         {
             _questManager.FinishTutorialFlag();
         }

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class sceneManager_ : MonoBehaviour
 {
-    //public int currentScene;
+    public int currentScene;
     public int newScene;
 
     public string sceneName;
@@ -59,35 +59,35 @@ public class sceneManager_ : MonoBehaviour
         Cursor.visible = true;
         StartCoroutine(returing());
 
-        Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+        Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
     }
 
     public void loadNextScene()
     {
         //animScript.fadeOutAnim();
-        //SceneManager.LoadScene(GetCurrentSceneIndex() + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         StartCoroutine(loadIn());
-        Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+        Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
     }
     public void loadLastScene()
     {
         StartCoroutine(loadBack());
-        Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+        Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
     }
     //temp
     public void loadShipScene()
     {
         StartCoroutine(loadShip());
-        Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+        Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
     }
     //temp
     public void loadSpaceScene()
     {
         StartCoroutine(loadSpace());
-        Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+        Debug.Log("Current Build index is " + SceneManager.GetActiveScene().buildIndex);
 
     }
     public void exitGame()
@@ -123,7 +123,7 @@ public class sceneManager_ : MonoBehaviour
     {
         Debug.Log("ResettingScene");
         //for starting the game over again
-        SceneManager.LoadScene(GetCurrentSceneIndex());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void pauseGame()
@@ -179,7 +179,7 @@ public class sceneManager_ : MonoBehaviour
     {
         animScript.anim_.Play("fadeIn",0,0);
         yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene(GetCurrentSceneIndex() + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
          
 
     }
@@ -187,7 +187,7 @@ public class sceneManager_ : MonoBehaviour
     {
         animScript.anim_.Play("fadeIn", 0, 0);
         yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene(GetCurrentSceneIndex() - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
 
     }
@@ -205,7 +205,7 @@ public class sceneManager_ : MonoBehaviour
     {
         animScript.anim_.Play("fadeIn", 0, 0);
         yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene("MAIN_SpaceScene");
+        SceneManager.LoadScene("MAIN_GameScene");
 
 
     }
@@ -216,11 +216,6 @@ public class sceneManager_ : MonoBehaviour
         SceneManager.LoadScene(0);
 
 
-    }
-
-    public int GetCurrentSceneIndex()
-    {
-        return SceneManager.GetActiveScene().buildIndex;
     }
 
     void checkIfSettingActive()
@@ -236,6 +231,10 @@ public class sceneManager_ : MonoBehaviour
         {
             canPause = true;
             Debug.Log("Settings panel inactive");
+
+
+
+
         }
     }
 }

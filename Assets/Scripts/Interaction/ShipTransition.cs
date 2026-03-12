@@ -11,15 +11,9 @@ public class ShipTransition : Interactable
 
     public override void Awake()
     {
-        if (_dialogueBox == null)
-        {
-            _dialogueBox = GameObject.Find("Dialogue");
-        }
+        _dialogueBox = GameObject.Find("Dialogue");
         questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
-        if (player == null)
-        {
-            player = FindAnyObjectByType<CharacterControl>();
-        }
+        player = FindAnyObjectByType<CharacterControl>();
     }
     public override void OnFocus()
     {
@@ -28,11 +22,7 @@ public class ShipTransition : Interactable
 
     public override void OnInteract()
     {
-        if (questManager._tutorialFlagsCompleted == 3 && player.currentPickup == null)
-        {
-            _dialogueBox.GetComponent<Dialogue>().CreateDialogue("I told ya to load the package!");
-        }
-        else if (questManager._tutorialFlagsCompleted > 2)
+        if (questManager._tutorialFlagsCompleted > 2)
         {
             if (GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
             {
@@ -48,12 +38,12 @@ public class ShipTransition : Interactable
             }
             else
             {
-                sceneMan.loadSpaceScene();
+                sceneMan.loadLastScene();
             }
         }
         else
         {
-            _dialogueBox.GetComponent<Dialogue>().CreateDialogue("Leavin' so soon?");
+            _dialogueBox.GetComponent<Dialogue>().CreateDialogue("There's a time and place for everything, but not now.");
             //player.BlowUpPlayer(this.gameObject);
         }
     }
