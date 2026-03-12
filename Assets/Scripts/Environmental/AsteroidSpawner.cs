@@ -34,7 +34,7 @@ public class AsteroidSpawner : MonoBehaviour
         Collider[] spawnCheck = Physics.OverlapSphere(col.center, col.radius);
 
         Vector3 spawnPoint = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
-        Instantiate(rockPrefabs[rockType], spawnPoint, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+        Instantiate(rockPrefabs[rockType], spawnPoint, Quaternion.identity);
         if (spawnCheck.Length == 1)
         {
             Debug.Log("pip");
