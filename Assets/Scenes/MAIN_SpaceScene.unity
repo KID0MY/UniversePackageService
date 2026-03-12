@@ -863,7 +863,7 @@ MonoBehaviour:
   - {fileID: 6707333885420314667, guid: bc1953e399bed144082bf1477c03ae36, type: 3}
   maxRange: 2000
   minRange: -2000
-  maxCount: 2000
+  maxCount: 1000
 --- !u!1 &194355614
 GameObject:
   m_ObjectHideFlags: 0
