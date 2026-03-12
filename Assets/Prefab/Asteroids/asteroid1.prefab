@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bf902ad5e2e844482e6ac8dcf2f0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orbit
-  targetFrameRate: 60
+  targetFrameRate: 120
 --- !u!54 &-3004530632779948568
 Rigidbody:
   m_ObjectHideFlags: 0

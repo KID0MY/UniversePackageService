@@ -844,7 +844,7 @@ MonoBehaviour:
   - {fileID: 7613171290797924950, guid: f501b9b143250534ba070ec415d22326, type: 3}
   maxRange: 1000
   minRange: -1000
-  maxCount: 10000
+  maxCount: 0
 --- !u!114 &135499632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +863,7 @@ MonoBehaviour:
   - {fileID: 6707333885420314667, guid: bc1953e399bed144082bf1477c03ae36, type: 3}
   maxRange: 2000
   minRange: -2000
-  maxCount: 800
+  maxCount: 2000
 --- !u!1 &194355614
 GameObject:
   m_ObjectHideFlags: 0
