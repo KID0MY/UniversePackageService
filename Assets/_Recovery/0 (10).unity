@@ -2505,7 +2505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf167872956026b4d9f01fa2a6659065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::sceneManager_
-  currentScene: 0
   newScene: 1
   sceneName: 
   animScript: {fileID: 252160861}
@@ -3047,7 +3046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf167872956026b4d9f01fa2a6659065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::sceneManager_
-  currentScene: 0
   newScene: 0
   sceneName: 
   animScript: {fileID: 252160861}
