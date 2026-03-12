@@ -8,10 +8,11 @@ public class ShipTransition : Interactable
     public CharacterControl player;
     public bool returnShip;
     public GameObject _dialogueBox;
-    private void Start()
+
+    public override void Awake()
     {
         _dialogueBox = GameObject.Find("Dialogue");
-        questManager = FindAnyObjectByType<QuestManager>();
+        questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
         player = FindAnyObjectByType<CharacterControl>();
     }
     public override void OnFocus()
@@ -43,7 +44,7 @@ public class ShipTransition : Interactable
         else
         {
             _dialogueBox.GetComponent<Dialogue>().CreateDialogue("There's a time and place for everything, but not now.");
-            player.BlowUpPlayer(this.gameObject);
+            //player.BlowUpPlayer(this.gameObject);
         }
     }
 

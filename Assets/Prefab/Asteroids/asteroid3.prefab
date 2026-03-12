@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1293550077803471819}
   - component: {fileID: 2659896000550620700}
   - component: {fileID: -2544743724220411678}
+  - component: {fileID: -7142231339768486177}
+  - component: {fileID: 3505162058392496960}
   m_Layer: 0
   m_Name: asteroid3
   m_TagString: Untagged
@@ -150,3 +152,43 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.85
   m_Center: {x: 0.10233027, y: 0.011613846, z: -0.17895985}
+--- !u!114 &-7142231339768486177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707333885420314667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bf902ad5e2e844482e6ac8dcf2f0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orbit
+  targetFrameRate: 60
+--- !u!54 &3505162058392496960
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707333885420314667}
+  serializedVersion: 5
+  m_Mass: 10
+  m_LinearDamping: 5
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
