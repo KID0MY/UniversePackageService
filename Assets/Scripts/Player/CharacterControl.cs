@@ -80,7 +80,7 @@ public class CharacterControl : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && !_cutsceneMovementLock)
+        if (context.performed && !_cutsceneMovementLock && canJump)
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             canJump = false;
