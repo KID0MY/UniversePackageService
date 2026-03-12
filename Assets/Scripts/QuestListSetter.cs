@@ -5,10 +5,15 @@ public class QuestListSetter : MonoBehaviour
 {
     public GameObject _slot1;
     public QuestManager _manager;
+    public CharacterControl _player;
 
     void Start()
     {
         _manager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
+        if (_player == null)
+        {
+            _player = GameObject.Find("Player").GetComponent<CharacterControl>();
+        }
     }
 
     void Update()
@@ -41,7 +46,11 @@ public class QuestListSetter : MonoBehaviour
                     _status.GetComponent<TMPro.TextMeshProUGUI>().text = "Status: Damaged";
                 }
             }
-            else if (GameObject.Find("Player").GetComponent<CharacterControl>().currentPickup != null)
+            else if (_player == null)
+            {
+                _status.GetComponent<TMPro.TextMeshProUGUI>().text = "Status: Lost";
+            }
+            else if (_player.currentPickup != null)
             {
                 _status.GetComponent<TMPro.TextMeshProUGUI>().text = "Status: Held";
             }
