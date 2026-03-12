@@ -8,13 +8,14 @@ public class ShipTransition : Interactable
     public CharacterControl player;
     public bool returnShip;
     public GameObject _dialogueBox;
-    private void Start()
+
+    public override void Awake()
     {
         if (_dialogueBox == null)
         {
             _dialogueBox = GameObject.Find("Dialogue");
         }
-        questManager = FindAnyObjectByType<QuestManager>();
+        questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
         if (player == null)
         {
             player = FindAnyObjectByType<CharacterControl>();
