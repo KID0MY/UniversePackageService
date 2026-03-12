@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class sceneManager_ : MonoBehaviour
 {
-    public int currentScene;
+    //public int currentScene;
     public int newScene;
 
     public string sceneName;
@@ -205,7 +205,7 @@ public class sceneManager_ : MonoBehaviour
     {
         animScript.anim_.Play("fadeIn", 0, 0);
         yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene("MAIN_GameScene");
+        SceneManager.LoadScene("MAIN_SpaceScene");
 
 
     }

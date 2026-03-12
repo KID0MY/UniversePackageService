@@ -38,11 +38,6 @@ public class SpaceshipControl : MonoBehaviour
     public QuestManager _questManager;
     public Quest _questScr;
     float _speedLastFrame;
-    private float _timeMoved;
-    private float _timeRolled;
-
-
-
 
     private void Awake()
     {
@@ -75,7 +70,6 @@ public class SpaceshipControl : MonoBehaviour
     public void OnRoll(InputAction.CallbackContext context)
     {
         rollInput = context.ReadValue<float>();
-        _timeRolled += Time.deltaTime;
     }
 
     public void OnBoost(InputAction.CallbackContext context)
@@ -86,16 +80,12 @@ public class SpaceshipControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isBoosting && (moveInput.x != 0 || moveInput.y != 0) && _questManager._tutorialFlagsCompleted >= 6)
+        if (isBoosting && (moveInput.x != 0 || moveInput.y != 0))
         {
             _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, cameraFOVChange, Time.deltaTime);
             rb.AddForce(rb.transform.forward * moveInput.y * boostMult, ForceMode.Impulse);
             // rb.AddForce(rb.transform.right * moveInput.x * boostMult, ForceMode.Impulse);
             timeLossMult = timeLossVal;
-            if (_questManager._tutorialFlagsCompleted <= 6)
-            {
-                _questManager.FinishTutorialFlag();
-            }
         }
         else
         {
@@ -111,10 +101,6 @@ public class SpaceshipControl : MonoBehaviour
             isMoving = true;
             BoosterLeft.Play();
             BoosterRight.Play();
-        }
-        if (_questManager._tutorialFlagsCompleted <= 4 && isMoving)
-        {
-            _timeMoved += Time.deltaTime;
         }
         if (moveInput.y == 0 && moveInput.x ==0)
         {
@@ -136,14 +122,7 @@ public class SpaceshipControl : MonoBehaviour
 
 
         // Roll
-        if (_questManager._tutorialFlagsCompleted >= 5)
-        {
-            rb.AddTorque(rb.transform.forward * speedRollMultAngle * rollInput, ForceMode.VelocityChange);
-            if (rollInput != 0 && _questManager._tutorialFlagsCompleted <= 5)
-            {
-                _timeRolled += Time.deltaTime;
-            }
-        }
+        rb.AddTorque(rb.transform.forward * speedRollMultAngle * rollInput, ForceMode.VelocityChange);
         
         //if (moveInput.x != 0 && rollInput == 0 )
         //{
@@ -170,14 +149,6 @@ public class SpaceshipControl : MonoBehaviour
             }
             _speedLastFrame = _speed;
         }
-        if (_questManager._tutorialFlagsCompleted <= 4 && _timeMoved >= 4)
-        {
-            _questManager.FinishTutorialFlag();
-        }
-        else if (_questManager._tutorialFlagsCompleted <= 5 && _timeRolled >= 2)
-        {
-            _questManager.FinishTutorialFlag();
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -194,28 +165,13 @@ public class SpaceshipControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        float invalidPlanetPushbackValue = 100000f;
         if (other.gameObject.CompareTag("Planet1"))
         {
-            if (_questManager._tutorialFlagsCompleted >= 7)
-            {
-                sceneMan.loadLastScene();
-            }
-            else
-            {
-                rb.AddExplosionForce(invalidPlanetPushbackValue, other.gameObject.transform.position, invalidPlanetPushbackValue); //I just wanted to fucking kill the player in real life if they try to go to a planet before they're supposed to but i didn't know how to do that so this was the next best alternative, anyway this should probably be fixed because just giving the player complete whiplash for going to a planet too quickly might actually be a bad idea i'm not sure don't quote me on this one.
-            }
+            sceneMan.loadLastScene();
         }
         else if (other.gameObject.CompareTag("Planet2"))
         {
-            if (_questManager._tutorialFlagsCompleted >= 7)
-            {
-                sceneMan.loadNextScene();
-            }
-            else
-            {
-                rb.AddExplosionForce(invalidPlanetPushbackValue, other.gameObject.transform.position, invalidPlanetPushbackValue);
-            }
+            sceneMan.loadNextScene();
         }
     }
 }

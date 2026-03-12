@@ -21,7 +21,11 @@ public class ShipTransition : Interactable
 
     public override void OnInteract()
     {
-        if (questManager._tutorialFlagsCompleted > 2)
+        if (questManager._tutorialFlagsCompleted == 3 && player.currentPickup == null)
+        {
+            _dialogueBox.GetComponent<Dialogue>().CreateDialogue("I told ya to load the package!");
+        }
+        else if (questManager._tutorialFlagsCompleted > 2)
         {
             if (GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
             {
@@ -42,7 +46,7 @@ public class ShipTransition : Interactable
         }
         else
         {
-            _dialogueBox.GetComponent<Dialogue>().CreateDialogue("There's a time and place for everything, but not now.");
+            _dialogueBox.GetComponent<Dialogue>().CreateDialogue("Leavin' so soon?");
             player.BlowUpPlayer(this.gameObject);
         }
     }

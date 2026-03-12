@@ -81,7 +81,7 @@ public class DialogueTrigger : MonoBehaviour
             {
                 visualCue.SetActive(false);
             }
-            if (Input.GetKeyDown(KeyCode.E) && !_player._cutsceneMovementLock && _questManager._tutorialFlagsCompleted >= 7)
+            if (Input.GetKeyDown(KeyCode.E) && !_player._cutsceneMovementLock && _questManager._tutorialFlagsCompleted >= 5)
             {
                 if (_hasQuest && isQuestGiver && _questManager._questList.Count == 0)
                 {
@@ -109,7 +109,7 @@ public class DialogueTrigger : MonoBehaviour
                     {
                         _dialogueScr.CreateDialogue("Thank you!");
                     }
-                    if (_questManager._tutorialFlagsCompleted <= 7)
+                    if (_questManager._tutorialFlagsCompleted <= 5)
                     {
                         _questManager.FinishTutorialFlag();
                     }

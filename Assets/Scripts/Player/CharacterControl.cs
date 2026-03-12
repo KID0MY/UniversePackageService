@@ -15,7 +15,7 @@ public class CharacterControl : MonoBehaviour
     public Interactable currentPickup;
 
     public bool _isDropDisabled = false;
-    private float _timeMoved = 0f;
+    //private float _timeMoved = 0f; Originally used to track tutorial stuff but due to altering how the tutorial works this doesnt need to exist
     private float punishment = 0f;
 
 
@@ -54,6 +54,20 @@ public class CharacterControl : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (_questManager._tutorialFlagsCompleted <= 0)
+        {
+            _questManager.FinishTutorialFlag();
+        }
+        else if (_questManager._tutorialFlagsCompleted == 4)
+        {
+            if (false) {
+                _questManager.FinishTutorialFlag();
+            }
+        }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!_cutsceneMovementLock)
@@ -70,15 +84,8 @@ public class CharacterControl : MonoBehaviour
     {
         if (context.performed && !_cutsceneMovementLock)
         {
-            if (canJump && _questManager._tutorialFlagsCompleted > 0)
-            {
-                rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-                canJump = false;
-                if (_questManager._tutorialFlagsCompleted == 1)
-                {
-                    _questManager.FinishTutorialFlag();
-                }
-            }
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            canJump = false;
         }
     }
 
@@ -125,14 +132,14 @@ public class CharacterControl : MonoBehaviour
         {
             rb.linearVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveSpeed, rb.linearVelocity.y, moveInput.y * moveSpeed));
         }
-        if (_timeMoved < 2f && (moveInput != Vector2.zero))
-        {
-            _timeMoved += Time.deltaTime;
-            if (_timeMoved >= 2f && _questManager._tutorialFlagsCompleted <= 0)
-            {
-                _questManager.FinishTutorialFlag();
-            }
-        }
+        //if (_timeMoved < 2f && (moveInput != Vector2.zero))
+        //{
+        //    _timeMoved += Time.deltaTime;
+        //    if (_timeMoved >= 2f && _questManager._tutorialFlagsCompleted <= 0)
+        //    {
+        //        _questManager.FinishTutorialFlag();
+        //    }
+        //}
         if (!canJump)
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + (gravVal * Time.deltaTime), rb.linearVelocity.z);
@@ -203,6 +210,16 @@ public class CharacterControl : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.name == "Office_Trigger")
+        {
+            if (_questManager._tutorialFlagsCompleted <= 1)
+            {
+                _questManager.FinishTutorialFlag();
+            }
+        }
+    }
     public void BlowUpPlayer(GameObject other)
     {
         isExploding = true;

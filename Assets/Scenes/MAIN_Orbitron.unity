@@ -1733,50 +1733,6 @@ Transform:
   - {fileID: 237429142}
   m_Father: {fileID: 1293305089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &675692408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
-  m_PrefabInstance: {fileID: 1158652698}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &675692412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675692408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fb1e05bf2350e42a8c6af9436d33c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
-  sceneMan: {fileID: 771819632}
-  questManager: {fileID: 0}
-  player: {fileID: 0}
-  returnShip: 0
-  _dialogueBox: {fileID: 988503312}
---- !u!64 &675692413
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675692408}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1313756716551015643, guid: 4ee3dbf3cd95a394eb79fc8a897b6cbd, type: 3}
 --- !u!1 &688039755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,7 +2989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: -19}
+  m_AnchoredPosition: {x: -15, y: 10}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973226893
@@ -3066,7 +3022,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3083,8 +3039,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 98.41
-  m_fontSizeBase: 98.41
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4004,12 +3960,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 675692412}
-    - targetCorrespondingSourceObject: {fileID: 5739591474911446231, guid: a9b323af906b8164296ce041549312b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 675692413}
     - targetCorrespondingSourceObject: {fileID: 8126404992777700297, guid: a9b323af906b8164296ce041549312b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
