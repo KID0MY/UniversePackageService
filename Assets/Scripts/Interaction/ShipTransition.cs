@@ -10,9 +10,15 @@ public class ShipTransition : Interactable
     public GameObject _dialogueBox;
     private void Start()
     {
-        _dialogueBox = GameObject.Find("Dialogue");
+        if (_dialogueBox == null)
+        {
+            _dialogueBox = GameObject.Find("Dialogue");
+        }
         questManager = FindAnyObjectByType<QuestManager>();
-        player = FindAnyObjectByType<CharacterControl>();
+        if (player == null)
+        {
+            player = FindAnyObjectByType<CharacterControl>();
+        }
     }
     public override void OnFocus()
     {
@@ -41,13 +47,13 @@ public class ShipTransition : Interactable
             }
             else
             {
-                sceneMan.loadLastScene();
+                sceneMan.loadSpaceScene();
             }
         }
         else
         {
             _dialogueBox.GetComponent<Dialogue>().CreateDialogue("Leavin' so soon?");
-            player.BlowUpPlayer(this.gameObject);
+            //player.BlowUpPlayer(this.gameObject);
         }
     }
 
