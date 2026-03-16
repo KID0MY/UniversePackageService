@@ -44,7 +44,7 @@ public class ShipTransition : Interactable
             }
             if (!returnShip)
             {
-                sceneMan.loadNextScene();
+                sceneMan.loadSpaceScene();
             }
             else
             {

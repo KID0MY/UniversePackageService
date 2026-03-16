@@ -6900,6 +6900,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 233356417398222047, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 277439735868745774, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 524019895826209348, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: m_Name
       value: Ship_Interactable Variant
@@ -6920,6 +6928,10 @@ PrefabInstance:
       propertyPath: m_text
       value: '[Theseus]'
       objectReference: {fileID: 0}
+    - target: {fileID: 1925614697472837875, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5505738207772137214, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -6932,9 +6944,17 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6718020991884368464, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7043550927608348465, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053359969494024078, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8126404992777700297, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7006,10 +7026,59 @@ PrefabInstance:
     - {fileID: 7990703903772346743, guid: a9b323af906b8164296ce041549312b9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 277439735868745774, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257443408}
+    - targetCorrespondingSourceObject: {fileID: 277439735868745774, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257443409}
     - targetCorrespondingSourceObject: {fileID: 8126404992777700297, guid: a9b323af906b8164296ce041549312b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a9b323af906b8164296ce041549312b9, type: 3}
+--- !u!1 &1257443407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 277439735868745774, guid: a9b323af906b8164296ce041549312b9, type: 3}
+  m_PrefabInstance: {fileID: 1257443406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1257443408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257443407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fb1e05bf2350e42a8c6af9436d33c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
+  sceneMan: {fileID: 725677682}
+  questManager: {fileID: 0}
+  player: {fileID: 0}
+  returnShip: 0
+  _dialogueBox: {fileID: 1877191774}
+--- !u!65 &1257443409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257443407}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.61616, y: 2.5942273, z: 7.85771}
+  m_Center: {x: -0.091361284, y: 0.21089101, z: -0.19920826}
 --- !u!1 &1284304456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2631439222664692431, guid: 9f527e2f918fdf14085a9ccce0c83a55, type: 3}
