@@ -34,6 +34,8 @@ public class QuestManager : MonoBehaviour
 
     private void SetupNameList() //I hate lists
     {
+        _planetOneRecipientNames.Clear();
+        _planetTwoRecipientNames.Clear();
         _planetOneRecipientNames.Add("Chrome");
         _planetOneRecipientNames.Add("Vanada");
         _planetTwoRecipientNames.Add("Orchid");
