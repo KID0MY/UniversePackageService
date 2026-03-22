@@ -36,6 +36,8 @@ public class Dialogue : MonoBehaviour
         _dialogueText.text = _currentText;
         if ((Input.GetKeyDown(_textProgressKey1) || Input.GetKeyDown(_textProgressKey2)) && _canProgress)
         {
+
+            audioManager.Instance.PlaySFX("UI-Select/ContinueDialogue");
             if (_textQueue.Count == 0)
             {
                 if (_player != null)

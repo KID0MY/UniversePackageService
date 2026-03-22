@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 
 [System.Serializable]
-public class Sound : MonoBehaviour
+public class Sound
 {
-    public string name;
+    public string nameClip;
     public AudioClip clip;
 }

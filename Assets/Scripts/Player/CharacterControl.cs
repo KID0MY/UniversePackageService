@@ -84,6 +84,7 @@ public class CharacterControl : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             canJump = false;
+            audioManager.Instance.PlaySFX("Jump");
         }
     }
 
