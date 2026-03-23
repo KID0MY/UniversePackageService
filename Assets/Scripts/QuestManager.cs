@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
     public Dialogue _dialoguer;
     public GameObject _questPrefab;
     public int _dangerLevel;
-    public List<GameObject> _questList = new List<GameObject>();
+    public List<Quest> _questList = new List<Quest>();
     public GameObject _questObjectPrefab;
     public CurrencyCounter _currencyCounter;
     public float _timePassed = 0f;
@@ -21,7 +21,7 @@ public class QuestManager : MonoBehaviour
 
     void Awake() //Makes this node persist between scenes
     {
-        if (FindFirstObjectByType<QuestManager>().Equals(this))
+        if (_instance == null)
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
@@ -45,8 +45,8 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         SetupNameList();
-        //autoendtutorial();
-        _enableDebug = false;
+        autoendtutorial();
+        _enableDebug = true;
     }
 
     public void AddActiveQuest(int planet_exclusion) //Creates a quest then adds in to _questList :3
@@ -56,15 +56,15 @@ public class QuestManager : MonoBehaviour
         child.transform.parent = transform;
         child.GetComponent<Quest>()._dangerLevel = _dangerLevel;
         child.GetComponent<Quest>()._startTime = _timePassed;
-        _questList.Add(child);
-        _questList[_questList.Count - 1].GetComponent<Quest>().GenerateRandomQuest(planet_exclusion);
+        _questList.Add(child.GetComponent<Quest>());
+        _questList[_questList.Count - 1].GenerateRandomQuest(planet_exclusion);
     }
 
     public void FinishActiveQuest(Quest quest)
     {
         for (int x = 0; x < _questList.Count; x++)
         {
-            if (_questList[x].GetComponent<Quest>() == quest)
+            if (_questList[x] == quest)
             {
                 int payout = quest._payAmount; //Nothing actually happens with this value.
                 int tips = 50;
@@ -118,9 +118,9 @@ public class QuestManager : MonoBehaviour
     {
         for (int x = 0; x < _questList.Count; x++)
         {
-            if (_questList[x].GetComponent<Quest>()._recipient == recipient)
+            if (_questList[x]._recipient == recipient)
             {
-                return _questList[x].GetComponent<Quest>();
+                return _questList[x];
             }
         }
         return null;
@@ -207,7 +207,7 @@ public class QuestManager : MonoBehaviour
             {
                 if (_questList.Count > 0)
                 {
-                    FinishActiveQuest(_questList[0].GetComponent<Quest>());
+                    FinishActiveQuest(_questList[0]);
                 }
                 AddActiveQuest(-1);
             }
