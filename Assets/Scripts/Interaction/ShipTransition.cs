@@ -62,4 +62,9 @@ public class ShipTransition : Interactable
     {
 
     }
+
+    public override void CheckThrow()
+    {
+        
+    }
 }
