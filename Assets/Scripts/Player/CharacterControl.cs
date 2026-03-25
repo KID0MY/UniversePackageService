@@ -75,19 +75,25 @@ public class CharacterControl : MonoBehaviour
         if (!_cutsceneMovementLock)
         {
             moveInput = context.ReadValue<Vector2>();
-            Bodyanimator.SetBool("Is Walk", false);
+            Bodyanimator.SetBool("Is Walk", true);
+            Bodyanimator.SetBool("Is Idle", false);
         }
         else
         {
             moveInput = Vector2.zero;
-            Bodyanimator.SetBool("Is Walk", true);
+            Bodyanimator.SetBool("Is Walk", false);
+            Bodyanimator.SetBool("Is Idle", true);
         }
+
+        
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed && !_cutsceneMovementLock && canJump)
         {
+            Bodyanimator.SetBool("Is Walk", false);
+            Bodyanimator.SetBool("Is Idle", true);
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             canJump = false;
             audioManager.Instance.PlaySFX("Jump");

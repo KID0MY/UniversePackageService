@@ -21,7 +21,10 @@ public class sceneManager_ : MonoBehaviour
     public bool _questMenuOpen = false;
     public GameObject _questMenu;
     bool paused = false;
-     bool canPause = true; 
+     bool canPause = true;
+
+    int currentIndex = SceneManager.GetActiveScene().buildIndex;
+
 
     public void Start()
     {
@@ -68,6 +71,28 @@ public class sceneManager_ : MonoBehaviour
         //SceneManager.LoadScene(GetCurrentSceneIndex() + 1);
         StartCoroutine(loadIn());
         Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+
+        if (currentIndex == 0)
+        {
+            audioManager.Instance.PlayMusic("MainSpaceTheme");
+        }
+        else if (currentIndex == 1)
+        {
+            audioManager.Instance.PlayMusic("MainSpaceTheme");
+        }
+        else if(currentIndex == 2)
+         {
+            audioManager.Instance.PlayMusic("MainSpaceTheme");
+        }
+        else if (currentIndex == 3)
+        {
+            audioManager.Instance.PlayMusic("DrasilTheme");
+        }
+        else if (currentIndex == 4)
+        {
+            audioManager.Instance.PlayMusic("OrbitronTheme");
+        }
+
 
     }
     public void loadLastScene()
