@@ -35,6 +35,10 @@ public class CharacterControl : MonoBehaviour
     public GameObject? questObject;
     public QuestManager _questManager;
 
+    public Animator Bodyanimator;
+
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -71,10 +75,12 @@ public class CharacterControl : MonoBehaviour
         if (!_cutsceneMovementLock)
         {
             moveInput = context.ReadValue<Vector2>();
+            Bodyanimator.SetBool("Is Walk", false);
         }
         else
         {
             moveInput = Vector2.zero;
+            Bodyanimator.SetBool("Is Walk", true);
         }
     }
 
@@ -84,6 +90,7 @@ public class CharacterControl : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             canJump = false;
+            audioManager.Instance.PlaySFX("Jump");
         }
     }
 
