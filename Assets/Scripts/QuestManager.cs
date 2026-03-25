@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
     public Dialogue _dialoguer;
     public GameObject _questPrefab;
     public int _dangerLevel;
-    public List<GameObject> _questList = new List<GameObject>();
+    public List<Quest> _questList = new List<Quest>();
     public GameObject _questObjectPrefab;
     public CurrencyCounter _currencyCounter;
     public float _timePassed = 0f;
@@ -21,7 +21,7 @@ public class QuestManager : MonoBehaviour
 
     void Awake() //Makes this node persist between scenes
     {
-        if (FindFirstObjectByType<QuestManager>().Equals(this))
+        if (_instance == null)
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
@@ -34,6 +34,8 @@ public class QuestManager : MonoBehaviour
 
     private void SetupNameList() //I hate lists
     {
+        _planetOneRecipientNames.Clear();
+        _planetTwoRecipientNames.Clear();
         _planetOneRecipientNames.Add("Chrome");
         _planetOneRecipientNames.Add("Vanada");
         _planetTwoRecipientNames.Add("Orchid");
@@ -54,15 +56,15 @@ public class QuestManager : MonoBehaviour
         child.transform.parent = transform;
         child.GetComponent<Quest>()._dangerLevel = _dangerLevel;
         child.GetComponent<Quest>()._startTime = _timePassed;
-        _questList.Add(child);
-        _questList[_questList.Count - 1].GetComponent<Quest>().GenerateRandomQuest(planet_exclusion);
+        _questList.Add(child.GetComponent<Quest>());
+        _questList[_questList.Count - 1].GenerateRandomQuest(planet_exclusion);
     }
 
     public void FinishActiveQuest(Quest quest)
     {
         for (int x = 0; x < _questList.Count; x++)
         {
-            if (_questList[x].GetComponent<Quest>() == quest)
+            if (_questList[x] == quest)
             {
                 int payout = quest._payAmount; //Nothing actually happens with this value.
                 int tips = 50;
@@ -116,9 +118,9 @@ public class QuestManager : MonoBehaviour
     {
         for (int x = 0; x < _questList.Count; x++)
         {
-            if (_questList[x].GetComponent<Quest>()._recipient == recipient)
+            if (_questList[x]._recipient == recipient)
             {
-                return _questList[x].GetComponent<Quest>();
+                return _questList[x];
             }
         }
         return null;
@@ -129,41 +131,41 @@ public class QuestManager : MonoBehaviour
         _tutorialFlagsCompleted++;
         if (_tutorialFlagsCompleted == 1) //First thing in the morning
         {
-            _dialoguer.CreateDialogue("G’doy matey, an’ welcome t’yer first day at Universal Parcel Service.");
-            _dialoguer.CreateDialogue("Ye’ll be expected t’deliver packages t’our customers, an’ yer gonna do it well. Got it?");
-            _dialoguer.CreateDialogue("So, I’m in charge o’ onboarding an’ all that. First though, I’m gonna need ya t’come t’my office, ‘kay?");
+            _dialoguer.CreateDialogue("Gâ€™doy matey, anâ€™ welcome tâ€™yer first day at Universal Parcel Service.");
+            _dialoguer.CreateDialogue("Yeâ€™ll be expected tâ€™deliver packages tâ€™our customers, anâ€™ yer gonna do it well. Got it?");
+            _dialoguer.CreateDialogue("So, Iâ€™m in charge oâ€™ onboarding anâ€™ all that. First though, Iâ€™m gonna need ya tâ€™come tâ€™my office, â€˜kay?");
         }
         else if (_tutorialFlagsCompleted == 2) //Player gets to bossman's office
         {
             AddActiveQuest(-1);
-            _dialoguer.CreateDialogue("‘Ey mate, good t’finally see ya in person.");
-            _dialoguer.CreateDialogue("Now, ‘ere’s a package we need delivered soon, an’ all our other employees are kinda busy right now, so this is yer problem.");
-            _dialoguer.CreateDialogue("Go ahead an’ grab it with E.");
+            _dialoguer.CreateDialogue("â€˜Ey mate, good tâ€™finally see ya in person.");
+            _dialoguer.CreateDialogue("Now, â€˜ereâ€™s a package we need delivered soon, anâ€™ all our other employees are kinda busy right now, so this is yer problem.");
+            _dialoguer.CreateDialogue("Go ahead anâ€™ grab it with E.");
         }
         else if (_tutorialFlagsCompleted == 3) //Player knows how to pick shit up
         {
-            _dialoguer.CreateDialogue("Cool, be careful with the package by the way. Wouldn’t wanna mess up our reputation any more than it already has.");
-            _dialoguer.CreateDialogue("Next I need ye t’load this package onto yer ship. Pick up the package an’ press E t’get in.");
-            _dialoguer.CreateDialogue("An’ don’t ye dare forget t’put it in the ship. If y’did yer gonna have t’report it to the recipient. Got it?");
+            _dialoguer.CreateDialogue("Cool, be careful with the package by the way. Wouldnâ€™t wanna mess up our reputation any more than it already has.");
+            _dialoguer.CreateDialogue("Next I need ye tâ€™load this package onto yer ship. Pick up the package anâ€™ press E tâ€™get in.");
+            _dialoguer.CreateDialogue("Anâ€™ donâ€™t ye dare forget tâ€™put it in the ship. If yâ€™did yer gonna have tâ€™report it to the recipient. Got it?");
         }
         else if (_tutorialFlagsCompleted == 4) //Player gets to space
         {
-            _dialoguer.CreateDialogue("Congrats on yer first take-off. Pray it won’t be yer last.");
-            _dialoguer.CreateDialogue("Fer a crash course on how not t’crash, move around usin’ our patented UPS thruster technology.");
-            _dialoguer.CreateDialogue("Oh, and press TAB to see the ship’s log, it tells ya everything ya oughta know about yer deliveries.");
-            _dialoguer.CreateDialogue("Right, that package I gave ya needs to go to Orbitron. That’s the purple one in case ya live under an asteroid.");
+            _dialoguer.CreateDialogue("Congrats on yer first take-off. Pray it wonâ€™t be yer last.");
+            _dialoguer.CreateDialogue("Fer a crash course on how not tâ€™crash, move around usinâ€™ our patented UPS thruster technology.");
+            _dialoguer.CreateDialogue("Oh, and press TAB to see the shipâ€™s log, it tells ya everything ya oughta know about yer deliveries.");
+            _dialoguer.CreateDialogue("Right, that package I gave ya needs to go to Orbitron. Thatâ€™s the purple one in case ya live under an asteroid.");
             _dialoguer.CreateDialogue("Just fly over there, the ships fancy parking systems oughta have the rest covered.");
         }
         else if (_tutorialFlagsCompleted == 5) //Player gets to Orbitron
         {
-            _dialoguer.CreateDialogue("Talk with the fellow marked on yer minimap t’leave the package with ‘em. They’ll pay ye fer yer service!");
+            _dialoguer.CreateDialogue("Talk with the fellow marked on yer minimap tâ€™leave the package with â€˜em. Theyâ€™ll pay ye fer yer service!");
         }
         else if (_tutorialFlagsCompleted == 6) //Player knows how to deliver package and finish the tutorial yippee
         {
-            _dialoguer.CreateDialogue("Congrats on yer first official delivery! I’m all outta lessons for ye, so now yer on yer own.");
-            _dialoguer.CreateDialogue("If ye keep performin’ this well, we higher-ups may have somethin’ special for ye to deliver…");
-            _dialoguer.CreateDialogue("Go around the planet t’find out who else needs t’deliver somethin’. You’ll see ‘em marked on your quest log when ye accept.");
-            _dialoguer.CreateDialogue("Remember, always do the right thing fer the company. Ye’ll be set up fer success that way.");
+            _dialoguer.CreateDialogue("Congrats on yer first official delivery! Iâ€™m all outta lessons for ye, so now yer on yer own.");
+            _dialoguer.CreateDialogue("If ye keep performinâ€™ this well, we higher-ups may have somethinâ€™ special for ye to deliverâ€¦");
+            _dialoguer.CreateDialogue("Go around the planet tâ€™find out who else needs tâ€™deliver somethinâ€™. Youâ€™ll see â€˜em marked on your quest log when ye accept.");
+            _dialoguer.CreateDialogue("Remember, always do the right thing fer the company. Yeâ€™ll be set up fer success that way.");
             _dangerLevel = 1;
         }
     }
@@ -205,7 +207,7 @@ public class QuestManager : MonoBehaviour
             {
                 if (_questList.Count > 0)
                 {
-                    FinishActiveQuest(_questList[0].GetComponent<Quest>());
+                    FinishActiveQuest(_questList[0]);
                 }
                 AddActiveQuest(-1);
             }
