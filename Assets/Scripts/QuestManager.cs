@@ -34,12 +34,16 @@ public class QuestManager : MonoBehaviour
 
     private void SetupNameList() //I hate lists
     {
-        _planetOneRecipientNames.Clear();
-        _planetTwoRecipientNames.Clear();
-        _planetOneRecipientNames.Add("Chrome");
-        _planetOneRecipientNames.Add("Vanada");
-        _planetTwoRecipientNames.Add("Orchid");
-        _planetTwoRecipientNames.Add("Azalea");
+        if (_planetOneRecipientNames.Count == 0)
+        {
+            _planetOneRecipientNames.Add("Chrome");
+            _planetOneRecipientNames.Add("Vanada");
+        }
+        if (_planetTwoRecipientNames.Count == 0)
+        {
+            _planetTwoRecipientNames.Add("Orchid");
+            _planetTwoRecipientNames.Add("Azalea");
+        }
     }
 
     void Start()

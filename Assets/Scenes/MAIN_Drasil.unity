@@ -582,10 +582,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3693647893506788275, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1318756784}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
 --- !u!1001 &36426214
 PrefabInstance:
@@ -2441,6 +2438,7 @@ MonoBehaviour:
   isQuestGiver: 1
   isQuestReceiver: 0
   _recieverNameId: 0
+  _wantsQuest: 0
 --- !u!136 &207675656
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13476,25 +13474,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6ae436c78698644867e2d78d7e7b20, type: 3}
---- !u!1 &1318756779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3693647893506788275, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-  m_PrefabInstance: {fileID: 34090137}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1318756784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318756779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c649f305af808284ca6aa5a55e9158fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
-  groundToleranceDist: 1.2
-  player: {fileID: 1574634946}
 --- !u!1001 &1322045620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14168,6 +14147,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1201644842091030299, guid: 0e6ae436c78698644867e2d78d7e7b20, type: 3}
   m_PrefabInstance: {fileID: 1284831977}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1376591035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376591036}
+  - component: {fileID: 1376591038}
+  - component: {fileID: 1376591037}
+  m_Layer: 0
+  m_Name: ThrowTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376591036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376591035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5524559427640016024}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1376591037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376591035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02371a733c4c434459429f0ee88f3f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThrowTrigger
+--- !u!65 &1376591038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376591035}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0.5}
 --- !u!1001 &1386701298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16825,6 +16870,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1107273890158850384, guid: 93b33464222443542b19bd7ec3574144, type: 3}
   m_PrefabInstance: {fileID: 1638271628}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1638369983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638369984}
+  - component: {fileID: 1638369986}
+  - component: {fileID: 1638369985}
+  m_Layer: 0
+  m_Name: ThrowTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638369984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638369983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1831097552}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638369985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638369983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02371a733c4c434459429f0ee88f3f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThrowTrigger
+--- !u!65 &1638369986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638369983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0.5}
 --- !u!1001 &1646471873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18716,6 +18827,9 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 19475651613907011, guid: 3c725e434ee6c994eaa6b51e6b9de431, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1638369984}
+    - targetCorrespondingSourceObject: {fileID: 19475651613907011, guid: 3c725e434ee6c994eaa6b51e6b9de431, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1817909352}
     - targetCorrespondingSourceObject: {fileID: 19475651613907011, guid: 3c725e434ee6c994eaa6b51e6b9de431, type: 3}
       insertIndex: -1
@@ -18777,6 +18891,7 @@ MonoBehaviour:
   isQuestGiver: 0
   isQuestReceiver: 1
   _recieverNameId: 1
+  _wantsQuest: 0
 --- !u!1001 &1839785707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20287,6 +20402,7 @@ MonoBehaviour:
   isQuestGiver: 0
   isQuestReceiver: 1
   _recieverNameId: 0
+  _wantsQuest: 0
 --- !u!1001 &1979983906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21894,6 +22010,9 @@ PrefabInstance:
     - {fileID: 2637020198965886261, guid: 2af138d7de1d47f4a8eec5b3c6ed5405, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6115895897248920431, guid: 2af138d7de1d47f4a8eec5b3c6ed5405, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1376591036}
     - targetCorrespondingSourceObject: {fileID: 6115895897248920431, guid: 2af138d7de1d47f4a8eec5b3c6ed5405, type: 3}
       insertIndex: -1
       addedObject: {fileID: 165632095}

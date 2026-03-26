@@ -84,8 +84,11 @@ public class CharacterControl : MonoBehaviour
             Bodyanimator.SetBool("Is Walk", false);
             Bodyanimator.SetBool("Is Idle", true);
         }
-
-        
+        if (context.canceled)
+        {
+            Bodyanimator.SetBool("Is Walk", false);
+            Bodyanimator.SetBool("Is Idle", true);
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)

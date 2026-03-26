@@ -735,8 +735,6 @@ GameObject:
   m_Component:
   - component: {fileID: 204686905}
   - component: {fileID: 204686904}
-  - component: {fileID: 204686907}
-  - component: {fileID: 204686906}
   m_Layer: 0
   m_Name: Alien3_Reciever
   m_TagString: Untagged
@@ -781,56 +779,12 @@ Transform:
   m_Children:
   - {fileID: 1865186965}
   - {fileID: 456426242}
+  - {fileID: 507294324}
   - {fileID: 1013083297}
   - {fileID: 136859584}
   - {fileID: 1276571214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -158.375, z: 0}
---- !u!114 &204686906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204686903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b710702881edfc748a426905cbd6ff5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
-  _questManager: {fileID: 0}
-  visualCue: {fileID: 136859583}
-  dialogueBox: {fileID: 988503312}
-  _dialogueScr: {fileID: 0}
-  _player: {fileID: 0}
-  questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
-  name: 
-  _planetNum: 0
-  isQuestGiver: 0
-  isQuestReceiver: 1
-  _recieverNameId: 1
-  _wantsQuest: 0
---- !u!65 &204686907
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204686903}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.208552, y: 3.4554377, z: 3.886993}
-  m_Center: {x: 0, y: 1.51, z: 1.0927446}
 --- !u!1 &237429141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1133,84 @@ Transform:
   - {fileID: 1738898572}
   m_Father: {fileID: 832329609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &507294323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 507294324}
+  - component: {fileID: 507294326}
+  - component: {fileID: 507294325}
+  m_Layer: 0
+  m_Name: InteractTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &507294324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507294323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 204686905}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &507294325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507294323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b710702881edfc748a426905cbd6ff5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  _questManager: {fileID: 0}
+  visualCue: {fileID: 136859583}
+  dialogueBox: {fileID: 988503312}
+  _dialogueScr: {fileID: 0}
+  _player: {fileID: 0}
+  questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  name: 
+  _planetNum: 0
+  isQuestGiver: 0
+  isQuestReceiver: 1
+  _recieverNameId: 1
+  _wantsQuest: 0
+--- !u!65 &507294326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507294323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.208552, y: 3.4554377, z: 3.886993}
+  m_Center: {x: -0.3001144, y: 0.098872185, z: 1.0927446}
 --- !u!1 &508558937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2032,84 @@ Transform:
   - {fileID: 1247590382}
   m_Father: {fileID: 1338909267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &715444412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715444413}
+  - component: {fileID: 715444415}
+  - component: {fileID: 715444414}
+  m_Layer: 0
+  m_Name: InteractTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715444413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715444412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2074491722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715444414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715444412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b710702881edfc748a426905cbd6ff5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  _questManager: {fileID: 0}
+  visualCue: {fileID: 1998614834}
+  dialogueBox: {fileID: 988503312}
+  _dialogueScr: {fileID: 0}
+  _player: {fileID: 0}
+  questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  name: 
+  _planetNum: 0
+  isQuestGiver: 0
+  isQuestReceiver: 1
+  _recieverNameId: 0
+  _wantsQuest: 0
+--- !u!65 &715444415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715444412}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.208552, y: 3.4554377, z: 3.886993}
+  m_Center: {x: -0.3001144, y: 0.098872185, z: 1.0927446}
 --- !u!1 &726363545
 GameObject:
   m_ObjectHideFlags: 0
@@ -8101,8 +8211,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2074491722}
   - component: {fileID: 2074491721}
-  - component: {fileID: 2074491724}
-  - component: {fileID: 2074491723}
   m_Layer: 0
   m_Name: Alien2_Reciever
   m_TagString: Untagged
@@ -8147,56 +8255,12 @@ Transform:
   m_Children:
   - {fileID: 1280711090}
   - {fileID: 855003775}
+  - {fileID: 715444413}
   - {fileID: 545908184}
   - {fileID: 1998614835}
   - {fileID: 113489321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -52.203, z: 0}
---- !u!114 &2074491723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074491720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b710702881edfc748a426905cbd6ff5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
-  _questManager: {fileID: 0}
-  visualCue: {fileID: 1998614834}
-  dialogueBox: {fileID: 988503312}
-  _dialogueScr: {fileID: 0}
-  _player: {fileID: 0}
-  questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
-  name: 
-  _planetNum: 0
-  isQuestGiver: 0
-  isQuestReceiver: 1
-  _recieverNameId: 0
-  _wantsQuest: 0
---- !u!65 &2074491724
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074491720}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.208552, y: 3.4554377, z: 3.886993}
-  m_Center: {x: 0, y: 1.51, z: 1.0927446}
 --- !u!1 &2084006448
 GameObject:
   m_ObjectHideFlags: 0

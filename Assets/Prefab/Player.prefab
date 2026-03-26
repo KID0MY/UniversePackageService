@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 5484203328448453167}
   - component: {fileID: 7320688529946326627}
   - component: {fileID: 8709244625530757313}
+  - component: {fileID: -3211036490751147712}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -829,6 +830,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-3211036490751147712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542189535975751483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c649f305af808284ca6aa5a55e9158fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
+  groundToleranceDist: 0.6
+  player: {fileID: 7320688529946326627}
 --- !u!1 &2651410392624830340
 GameObject:
   m_ObjectHideFlags: 0

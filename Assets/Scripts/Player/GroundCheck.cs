@@ -27,7 +27,6 @@ public class GroundCheck : MonoBehaviour
     void Update()
     {
         bool isGroundBelow = Physics.BoxCast(transform.position, (transform.localScale / 2), Vector3.down, out RaycastHit hit, Quaternion.identity, 1000);
-
         if (isGroundBelow)
         {
             distanceToGround = transform.position.y - hit.point.y;
@@ -36,7 +35,6 @@ public class GroundCheck : MonoBehaviour
         {
             distanceToGround = null;
         }
-
         player.canJump = isGroundBelow && distanceToGround <= groundToleranceDist;
     }
 }
