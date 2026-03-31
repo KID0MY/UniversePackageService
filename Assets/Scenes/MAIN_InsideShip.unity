@@ -1274,6 +1274,7 @@ MonoBehaviour:
   _dialogueScr: {fileID: 1877191778}
   _player: {fileID: 151961203}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 0}
   name: boss
   _planetNum: -1
   isQuestGiver: 1
@@ -1899,10 +1900,14 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3211036490751147712, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5679039116519546958, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1121168600}
   m_SourcePrefab: {fileID: 100100000, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
 --- !u!114 &151961203 stripped
 MonoBehaviour:
@@ -6193,6 +6198,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5852286375780045605, guid: fb50b39e9a439c949ae0e927d2797238, type: 3}
+--- !u!1 &1121168598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5679039116519546958, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+  m_PrefabInstance: {fileID: 151961202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1121168600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121168598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c649f305af808284ca6aa5a55e9158fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
+  groundToleranceDist: 1.1
+  player: {fileID: 151961203}
 --- !u!1 &1124991362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1427095321488724664, guid: 6a57661b1cf158942b354bba744ff88f, type: 3}
@@ -7759,6 +7783,7 @@ MonoBehaviour:
   _timePassed: 0
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
+  tutorialDialogue: {fileID: 0}
 --- !u!1001 &1346469505
 PrefabInstance:
   m_ObjectHideFlags: 0
