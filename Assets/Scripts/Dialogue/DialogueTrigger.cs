@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class DialogueTrigger : MonoBehaviour
     public CharacterControl _player;
 
     public GameObject questObjectPrefab;
+
+    public DialogueFinal dialogueLines;
 
     public string name;
 
@@ -103,7 +106,7 @@ public class DialogueTrigger : MonoBehaviour
                 }
                 else
                 {
-                    _dialogueScr.CreateDialogue("Good morning.");
+                    _dialogueScr.CreateDialogue(dialogueLines.Node[Random.Range(0, dialogueLines.Node.Count())].sentences[0].text);
                 }
             }
         }
