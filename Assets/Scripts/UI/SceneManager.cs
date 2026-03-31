@@ -22,9 +22,9 @@ public class sceneManager_ : MonoBehaviour
     public GameObject _questMenu;
     bool paused = false;
      bool canPause = true;
-
-    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-
+    bool startGame = false;
+    //int currentIndex = SceneManager.GetActiveScene().buildIndex;
+    int currentIndex;
 
     public void Start()
     {
@@ -104,9 +104,14 @@ public class sceneManager_ : MonoBehaviour
     //temp
     public void loadShipScene()
     {
+        if (startGame == false) { 
         StartCoroutine(loadShip());
         Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+            startGame = true;   
+    }else{
 
+    }
+        loadLastScene();
     }
     //temp
     public void loadSpaceScene()
