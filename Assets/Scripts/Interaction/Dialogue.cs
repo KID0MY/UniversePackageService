@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,7 +64,25 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void CreateDialogue(string dialogue)
+    public void CreateDialogue(DialogueNode dialogue)
+    {
+        foreach (Sentence sentence in dialogue.sentences)
+            _textQueue.Add(sentence.text);
+        if (!_isRendering)
+        {
+            if (_player != null)
+            {
+                _player._cutsceneMovementLock = true;
+            }
+            _currentText = "";
+            _targetText = _textQueue[0];
+            _textQueue.RemoveAt(0);
+            this.gameObject.SetActive(true);
+            _isRendering = true;
+            StartCoroutine(PrintText());
+        }
+    }
+    public void CreateDialogue(String dialogue)
     {
         _textQueue.Add(dialogue);
         if (!_isRendering)
@@ -85,7 +104,8 @@ public class Dialogue : MonoBehaviour
     {
         _canProgress = false;
         int _nextLetter = 0;
-        while (!_currentText.Equals(_targetText)) {
+        while (!_currentText.Equals(_targetText))
+        {
             _currentText = _currentText + _targetText.Substring(_nextLetter, 1);
             yield return new WaitForSeconds(_timeBetweenLetters / 1000);
             _nextLetter++;

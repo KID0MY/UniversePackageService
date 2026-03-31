@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class DialogueTrigger : MonoBehaviour
     public CharacterControl _player;
 
     public GameObject questObjectPrefab;
+
+    public DialogueFinal dialogueLines;
 
     public string name;
 
@@ -31,19 +34,19 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool _hasQuest;
 
-    private bool _wantsQuest;
+    public bool _wantsQuest;
    
     private void Awake()
     {
         playerInRange = false;
         visualCue.SetActive(false);
+        _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
     }
 
     private void Start()
     {
         _hasQuest = true;
         _wantsQuest = false;
-        _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
         if (_player == null)
         {
             _player = GameObject.Find("Player").GetComponent<CharacterControl>();
@@ -91,30 +94,7 @@ public class DialogueTrigger : MonoBehaviour
                 }
                 else if (_wantsQuest && _questManager.hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
                 {
-                    _player.currentPickup.GetComponent<PickUp>().KILLYOURSELF();
-                    Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
-                    if (_questObject._health <= 0 && _questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
-                    {
-                        _dialogueScr.CreateDialogue("Not only did you take forever, but everything in here is gone. I'm not paying for this.");
-                    }
-                    else if (_questObject._health <= 0)
-                    {
-                        _dialogueScr.CreateDialogue("All of the contents are destroyed! I'm not paying you for this.");
-                    }
-                    else if (_questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
-                    {
-                        _dialogueScr.CreateDialogue("You took too long! I'm not paying you for this.");
-                    }
-                    else
-                    {
-                        _dialogueScr.CreateDialogue("Thank you!");
-                    }
-                    if (_questManager._tutorialFlagsCompleted <= 5)
-                    {
-                        _questManager.FinishTutorialFlag();
-                    }
-                    _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
-                    _wantsQuest = false;
+                    PackageDelivered(_player.currentPickup.GetComponent<PickUp>());
                 }
                 else if (_wantsQuest && GameObject.Find("packagetwo_Updated(Clone)") == null)
                 {
@@ -126,7 +106,7 @@ public class DialogueTrigger : MonoBehaviour
                 }
                 else
                 {
-                    _dialogueScr.CreateDialogue("Good morning.");
+                    _dialogueScr.CreateDialogue(dialogueLines.Node[Random.Range(0, dialogueLines.Node.Count())].sentences[0].text);
                 }
             }
         }
@@ -141,6 +121,34 @@ public class DialogueTrigger : MonoBehaviour
                 visualCue.SetActive(true);
             }
         }
+    }
+
+    public void PackageDelivered(PickUp package)
+    {
+        package.KILLYOURSELF();
+        Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
+        if (_questObject._health <= 0 && _questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+        {
+            _dialogueScr.CreateDialogue("Not only did you take forever, but everything in here is gone. I'm not paying for this.");
+        }
+        else if (_questObject._health <= 0)
+        {
+            _dialogueScr.CreateDialogue("All of the contents are destroyed! I'm not paying you for this.");
+        }
+        else if (_questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+        {
+            _dialogueScr.CreateDialogue("You took too long! I'm not paying you for this.");
+        }
+        else
+        {
+            _dialogueScr.CreateDialogue("Thank you!");
+        }
+        if (_questManager._tutorialFlagsCompleted <= 5)
+        {
+            _questManager.FinishTutorialFlag();
+        }
+        _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
+        _wantsQuest = false;
     }
 
     public void GivePackage()
