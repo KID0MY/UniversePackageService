@@ -5,7 +5,7 @@ public class GroundCheck : MonoBehaviour
 {
     [SerializeField] private float groundToleranceDist;
 
-    private BoxCollider boxCollider;
+    private CapsuleCollider capsule;
 
     public float? distanceToGround {  get; private set; }
 
@@ -13,7 +13,7 @@ public class GroundCheck : MonoBehaviour
 
     private void Awake()
     {
-        boxCollider = GetComponent<BoxCollider>();
+        capsule = GetComponent<CapsuleCollider>();
     }
 
 
@@ -26,7 +26,10 @@ public class GroundCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isGroundBelow = Physics.BoxCast(transform.position, (transform.localScale / 2), Vector3.down, out RaycastHit hit, Quaternion.identity, 1000);
+        bool isGroundBelow = Physics.CapsuleCast(capsule.bounds.center, capsule.bounds.center, capsule.radius, Vector3.down, out RaycastHit hit, groundToleranceDist);
+        print("Ground check: " + isGroundBelow);
+        print("Distance to ground: " + distanceToGround);
+        print("Ground check hit point: " + hit.point);
         if (isGroundBelow)
         {
             distanceToGround = transform.position.y - hit.point.y;

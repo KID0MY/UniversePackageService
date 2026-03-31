@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12550e90c236e0541b910f7291e37631, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
+  Node:
+  - sentences:
+    - text: "G\u2019doy matey, an\u2019 welcome t\u2019yer first day at Universal
+        Parcel Service."
+    - text: "Ye\u2019ll be expected t\u2019deliver packages t\u2019our customers,
+        an\u2019 yer gonna do it well. Got it?"
+    - text: "So, I\u2019m in charge o\u2019 onboarding an\u2019 all that. First though,
+        I\u2019m gonna need ya t\u2019come t\u2019my office, \u2018kay?"
+  - sentences:
+    - text: "\u2018Ey mate, good t\u2019finally see ya in person."
+    - text: "Now, \u2018ere\u2019s a package we need delivered soon, an\u2019 all
+        our other employees are kinda busy right now, so this is yer problem."
+    - text: "Go ahead an\u2019 grab it with E."
+  - sentences:
+    - text: "Cool, be careful with the package by the way. Wouldn\u2019t wanna mess
+        up our reputation any more than it already has."
+    - text: "Next I need ye t\u2019load this package onto yer ship. Pick up the package
+        an\u2019 press E t\u2019get in."
+    - text: "An\u2019 don\u2019t ye dare forget t\u2019put it in the ship. If y\u2019did
+        yer gonna have t\u2019report it to the recipient. Got it?"
+  - sentences:
+    - text: "Congrats on yer first take-off. Pray it won\u2019t be yer last."
+    - text: "Fer a crash course on how not t\u2019crash, move around usin\u2019 our
+        patented UPS thruster technology."
+    - text: "Oh, and press TAB to see the ship\u2019s log, it tells ya everything
+        ya oughta know about yer deliveries."
+    - text: "Right, that package I gave ya needs to go to Orbitron. That\u2019s the
+        purple one in case ya live under an asteroid."
+    - text: Just fly over there, the ships fancy parking systems oughta have the
+        rest covered.
+  - sentences:
+    - text: "Talk with the fellow marked on yer minimap t\u2019leave the package
+        with \u2018em. They\u2019ll pay ye fer yer service!"
+  - sentences:
+    - text: "Congrats on yer first official delivery! I\u2019m all outta lessons
+        for ye, so now yer on yer own."
+    - text: "If ye keep performin\u2019 this well, we higher-ups may have somethin\u2019
+        special for ye to deliver\u2026"
+    - text: "Go around the planet t\u2019find out who else needs t\u2019deliver somethin\u2019.
+        You\u2019ll see \u2018em marked on your quest log when ye accept."
+    - text: "Remember, always do the right thing fer the company. Ye\u2019ll be set
+        up fer success that way."

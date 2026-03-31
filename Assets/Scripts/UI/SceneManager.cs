@@ -23,8 +23,12 @@ public class sceneManager_ : MonoBehaviour
     bool paused = false;
      bool canPause = true;
 
-    int currentIndex = SceneManager.GetActiveScene().buildIndex;
+    int currentIndex;
 
+    private void Awake()
+    {
+        currentIndex = SceneManager.GetActiveScene().buildIndex;
+    }
 
     public void Start()
     {
