@@ -1280,7 +1280,6 @@ MonoBehaviour:
   isQuestGiver: 1
   isQuestReceiver: 0
   _recieverNameId: 0
-  _hasQuest: 0
   _wantsQuest: 0
 --- !u!4 &89503195 stripped
 Transform:
@@ -1817,10 +1816,6 @@ PrefabInstance:
       propertyPath: questObjectPrefab
       value: 
       objectReference: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
-    - target: {fileID: 7555607926762156329, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 127
-      objectReference: {fileID: 0}
     - target: {fileID: 7677906721950300278, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 25
@@ -1909,8 +1904,7 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7870232202209822548, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

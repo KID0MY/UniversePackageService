@@ -41,6 +41,10 @@ public class Quest : MonoBehaviour
         {
             _questIndex = Random.Range(1, 4);
         }
+        if (_dangerLevel == 2) //Finale level
+        {
+            _questIndex = 5;
+        }
         switch (_questIndex)
         {
             case 0:
@@ -82,9 +86,10 @@ public class Quest : MonoBehaviour
                 break;
             case 5:
                 _questName = "Final Delivery";
-                _description = "Bring this package to " + _recipient + " on " + _destination + ". This package is vital, get it delivered flawlessly.";
+                _destination = "Drasil";
+                _description = "Leave this package on " + _destination + ". When that's all done, come back to me.";
                 _payAmount = 100;
-                _damageMultiplier = 3f;
+                _damageMultiplier = 300f;
                 _latenessLeeway = 10;
                 break;
         }
@@ -130,6 +135,13 @@ public class Quest : MonoBehaviour
     {
         _health -= ((amount*_damageMultiplier)/100);
         print(_health);
+        //if (_health <= 0 && _dangerLevel == 2) Code to crash the game, commented out for testing purposes, remember to re-enable this.
+        //{
+        //    while (true)
+        //    {
+        //        Instantiate(this);
+        //    }
+        //}
     }
 
     public float GetTimeTaken()

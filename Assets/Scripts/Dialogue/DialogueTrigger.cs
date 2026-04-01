@@ -32,7 +32,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool playerInRange;
 
-    private bool _hasQuest;
+    public bool _hasQuest;
 
     public bool _wantsQuest;
    
@@ -45,7 +45,14 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Start()
     {
-        _hasQuest = true;
+        if (_questManager._dangerLevel == 2 || _questManager._tutorialFlagsCompleted < 7)
+        {
+            _hasQuest = false;
+        }
+        else
+        {
+            _hasQuest = true;
+        }
         _wantsQuest = false;
         if (_player == null)
         {
@@ -99,7 +106,9 @@ public class DialogueTrigger : MonoBehaviour
                         if (_questManager.CheckForFinale())
                         {
                             _questManager._dangerLevel = 2;
-                            _dialogueScr.CreateDialogue(dialogueLines.Node[0]);
+                            _dialogueScr.CreateDialogue("Good work out there matey.");
+                            _dialogueScr.CreateDialogue("Here's a bomb.");
+                            _dialogueScr.CreateDialogue("Good luck lmao.");
                         }
                         else
                         {

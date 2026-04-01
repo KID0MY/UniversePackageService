@@ -553,6 +553,7 @@ GameObject:
   - component: {fileID: 7320688529946326627}
   - component: {fileID: 8709244625530757313}
   - component: {fileID: -3211036490751147712}
+  - component: {fileID: 7870232202209822548}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -842,8 +843,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c649f305af808284ca6aa5a55e9158fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
-  groundToleranceDist: 0.6
+  groundToleranceDist: 0.8
   player: {fileID: 7320688529946326627}
+--- !u!136 &7870232202209822548
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542189535975751483}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2493181
+  m_Height: 1.816411
+  m_Direction: 1
+  m_Center: {x: 0.0024082214, y: 0.96599746, z: -0.06502273}
 --- !u!1 &2651410392624830340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1359,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 127
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1665,7 +1689,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.2493181
   m_Height: 1.816411

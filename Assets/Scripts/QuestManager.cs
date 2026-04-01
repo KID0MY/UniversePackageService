@@ -52,7 +52,7 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         SetupNameList();
-        autoendtutorial();
+        //autoendtutorial();
         //_enableDebug = false; Guys why are we force disabling the debug in the code you can set this from the inspector :sobbing_emoji:
     }
 
@@ -73,7 +73,7 @@ public class QuestManager : MonoBehaviour
         {
             if (_questList[x] == quest)
             {
-                int payout = quest._payAmount; //Nothing actually happens with this value.
+                int payout = quest._payAmount;
                 int tips = 50;
                 int time_taken = (int)(_timePassed - quest._startTime);
                 if (quest._latenessLeeway > time_taken)

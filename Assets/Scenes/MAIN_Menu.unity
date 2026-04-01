@@ -824,12 +824,15 @@ MonoBehaviour:
   _dialoguer: {fileID: 0}
   _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
   _dangerLevel: 0
+  _completedQuestNum: 0
+  _packagesForEnding: 4
   _questList: []
   _questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   _currencyCounter: {fileID: 0}
   _timePassed: 0
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
+  tutorialDialogue: {fileID: 0}
 --- !u!4 &711040563
 Transform:
   m_ObjectHideFlags: 0
