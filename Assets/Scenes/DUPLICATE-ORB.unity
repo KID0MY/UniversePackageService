@@ -898,76 +898,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8562997311694894104, guid: e5aed06288e35f5459219a3de2962fe2, type: 3}
   m_PrefabInstance: {fileID: 634308021}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &771819631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 771819633}
-  - component: {fileID: 771819632}
-  - component: {fileID: 771819634}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &771819632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771819631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf167872956026b4d9f01fa2a6659065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::sceneManager_
-  newScene: 2
-  sceneName: 
-  animScript: {fileID: 0}
-  pausePanel: {fileID: 0}
-  settingsPanel: {fileID: 0}
-  _questMenuOpen: 0
-  _questMenu: {fileID: 0}
---- !u!4 &771819633
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771819631}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &771819634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771819631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5b2f8da7401bd4dad5b8d08636c54c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::setting_
-  playerCam: {fileID: 0}
-  sensSlider: {fileID: 0}
-  newMouseSens: 0
-  oldMouseSens: 0
-  resoDropList: {fileID: 0}
-  screenToggle: {fileID: 0}
 --- !u!1 &952977265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3409001566074826520, guid: e5aed06288e35f5459219a3de2962fe2, type: 3}
@@ -1227,7 +1157,7 @@ PrefabInstance:
     - target: {fileID: 8241573290088051555, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: sceneMan
       value: 
-      objectReference: {fileID: 771819632}
+      objectReference: {fileID: 0}
     - target: {fileID: 8509949005873355590, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.68
@@ -1299,7 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fb1e05bf2350e42a8c6af9436d33c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
-  sceneMan: {fileID: 771819632}
+  sceneMan: {fileID: 0}
   questManager: {fileID: 0}
   player: {fileID: 0}
   returnShip: 0
@@ -2246,8 +2176,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4717907943221230587}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.22090335, y: -0.49723953, z: 0.13268128, w: -0.8284626}
-  m_LocalPosition: {x: -14.108717, y: 24.575083, z: -25.4495}
+  m_LocalRotation: {x: -0.03372686, y: -0.8836389, z: 0.06424961, w: -0.46251145}
+  m_LocalPosition: {x: -16.205603, y: 8.50797, z: 18.667149}
   m_LocalScale: {x: 1.003933, y: 1.0039322, z: 1.0039327}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2385,7 +2315,6 @@ SceneRoots:
   - {fileID: 1332355929}
   - {fileID: 1740407920}
   - {fileID: 586674107}
-  - {fileID: 771819633}
   - {fileID: 7573885107443954420}
   - {fileID: 634308021}
   - {fileID: 512679843}

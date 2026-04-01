@@ -528,6 +528,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3211036490751147712, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -550,31 +554,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.127758
+      value: 43.80895
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.85737
+      value: 31.418932
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.257526
+      value: 5.9981422
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.96811855
+      value: -0.9466809
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.20897427
+      value: -0.24443907
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.13495636
+      value: 0.20327534
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.029378012
+      value: -0.05219237
       objectReference: {fileID: 0}
     - target: {fileID: 7907124447038640864, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -616,7 +620,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7677906721950300278, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+    - {fileID: 5484203328448453167, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+    - {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+    - {fileID: 8709244625530757313, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+    - {fileID: -3211036490751147712, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -907,76 +916,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1953028824425449278, guid: c2125ffa96b77b445b41dd4a90a4306a, type: 3}
   m_PrefabInstance: {fileID: 495825616}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &68555387
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 68555389}
-  - component: {fileID: 68555388}
-  - component: {fileID: 68555390}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &68555388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68555387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf167872956026b4d9f01fa2a6659065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::sceneManager_
-  newScene: 0
-  sceneName: 
-  animScript: {fileID: 0}
-  pausePanel: {fileID: 0}
-  settingsPanel: {fileID: 0}
-  _questMenuOpen: 0
-  _questMenu: {fileID: 0}
---- !u!4 &68555389
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68555387}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.80191, y: -1.56989, z: 5.698}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &68555390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68555387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5b2f8da7401bd4dad5b8d08636c54c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::setting_
-  playerCam: {fileID: 1651032804}
-  sensSlider: {fileID: 0}
-  newMouseSens: 0
-  oldMouseSens: 0
-  resoDropList: {fileID: 0}
-  screenToggle: {fileID: 0}
 --- !u!1 &71787533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,7 +2500,7 @@ MonoBehaviour:
   visualCue: {fileID: 1240130979}
   dialogueBox: {fileID: 0}
   _dialogueScr: {fileID: 0}
-  _player: {fileID: 1574634946}
+  _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   dialogueLines: {fileID: 0}
   name: stupid fucking plant
@@ -15262,17 +15201,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4964905541210671682, guid: 79371ce6f357cad468f1117179287ab3, type: 3}
   m_PrefabInstance: {fileID: 1338088040}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1574634946 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-  m_PrefabInstance: {fileID: 34090137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473fee1fbdb35424c904731f8b15c826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterControl
 --- !u!1001 &1585399143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15308,7 +15236,7 @@ PrefabInstance:
     - target: {fileID: 8241573290088051555, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: sceneMan
       value: 
-      objectReference: {fileID: 68555388}
+      objectReference: {fileID: 0}
     - target: {fileID: 8241573290088051555, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: returnShip
       value: 1
@@ -15384,7 +15312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fb1e05bf2350e42a8c6af9436d33c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
-  sceneMan: {fileID: 68555388}
+  sceneMan: {fileID: 0}
   questManager: {fileID: 0}
   player: {fileID: 0}
   returnShip: 1
@@ -16171,17 +16099,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 19475651613907011, guid: 3c725e434ee6c994eaa6b51e6b9de431, type: 3}
   m_PrefabInstance: {fileID: 1646471873}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1651032804 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5484203328448453167, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-  m_PrefabInstance: {fileID: 34090137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebdc7ba4468bc5749bc92eecb7bc824c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterCamera
 --- !u!1001 &1662123943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17832,7 +17749,7 @@ MonoBehaviour:
   visualCue: {fileID: 1817909351}
   dialogueBox: {fileID: 0}
   _dialogueScr: {fileID: 0}
-  _player: {fileID: 1574634946}
+  _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   dialogueLines: {fileID: 0}
   name: 
@@ -19038,7 +18955,7 @@ MonoBehaviour:
   visualCue: {fileID: 165632094}
   dialogueBox: {fileID: 0}
   _dialogueScr: {fileID: 0}
-  _player: {fileID: 1574634946}
+  _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   dialogueLines: {fileID: 0}
   name: 
@@ -20962,7 +20879,6 @@ SceneRoots:
   - {fileID: 374867299}
   - {fileID: 34090137}
   - {fileID: 1585399143}
-  - {fileID: 68555389}
   - {fileID: 1969899260}
   - {fileID: 100887647}
   - {fileID: 1341984238}
