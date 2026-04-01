@@ -1254,8 +1254,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 3}
-  m_Center: {x: 0, y: 1, z: 1}
+  m_Size: {x: 3, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 1, z: 1.5}
 --- !u!114 &89503193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,6 +1274,7 @@ MonoBehaviour:
   _dialogueScr: {fileID: 1877191778}
   _player: {fileID: 151961203}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 11400000, guid: 1fc8702a25b63cd4d85da721bde54a02, type: 2}
   name: boss
   _planetNum: -1
   isQuestGiver: 1
@@ -1797,7 +1798,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3211036490751147712, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: groundToleranceDist
-      value: 0.9
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_Name
@@ -1887,6 +1888,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8661322318548515293, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8948471289037974636, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_Antialiasing
       value: 1
@@ -1902,14 +1907,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884924877}
   m_SourcePrefab: {fileID: 100100000, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
 --- !u!114 &151961203 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
   m_PrefabInstance: {fileID: 151961202}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 884924871}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 473fee1fbdb35424c904731f8b15c826, type: 3}
@@ -2515,6 +2523,11 @@ Transform:
   - {fileID: 1828324708}
   m_Father: {fileID: 1667642274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &246267759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 572044064237326445, guid: c6356e07b7616734a821ac96b498c28b, type: 3}
+  m_PrefabInstance: {fileID: 124988632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &247835158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4443,7 +4456,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.0447748, y: 5.0000005, z: 1}
   m_Center: {x: -0.49196625, y: -0.00000011729388, z: -3.4606736e-13}
@@ -4660,7 +4673,7 @@ MonoBehaviour:
   pausePanel: {fileID: 268221982}
   settingsPanel: {fileID: 1338329832}
   _questMenuOpen: 0
-  _questMenu: {fileID: 0}
+  _questMenu: {fileID: 246267759}
 --- !u!4 &725677683
 Transform:
   m_ObjectHideFlags: 0
@@ -5422,6 +5435,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5852286375780045605, guid: fb50b39e9a439c949ae0e927d2797238, type: 3}
+--- !u!1 &884924871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+  m_PrefabInstance: {fileID: 151961202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &884924877
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884924871}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2493181
+  m_Height: 1.816411
+  m_Direction: 1
+  m_Center: {x: 0.0024082214, y: 0.96599746, z: -0.06502273}
 --- !u!1 &982347949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7753,12 +7794,15 @@ MonoBehaviour:
   _dialoguer: {fileID: 0}
   _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
   _dangerLevel: 0
+  _completedQuestNum: 0
+  _packagesForEnding: 4
   _questList: []
   _questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   _currencyCounter: {fileID: 247835160}
   _timePassed: 0
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
+  tutorialDialogue: {fileID: 0}
 --- !u!1001 &1346469505
 PrefabInstance:
   m_ObjectHideFlags: 0

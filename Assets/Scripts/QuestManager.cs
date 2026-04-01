@@ -12,6 +12,8 @@ public class QuestManager : MonoBehaviour
     public Dialogue _dialoguer;
     public GameObject _questPrefab;
     public int _dangerLevel;
+    public int _completedQuestNum = 0;
+    public int _packagesForEnding = 4;
     public List<Quest> _questList = new List<Quest>();
     public GameObject _questObjectPrefab;
     public CurrencyCounter _currencyCounter;
@@ -99,6 +101,7 @@ public class QuestManager : MonoBehaviour
                 {
                     _currencyCounter.ShowGainedMoney(payout, _money);
                 }
+                _completedQuestNum++;
                 Destroy(quest.gameObject);
                 hasQuestObject = false;
                 _questList.RemoveAt(x);
@@ -129,6 +132,11 @@ public class QuestManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public bool CheckForFinale()
+    {
+        return _completedQuestNum == _packagesForEnding;
     }
 
     public void FinishTutorialFlag()
@@ -238,6 +246,10 @@ public class QuestManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.L)) //L: automatically end the tutorial
             {
                 autoendtutorial();
+            }
+            if (Input.GetKeyDown(KeyCode.Y)) //Y: boss will offer the ending package
+            {
+                _completedQuestNum = _packagesForEnding;
             }
         }
     }

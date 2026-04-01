@@ -78,7 +78,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (isQuestGiver && _hasQuest && _questManager._questList.Count == 0)
             {
-                visualCue.SetActive(true);
+                visualCue.SetActive(false);
             }
             else if (_wantsQuest)
             {
@@ -88,9 +88,29 @@ public class DialogueTrigger : MonoBehaviour
             {
                 if (_hasQuest && isQuestGiver && _questManager._questList.Count == 0)
                 {
+                    if (_questManager.CheckForFinale())
+                    {
+                        _questManager._dangerLevel = 2;
+                    }
                     GivePackage();
                     Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
-                    _dialogueScr.CreateDialogue("Take this and bring it to " + _questObject._recipient + " on " + _questObject._destination + "\nPress Tab to view details.");
+                    if (name == "boss")
+                    {
+                        if (_questManager.CheckForFinale())
+                        {
+                            _questManager._dangerLevel = 2;
+                            _dialogueScr.CreateDialogue(dialogueLines.Node[0]);
+                        }
+                        else
+                        {
+                            _dialogueScr.CreateDialogue("'Ere's another package for ya'. It's gotta go to " + _questObject._recipient + " on " + _questObject._destination + ".");
+                            _dialogueScr.CreateDialogue("Keep up the good work an' all that.");
+                        }
+                    }
+                    else
+                    {
+                        _dialogueScr.CreateDialogue("Take this and bring it to " + _questObject._recipient + " on " + _questObject._destination + "\nPress Tab to view details.");
+                    }
                 }
                 else if (_wantsQuest && _questManager.hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
                 {
@@ -114,7 +134,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (isQuestGiver)
             {
-                visualCue.SetActive(false);
+                visualCue.SetActive(true);
             }
             else if (_wantsQuest)
             {

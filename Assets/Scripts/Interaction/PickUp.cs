@@ -44,7 +44,7 @@ public class PickUp : Interactable
             this.transform.localScale = holdPos.localScale;
             _body.isKinematic = true;
             this.transform.localRotation = holdPos.localRotation;
-            audioManager.Instance.PlaySFX("Grab");
+            //audioManager.Instance.PlaySFX("Grab");
         }
         else if (player.GetComponent<CharacterControl>().isHolding == true && player.GetComponent<CharacterControl>().GetPickUp() == this)
         {

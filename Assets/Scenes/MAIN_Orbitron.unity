@@ -804,6 +804,7 @@ MonoBehaviour:
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 0}
   name: 
   _planetNum: 0
   isQuestGiver: 0
@@ -4899,12 +4900,14 @@ MonoBehaviour:
   _dialoguer: {fileID: 988503316}
   _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
   _dangerLevel: 0
+  _completedQuestNum: 0
   _questList: []
   _questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   _currencyCounter: {fileID: 2089560105}
   _timePassed: 0
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
+  tutorialDialogue: {fileID: 0}
 --- !u!4 &1332673481
 Transform:
   m_ObjectHideFlags: 0
@@ -7912,9 +7915,10 @@ MonoBehaviour:
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 0}
   name: fucking clanker
   _planetNum: 0
-  isQuestGiver: 1
+  isQuestGiver: 0
   isQuestReceiver: 0
   _recieverNameId: -1
   _wantsQuest: 0
@@ -8322,6 +8326,7 @@ MonoBehaviour:
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 0}
   name: 
   _planetNum: 0
   isQuestGiver: 0
