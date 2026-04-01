@@ -45,9 +45,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Start()
     {
-        if (_questManager._dangerLevel == 2 || _questManager._tutorialFlagsCompleted < 7)
+        if (_questManager._dangerLevel == 2 || _questManager._tutorialFlagsCompleted < 6)
         {
             _hasQuest = false;
+            visualCue.SetActive(false);
         }
         else
         {
@@ -61,6 +62,12 @@ public class DialogueTrigger : MonoBehaviour
         if (_dialogueScr == null)
         {
             _dialogueScr = dialogueBox.GetComponent<Dialogue>();
+        }
+        if (_questManager._bombPlanted && name == "boss")
+        {
+            isQuestGiver = false;
+            isQuestReceiver = true;
+            _wantsQuest = true;
         }
         if (isQuestReceiver)
         {
@@ -141,7 +148,7 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
-            if (isQuestGiver)
+            if (isQuestGiver && _hasQuest && _questManager._questList.Count == 0)
             {
                 visualCue.SetActive(true);
             }
@@ -154,27 +161,33 @@ public class DialogueTrigger : MonoBehaviour
 
     public void PackageDelivered(PickUp package)
     {
-        package.KILLYOURSELF();
-        Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
-        if (_questObject._health <= 0 && _questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+        if (_questManager._bombPlanted)
         {
-            _dialogueScr.CreateDialogue("Not only did you take forever, but everything in here is gone. I'm not paying for this.");
+            _dialogueScr.CreateDialogue("Good job matey.");
         }
-        else if (_questObject._health <= 0)
-        {
-            _dialogueScr.CreateDialogue("All of the contents are destroyed! I'm not paying you for this.");
-        }
-        else if (_questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
-        {
-            _dialogueScr.CreateDialogue("You took too long! I'm not paying you for this.");
-        }
-        else
-        {
-            _dialogueScr.CreateDialogue("Thank you!");
-        }
-        if (_questManager._tutorialFlagsCompleted <= 5)
-        {
-            _questManager.FinishTutorialFlag();
+        else {
+            package.KILLYOURSELF();
+            Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
+            if (_questObject._health <= 0 && _questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+            {
+                _dialogueScr.CreateDialogue("Not only did you take forever, but everything in here is gone. I'm not paying for this.");
+            }
+            else if (_questObject._health <= 0)
+            {
+                _dialogueScr.CreateDialogue("All of the contents are destroyed! I'm not paying you for this.");
+            }
+            else if (_questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+            {
+                _dialogueScr.CreateDialogue("You took too long! I'm not paying you for this.");
+            }
+            else
+            {
+                _dialogueScr.CreateDialogue("Thank you!");
+            }
+            if (_questManager._tutorialFlagsCompleted <= 5)
+            {
+                _questManager.FinishTutorialFlag();
+            }
         }
         _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
         _wantsQuest = false;

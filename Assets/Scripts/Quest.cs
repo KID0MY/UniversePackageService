@@ -88,9 +88,9 @@ public class Quest : MonoBehaviour
                 _questName = "Final Delivery";
                 _destination = "Drasil";
                 _description = "Leave this package on " + _destination + ". When that's all done, come back to me.";
-                _payAmount = 100;
-                _damageMultiplier = 300f;
-                _latenessLeeway = 10;
+                _payAmount = 1000;
+                _damageMultiplier = 0f;
+                _latenessLeeway = 10000;
                 break;
         }
     }
@@ -135,13 +135,13 @@ public class Quest : MonoBehaviour
     {
         _health -= ((amount*_damageMultiplier)/100);
         print(_health);
-        //if (_health <= 0 && _dangerLevel == 2) Code to crash the game, commented out for testing purposes, remember to re-enable this.
-        //{
-        //    while (true)
-        //    {
-        //        Instantiate(this);
-        //    }
-        //}
+        if (_health <= 0 && _dangerLevel == 2)
+        {
+            while (true)
+            {
+                Instantiate(this);
+            }
+        }
     }
 
     public float GetTimeTaken()

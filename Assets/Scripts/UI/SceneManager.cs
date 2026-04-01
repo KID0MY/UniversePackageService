@@ -24,7 +24,7 @@ public class sceneManager_ : MonoBehaviour
      bool canPause = true;
     bool startGame = false;
     //int currentIndex = SceneManager.GetActiveScene().buildIndex;
-    int currentIndex;
+    public int currentIndex;
 
     public void Start()
     {

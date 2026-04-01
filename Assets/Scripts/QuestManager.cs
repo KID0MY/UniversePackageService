@@ -14,6 +14,7 @@ public class QuestManager : MonoBehaviour
     public int _dangerLevel;
     public int _completedQuestNum = 0;
     public int _packagesForEnding = 4;
+    public bool _bombPlanted = false;
     public List<Quest> _questList = new List<Quest>();
     public GameObject _questObjectPrefab;
     public CurrencyCounter _currencyCounter;
@@ -52,7 +53,7 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         SetupNameList();
-        //autoendtutorial();
+        autoendtutorial();
         //_enableDebug = false; Guys why are we force disabling the debug in the code you can set this from the inspector :sobbing_emoji:
     }
 
