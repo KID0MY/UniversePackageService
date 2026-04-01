@@ -41,6 +41,7 @@ public class ShipTransition : Interactable
             else
             {
                 questManager.hasQuestObject = false;
+                print(sceneMan.currentIndex);
                 if (questManager._dangerLevel == 2 && sceneMan.currentIndex == 3)
                 {
                     questManager._bombPlanted = true;

@@ -87,6 +87,7 @@ public class Quest : MonoBehaviour
             case 5:
                 _questName = "Final Delivery";
                 _destination = "Drasil";
+                _recipient = "";
                 _description = "Leave this package on " + _destination + ". When that's all done, come back to me.";
                 _payAmount = 1000;
                 _damageMultiplier = 0f;
@@ -128,7 +129,6 @@ public class Quest : MonoBehaviour
             names = transform.parent.GetComponent<QuestManager>()._planetTwoRecipientNames;
         }
         _recipient = names[Random.Range(0, names.Count)];
-        print(_recipient);
     }
 
     public void TakeDamage(float amount)
