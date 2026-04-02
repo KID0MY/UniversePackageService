@@ -192,11 +192,11 @@ public class SpaceshipControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Planet1"))
         {
-            sceneMan.loadLastScene();
+            sceneMan.goToOrbitron();
         }
         else if (other.gameObject.CompareTag("Planet2"))
         {
-            sceneMan.loadNextScene();
+            sceneMan.goToDrasil();
         }
     }
 }

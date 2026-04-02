@@ -33,6 +33,7 @@ public class audioManager : MonoBehaviour
 
     public void PlayMusic(string nameClip)
     {
+        Debug.Log("PLaying music");
         Sound s = Array.Find(musicSounds, Matrix4x4 => Matrix4x4.nameClip == nameClip);
         if (s == null)
         {
