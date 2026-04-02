@@ -53,7 +53,7 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         SetupNameList();
-        autoendtutorial();
+        //autoendtutorial();
         //_enableDebug = false; Guys why are we force disabling the debug in the code you can set this from the inspector :sobbing_emoji:
     }
 
