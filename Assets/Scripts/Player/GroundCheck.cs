@@ -27,9 +27,6 @@ public class GroundCheck : MonoBehaviour
     void Update()
     {
         bool isGroundBelow = Physics.CapsuleCast(capsule.bounds.center, capsule.bounds.center, capsule.radius, Vector3.down, out RaycastHit hit, groundToleranceDist);
-        print("Ground check: " + isGroundBelow);
-        print("Distance to ground: " + distanceToGround);
-        print("Ground check hit point: " + hit.point);
         if (isGroundBelow)
         {
             distanceToGround = transform.position.y - hit.point.y;

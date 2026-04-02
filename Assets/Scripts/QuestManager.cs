@@ -12,6 +12,9 @@ public class QuestManager : MonoBehaviour
     public Dialogue _dialoguer;
     public GameObject _questPrefab;
     public int _dangerLevel;
+    public int _completedQuestNum = 0;
+    public int _packagesForEnding = 4;
+    public bool _bombPlanted = false;
     public List<Quest> _questList = new List<Quest>();
     public GameObject _questObjectPrefab;
     public CurrencyCounter _currencyCounter;
@@ -50,7 +53,7 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         SetupNameList();
-        autoendtutorial();
+        //autoendtutorial();
         //_enableDebug = false; Guys why are we force disabling the debug in the code you can set this from the inspector :sobbing_emoji:
     }
 
@@ -71,7 +74,7 @@ public class QuestManager : MonoBehaviour
         {
             if (_questList[x] == quest)
             {
-                int payout = quest._payAmount; //Nothing actually happens with this value.
+                int payout = quest._payAmount;
                 int tips = 50;
                 int time_taken = (int)(_timePassed - quest._startTime);
                 if (quest._latenessLeeway > time_taken)
@@ -99,6 +102,7 @@ public class QuestManager : MonoBehaviour
                 {
                     _currencyCounter.ShowGainedMoney(payout, _money);
                 }
+                _completedQuestNum++;
                 Destroy(quest.gameObject);
                 hasQuestObject = false;
                 _questList.RemoveAt(x);
@@ -129,6 +133,11 @@ public class QuestManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public bool CheckForFinale()
+    {
+        return _completedQuestNum == _packagesForEnding;
     }
 
     public void FinishTutorialFlag()
@@ -238,6 +247,10 @@ public class QuestManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.L)) //L: automatically end the tutorial
             {
                 autoendtutorial();
+            }
+            if (Input.GetKeyDown(KeyCode.Y)) //Y: boss will offer the ending package
+            {
+                _completedQuestNum = _packagesForEnding;
             }
         }
     }

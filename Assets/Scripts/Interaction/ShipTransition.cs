@@ -34,13 +34,17 @@ public class ShipTransition : Interactable
         }
         else if (questManager._tutorialFlagsCompleted > 2)
         {
-            if (GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
+            if (player.isHolding)
             {
-                GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = true;
+                questManager.hasQuestObject = true;
             }
             else
             {
-                GameObject.Find("QuestManager").GetComponent<QuestManager>().hasQuestObject = false;
+                questManager.hasQuestObject = false;
+                if (questManager._dangerLevel == 2 && SceneManager.GetActiveScene().buildIndex == 3)
+                {
+                    questManager._bombPlanted = true;
+                }
             }
             if (!returnShip)
             {

@@ -218,11 +218,11 @@ RectTransform:
   - {fileID: 261489481}
   - {fileID: 194355615}
   - {fileID: 400930178}
-  - {fileID: 623879647}
-  - {fileID: 1883111844}
   - {fileID: 1331980724}
   - {fileID: 89004064}
   - {fileID: 1264657768}
+  - {fileID: 623879647}
+  - {fileID: 1883111844}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1225,6 +1225,7 @@ MonoBehaviour:
   timeLossMult: 1
   _questManager: {fileID: 0}
   _questScr: {fileID: 0}
+  _drasil: {fileID: 1998157733}
 --- !u!54 &205083076
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2277,7 +2278,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 304311471}
     m_Modifications:
     - target: {fileID: 4762550290807277644, guid: f81b740ffe830dd498435f95ce8b2266, type: 3}
       propertyPath: m_Name
@@ -2285,7 +2286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5214233544942444199, guid: f81b740ffe830dd498435f95ce8b2266, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5214233544942444199, guid: f81b740ffe830dd498435f95ce8b2266, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
@@ -2293,15 +2294,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7674711664530590919, guid: f81b740ffe830dd498435f95ce8b2266, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.02212
+      value: 2.14
       objectReference: {fileID: 0}
     - target: {fileID: 7674711664530590919, guid: f81b740ffe830dd498435f95ce8b2266, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.012505
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 7674711664530590919, guid: f81b740ffe830dd498435f95ce8b2266, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00025
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 7674711664530590919, guid: f81b740ffe830dd498435f95ce8b2266, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3265,6 +3266,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 818433478}
   _questMenuOpen: 0
   _questMenu: {fileID: 1285268613}
+  currentIndex: 0
 --- !u!4 &1369431845
 Transform:
   m_ObjectHideFlags: 0
@@ -4438,11 +4440,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 304311471}
     m_Modifications:
     - target: {fileID: 323800491680798885, guid: 9677f2210c113294ab19e0eed7db3b48, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 323800491680798885, guid: 9677f2210c113294ab19e0eed7db3b48, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
@@ -4450,15 +4452,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2318073152695635908, guid: 9677f2210c113294ab19e0eed7db3b48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02205
+      value: -2.14
       objectReference: {fileID: 0}
     - target: {fileID: 2318073152695635908, guid: 9677f2210c113294ab19e0eed7db3b48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01265
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 2318073152695635908, guid: 9677f2210c113294ab19e0eed7db3b48, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0001
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 2318073152695635908, guid: 9677f2210c113294ab19e0eed7db3b48, type: 3}
       propertyPath: m_LocalRotation.w

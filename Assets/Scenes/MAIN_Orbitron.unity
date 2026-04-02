@@ -804,11 +804,13 @@ MonoBehaviour:
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 0}
   name: 
   _planetNum: 0
   isQuestGiver: 0
   isQuestReceiver: 1
   _recieverNameId: 1
+  _hasQuest: 0
   _wantsQuest: 0
 --- !u!65 &204686907
 BoxCollider:
@@ -2339,6 +2341,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 597510649}
   _questMenuOpen: 0
   _questMenu: {fileID: 1699619461}
+  currentIndex: 0
 --- !u!4 &771819633
 Transform:
   m_ObjectHideFlags: 0
@@ -5010,12 +5013,16 @@ MonoBehaviour:
   _dialoguer: {fileID: 988503316}
   _questPrefab: {fileID: 3770943540761933071, guid: e88c181ec0590454e9a09990e9e61689, type: 3}
   _dangerLevel: 0
+  _completedQuestNum: 0
+  _packagesForEnding: 4
+  _bombPlanted: 0
   _questList: []
   _questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   _currencyCounter: {fileID: 2089560105}
   _timePassed: 0
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
+  tutorialDialogue: {fileID: 0}
 --- !u!4 &1332673481
 Transform:
   m_ObjectHideFlags: 0
@@ -5226,14 +5233,14 @@ RectTransform:
   m_Children:
   - {fileID: 1653863743}
   - {fileID: 2067720335}
-  - {fileID: 988503313}
-  - {fileID: 1699619460}
-  - {fileID: 597510650}
-  - {fileID: 1054257139}
   - {fileID: 809776381}
+  - {fileID: 988503313}
   - {fileID: 594057984}
   - {fileID: 1742937843}
   - {fileID: 946943660}
+  - {fileID: 1699619460}
+  - {fileID: 597510650}
+  - {fileID: 1054257139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6315,6 +6322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3211036490751147712, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: groundToleranceDist
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8023,11 +8034,13 @@ MonoBehaviour:
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 0}
   name: fucking clanker
   _planetNum: 0
-  isQuestGiver: 1
+  isQuestGiver: 0
   isQuestReceiver: 0
   _recieverNameId: -1
+  _hasQuest: 0
   _wantsQuest: 0
 --- !u!65 &1979809380
 BoxCollider:
@@ -8433,11 +8446,13 @@ MonoBehaviour:
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
   questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
+  dialogueLines: {fileID: 0}
   name: 
   _planetNum: 0
   isQuestGiver: 0
   isQuestReceiver: 1
   _recieverNameId: 0
+  _hasQuest: 0
   _wantsQuest: 0
 --- !u!65 &2074491724
 BoxCollider:
