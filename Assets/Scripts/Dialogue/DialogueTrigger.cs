@@ -132,13 +132,17 @@ public class DialogueTrigger : MonoBehaviour
                 {
                     PackageDelivered(_player.currentPickup.GetComponent<PickUp>());
                 }
-                else if (_wantsQuest && GameObject.Find("packagetwo_Updated(Clone)") == null)
+                else if (_wantsQuest && GameObject.Find("packagetwo_Updated(Clone)") == null && !_questManager._bombPlanted)
                 {
                     _dialogueScr.CreateDialogue("What do you mean you \"lost\" my package???");
                     Destroy(_questManager._questList[0]);
                     _questManager.hasQuestObject = false;
                     _questManager._questList.RemoveAt(0);
                     _wantsQuest = false;
+                }
+                else if (_wantsQuest && _questManager._bombPlanted)
+                {
+                    PackageDelivered(null);
                 }
                 else
                 {
@@ -164,6 +168,7 @@ public class DialogueTrigger : MonoBehaviour
         if (_questManager._bombPlanted)
         {
             _dialogueScr.CreateDialogue("Good job matey.");
+            _questManager.FinishActiveQuest(_questManager._questList[0]);
         }
         else {
             package.KILLYOURSELF();
@@ -188,8 +193,8 @@ public class DialogueTrigger : MonoBehaviour
             {
                 _questManager.FinishTutorialFlag();
             }
+            _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
         }
-        _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
         _wantsQuest = false;
     }
 

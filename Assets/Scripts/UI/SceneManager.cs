@@ -23,11 +23,11 @@ public class sceneManager_ : MonoBehaviour
     bool paused = false;
      bool canPause = true;
     bool startGame = false;
-    //public int currentIndex = SceneManager.GetActiveScene().buildIndex;
     public int currentIndex;
 
     public void Start()
     {
+        currentIndex = SceneManager.GetActiveScene().buildIndex;
         if (GameObject.Find("QuestManager") == null) //lmao skill issue
         {
             SceneManager.LoadScene("MAIN_Menu");
@@ -71,48 +71,23 @@ public class sceneManager_ : MonoBehaviour
         //SceneManager.LoadScene(GetCurrentSceneIndex() + 1);
         StartCoroutine(loadIn());
         Debug.Log("Current Build index is " + GetCurrentSceneIndex());
-
-        if (currentIndex == 0)
-        {
-            audioManager.Instance.PlayMusic("MainSpaceTheme");
-        }
-        else if (currentIndex == 1)
-        {
-            audioManager.Instance.PlayMusic("MainSpaceTheme");
-        }
-        else if(currentIndex == 2)
-         {
-            audioManager.Instance.PlayMusic("MainSpaceTheme");
-        }
-        else if (currentIndex == 3)
-        {
-            audioManager.Instance.PlayMusic("DrasilTheme");
-        }
-        else if (currentIndex == 4)
-        {
-            audioManager.Instance.PlayMusic("OrbitronTheme");
-        }
-
-
     }
     public void loadLastScene()
     {
         StartCoroutine(loadBack());
         Debug.Log("Current Build index is " + GetCurrentSceneIndex());
-
     }
     //temp
     public void loadShipScene()
     {
-        if (startGame == false) { 
-        StartCoroutine(loadShip());
-        Debug.Log("Current Build index is " + GetCurrentSceneIndex());
-            startGame = true;   
-    }else{
+        if (startGame == false)
+        {
+            StartCoroutine(loadShip());
+            Debug.Log("Current Build index is " + GetCurrentSceneIndex());
+            startGame = true;
+        }
+    }
 
-    }
-        loadLastScene();
-    }
     //temp
     public void loadSpaceScene()
     {
@@ -210,7 +185,7 @@ public class sceneManager_ : MonoBehaviour
         animScript.anim_.Play("fadeIn",0,0);
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(GetCurrentSceneIndex() + 1);
-         
+        SetMusic();
 
     }
     IEnumerator loadBack()
@@ -218,7 +193,7 @@ public class sceneManager_ : MonoBehaviour
         animScript.anim_.Play("fadeIn", 0, 0);
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(GetCurrentSceneIndex() - 1);
-
+        SetMusic();
 
     }
     //temp
@@ -251,6 +226,30 @@ public class sceneManager_ : MonoBehaviour
     public int GetCurrentSceneIndex()
     {
         return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public void SetMusic()
+    {
+        if (currentIndex == 0)
+        {
+            audioManager.Instance.PlayMusic("MainSpaceTheme");
+        }
+        else if (currentIndex == 1)
+        {
+            audioManager.Instance.PlayMusic("OribtronTheme");
+        }
+        else if(currentIndex == 2)
+         {
+            audioManager.Instance.PlayMusic("MainSpaceTheme");
+        }
+        else if (currentIndex == 3)
+        {
+            audioManager.Instance.PlayMusic("DrasilTheme");
+        }
+        else if (currentIndex == 4)
+        {
+            audioManager.Instance.PlayMusic("MainSpaceTheme");
+        }
     }
 
     void checkIfSettingActive()

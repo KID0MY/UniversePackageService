@@ -4680,6 +4680,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 1338329832}
   _questMenuOpen: 0
   _questMenu: {fileID: 246267759}
+  currentIndex: 0
 --- !u!4 &725677683
 Transform:
   m_ObjectHideFlags: 0
@@ -7802,6 +7803,7 @@ MonoBehaviour:
   _dangerLevel: 0
   _completedQuestNum: 0
   _packagesForEnding: 4
+  _bombPlanted: 0
   _questList: []
   _questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   _currencyCounter: {fileID: 247835160}
@@ -8131,10 +8133,10 @@ RectTransform:
   - {fileID: 247835159}
   - {fileID: 1175937038}
   - {fileID: 1031763140}
+  - {fileID: 1025712082}
   - {fileID: 268221981}
   - {fileID: 1338329830}
   - {fileID: 1727698555}
-  - {fileID: 1025712082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

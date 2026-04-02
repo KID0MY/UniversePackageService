@@ -848,6 +848,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 827936123}
   _questMenuOpen: 0
   _questMenu: {fileID: 1935905650}
+  currentIndex: 0
 --- !u!4 &68555389
 Transform:
   m_ObjectHideFlags: 0
@@ -2446,17 +2447,17 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1812203911}
+  - {fileID: 1015879507}
   - {fileID: 273795902}
   - {fileID: 537242534}
-  - {fileID: 1304671628}
-  - {fileID: 1935905649}
-  - {fileID: 1657797374}
-  - {fileID: 1015879507}
-  - {fileID: 827936121}
-  - {fileID: 1036120560}
   - {fileID: 999740668}
   - {fileID: 985605759}
   - {fileID: 1939039074}
+  - {fileID: 1304671628}
+  - {fileID: 1935905649}
+  - {fileID: 1657797374}
+  - {fileID: 827936121}
+  - {fileID: 1036120560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2586,6 +2587,7 @@ MonoBehaviour:
   isQuestGiver: 0
   isQuestReceiver: 0
   _recieverNameId: 0
+  _hasQuest: 0
   _wantsQuest: 0
 --- !u!136 &207675656
 CapsuleCollider:
@@ -19434,6 +19436,7 @@ MonoBehaviour:
   isQuestGiver: 0
   isQuestReceiver: 1
   _recieverNameId: 1
+  _hasQuest: 0
   _wantsQuest: 0
 --- !u!1001 &1839785707
 PrefabInstance:
@@ -21031,6 +21034,7 @@ MonoBehaviour:
   isQuestGiver: 0
   isQuestReceiver: 1
   _recieverNameId: 0
+  _hasQuest: 0
   _wantsQuest: 0
 --- !u!1001 &1979983906
 PrefabInstance:

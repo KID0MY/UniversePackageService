@@ -218,11 +218,11 @@ RectTransform:
   - {fileID: 261489481}
   - {fileID: 194355615}
   - {fileID: 400930178}
-  - {fileID: 623879647}
-  - {fileID: 1883111844}
   - {fileID: 1331980724}
   - {fileID: 89004064}
   - {fileID: 1264657768}
+  - {fileID: 623879647}
+  - {fileID: 1883111844}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3265,6 +3265,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 818433478}
   _questMenuOpen: 0
   _questMenu: {fileID: 1285268613}
+  currentIndex: 0
 --- !u!4 &1369431845
 Transform:
   m_ObjectHideFlags: 0
