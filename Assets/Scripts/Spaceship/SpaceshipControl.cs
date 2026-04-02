@@ -159,7 +159,7 @@ public class SpaceshipControl : MonoBehaviour
 
     public void Update()
     {
-        if (_questManager._dangerLevel == 2 && (_questManager.hasQuestObject || _questManager._bombPlanted))
+        if (_questManager._dangerLevel == 2 && (_questManager.hasQuestObject))
         {
             if (Vector3.Distance(transform.position, _drasil.transform.position) > 1800 && !bossAggression)
             {
