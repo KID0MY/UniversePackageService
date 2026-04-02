@@ -30,7 +30,7 @@ public class CurrencyCounter : MonoBehaviour
         _vanishTimer = 6;
         if (_questManager._dangerLevel == 2)
         {
-            _vanishTimer = 20;
+            _vanishTimer = 25;
         }
     }
 
@@ -42,7 +42,7 @@ public class CurrencyCounter : MonoBehaviour
             {
                 alphaLevel += Time.deltaTime * 2;
             }
-            if ((_vanishTimer < 5 && _toBeGained > 0) || (_vanishTimer < 19 && _questManager._dangerLevel == 2))
+            if ((_vanishTimer < 5 && _toBeGained > 0) || (_vanishTimer < 24 && _questManager._dangerLevel == 2))
             {
                 _toBeGained--;
                 _gainText.text = "+$" + _toBeGained.ToString();
