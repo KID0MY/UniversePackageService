@@ -4655,7 +4655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5b2f8da7401bd4dad5b8d08636c54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::setting_
-  playerCam: {fileID: 0}
+  playerCam: {fileID: 884924879}
   sensSlider: {fileID: 1338329834}
   newMouseSens: 0
   oldMouseSens: 0
@@ -5470,6 +5470,17 @@ CapsuleCollider:
   m_Height: 1.816411
   m_Direction: 1
   m_Center: {x: 0.0024082214, y: 0.96599746, z: -0.06502273}
+--- !u!114 &884924879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5484203328448453167, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+  m_PrefabInstance: {fileID: 151961202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884924871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebdc7ba4468bc5749bc92eecb7bc824c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterCamera
 --- !u!1 &982347949
 GameObject:
   m_ObjectHideFlags: 0
