@@ -38,6 +38,8 @@ public class SpaceshipControl : MonoBehaviour
     public QuestManager _questManager;
     public Quest _questScr;
     float _speedLastFrame;
+    public GameObject _drasil;
+    bool bossAggression = false;
 
     private void Awake()
     {
@@ -155,6 +157,25 @@ public class SpaceshipControl : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (_questManager._dangerLevel == 2 && _questManager.hasQuestObject)
+        {
+            if (Vector3.Distance(transform.position, _drasil.transform.position) > 1800 && !bossAggression)
+            {
+                bossAggression = true;
+                _questManager._dialoguer.CreateDialogue("Didn'tcha hear me?");
+                _questManager._dialoguer.CreateDialogue("I told ya' to go to Drasil, and leave that package there.");
+                _questManager._dialoguer.CreateDialogue("When yer done with that, I told ya to come back to me.");
+                _questManager._dialoguer.CreateDialogue("And right now, I don't see ya doin' either of those.");
+            }
+            if (Vector3.Distance(transform.position, _drasil.transform.position) > 1800 && !bossAggression)
+            {
+                //good ending
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Asteroid"))
@@ -171,11 +192,11 @@ public class SpaceshipControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Planet1"))
         {
-            sceneMan.loadLastScene();
+            sceneMan.goToOrbitron();
         }
         else if (other.gameObject.CompareTag("Planet2"))
         {
-            sceneMan.loadNextScene();
+            sceneMan.goToDrasil();
         }
     }
 }

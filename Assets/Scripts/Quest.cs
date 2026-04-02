@@ -41,6 +41,10 @@ public class Quest : MonoBehaviour
         {
             _questIndex = Random.Range(1, 4);
         }
+        if (_dangerLevel == 2) //Finale level
+        {
+            _questIndex = 5;
+        }
         switch (_questIndex)
         {
             case 0:
@@ -82,10 +86,12 @@ public class Quest : MonoBehaviour
                 break;
             case 5:
                 _questName = "Final Delivery";
-                _description = "Bring this package to " + _recipient + " on " + _destination + ". This package is vital, get it delivered flawlessly.";
-                _payAmount = 100;
-                _damageMultiplier = 3f;
-                _latenessLeeway = 10;
+                _destination = "Drasil";
+                _recipient = "";
+                _description = "Leave this package on " + _destination + ". When that's all done, come back to me.";
+                _payAmount = 1000;
+                _damageMultiplier = 0f;
+                _latenessLeeway = 10000;
                 break;
         }
     }
@@ -123,13 +129,19 @@ public class Quest : MonoBehaviour
             names = transform.parent.GetComponent<QuestManager>()._planetTwoRecipientNames;
         }
         _recipient = names[Random.Range(0, names.Count)];
-        print(_recipient);
     }
 
     public void TakeDamage(float amount)
     {
         _health -= ((amount*_damageMultiplier)/100);
         print(_health);
+        if (_health <= 0 && _dangerLevel == 2)
+        {
+            while (true)
+            {
+                Instantiate(this);
+            }
+        }
     }
 
     public float GetTimeTaken()

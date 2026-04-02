@@ -1280,7 +1280,6 @@ MonoBehaviour:
   isQuestGiver: 1
   isQuestReceiver: 0
   _recieverNameId: 0
-  _hasQuest: 0
   _wantsQuest: 0
 --- !u!4 &89503195 stripped
 Transform:
@@ -1817,10 +1816,6 @@ PrefabInstance:
       propertyPath: questObjectPrefab
       value: 
       objectReference: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
-    - target: {fileID: 7555607926762156329, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 127
-      objectReference: {fileID: 0}
     - target: {fileID: 7677906721950300278, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 25
@@ -1909,8 +1904,7 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7870232202209822548, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4680,7 +4674,6 @@ MonoBehaviour:
   settingsPanel: {fileID: 1338329832}
   _questMenuOpen: 0
   _questMenu: {fileID: 246267759}
-  currentIndex: 0
 --- !u!4 &725677683
 Transform:
   m_ObjectHideFlags: 0
@@ -6241,25 +6234,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5852286375780045605, guid: fb50b39e9a439c949ae0e927d2797238, type: 3}
---- !u!1 &1121168598 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5679039116519546958, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
-  m_PrefabInstance: {fileID: 151961202}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1121168600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121168598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c649f305af808284ca6aa5a55e9158fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
-  groundToleranceDist: 1.1
-  player: {fileID: 151961203}
 --- !u!1 &1124991362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1427095321488724664, guid: 6a57661b1cf158942b354bba744ff88f, type: 3}
@@ -7785,7 +7759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1342518784
 Transform:
   m_ObjectHideFlags: 0
@@ -7822,7 +7796,6 @@ MonoBehaviour:
   _dangerLevel: 0
   _completedQuestNum: 0
   _packagesForEnding: 4
-  _bombPlanted: 0
   _questList: []
   _questObjectPrefab: {fileID: 8077870852946649384, guid: 11778d58c0849ba4e809403c3fdde893, type: 3}
   _currencyCounter: {fileID: 247835160}
@@ -8152,10 +8125,10 @@ RectTransform:
   - {fileID: 247835159}
   - {fileID: 1175937038}
   - {fileID: 1031763140}
-  - {fileID: 1025712082}
   - {fileID: 268221981}
   - {fileID: 1338329830}
   - {fileID: 1727698555}
+  - {fileID: 1025712082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

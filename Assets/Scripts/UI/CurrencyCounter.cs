@@ -28,6 +28,10 @@ public class CurrencyCounter : MonoBehaviour
         _gainText.text = "+$" + _gainedMoney.ToString();
         _toBeGained = _gainedMoney;
         _vanishTimer = 6;
+        if (_questManager._dangerLevel == 2)
+        {
+            _vanishTimer = 25;
+        }
     }
 
     void FixedUpdate()
@@ -38,7 +42,7 @@ public class CurrencyCounter : MonoBehaviour
             {
                 alphaLevel += Time.deltaTime * 2;
             }
-            if (_vanishTimer < 5 && _toBeGained > 0)
+            if ((_vanishTimer < 5 && _toBeGained > 0) || (_vanishTimer < 24 && _questManager._dangerLevel == 2))
             {
                 _toBeGained--;
                 _gainText.text = "+$" + _toBeGained.ToString();

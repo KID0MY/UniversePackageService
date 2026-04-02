@@ -32,7 +32,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool playerInRange;
 
-    private bool _hasQuest;
+    public bool _hasQuest;
 
     public bool _wantsQuest;
    
@@ -45,7 +45,15 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Start()
     {
-        _hasQuest = true;
+        if (_questManager._dangerLevel == 2 || _questManager._tutorialFlagsCompleted < 6)
+        {
+            _hasQuest = false;
+            visualCue.SetActive(false);
+        }
+        else
+        {
+            _hasQuest = true;
+        }
         _wantsQuest = false;
         if (_player == null)
         {
@@ -54,6 +62,12 @@ public class DialogueTrigger : MonoBehaviour
         if (_dialogueScr == null)
         {
             _dialogueScr = dialogueBox.GetComponent<Dialogue>();
+        }
+        if (_questManager._bombPlanted && name == "boss")
+        {
+            isQuestGiver = false;
+            isQuestReceiver = true;
+            _wantsQuest = true;
         }
         if (isQuestReceiver)
         {
@@ -78,7 +92,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (isQuestGiver && _hasQuest && _questManager._questList.Count == 0)
             {
-                visualCue.SetActive(true);
+                visualCue.SetActive(false);
             }
             else if (_wantsQuest)
             {
@@ -88,21 +102,47 @@ public class DialogueTrigger : MonoBehaviour
             {
                 if (_hasQuest && isQuestGiver && _questManager._questList.Count == 0)
                 {
+                    if (_questManager.CheckForFinale())
+                    {
+                        _questManager._dangerLevel = 2;
+                    }
                     GivePackage();
                     Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
-                    _dialogueScr.CreateDialogue("Take this and bring it to " + _questObject._recipient + " on " + _questObject._destination + "\nPress Tab to view details.");
+                    if (name == "boss")
+                    {
+                        if (_questManager.CheckForFinale())
+                        {
+                            _questManager._dangerLevel = 2;
+                            _dialogueScr.CreateDialogue("Good work out there matey.");
+                            _dialogueScr.CreateDialogue("Here's a bomb.");
+                            _dialogueScr.CreateDialogue("Good luck lmao.");
+                        }
+                        else
+                        {
+                            _dialogueScr.CreateDialogue("'Ere's another package for ya'. It's gotta go to " + _questObject._recipient + " on " + _questObject._destination + ".");
+                            _dialogueScr.CreateDialogue("Keep up the good work an' all that.");
+                        }
+                    }
+                    else
+                    {
+                        _dialogueScr.CreateDialogue("Take this and bring it to " + _questObject._recipient + " on " + _questObject._destination + "\nPress Tab to view details.");
+                    }
                 }
                 else if (_wantsQuest && _questManager.hasQuestObject && GameObject.Find("Player").GetComponent<CharacterControl>().isHolding)
                 {
                     PackageDelivered(_player.currentPickup.GetComponent<PickUp>());
                 }
-                else if (_wantsQuest && GameObject.Find("packagetwo_Updated(Clone)") == null)
+                else if (_wantsQuest && GameObject.Find("packagetwo_Updated(Clone)") == null && !_questManager._bombPlanted)
                 {
                     _dialogueScr.CreateDialogue("What do you mean you \"lost\" my package???");
                     Destroy(_questManager._questList[0]);
                     _questManager.hasQuestObject = false;
                     _questManager._questList.RemoveAt(0);
                     _wantsQuest = false;
+                }
+                else if (_wantsQuest && _questManager._bombPlanted)
+                {
+                    PackageDelivered(null);
                 }
                 else
                 {
@@ -112,9 +152,9 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
-            if (isQuestGiver)
+            if (isQuestGiver && _hasQuest && _questManager._questList.Count == 0)
             {
-                visualCue.SetActive(false);
+                visualCue.SetActive(true);
             }
             else if (_wantsQuest)
             {
@@ -125,29 +165,36 @@ public class DialogueTrigger : MonoBehaviour
 
     public void PackageDelivered(PickUp package)
     {
-        package.KILLYOURSELF();
-        Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
-        if (_questObject._health <= 0 && _questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+        if (_questManager._bombPlanted)
         {
-            _dialogueScr.CreateDialogue("Not only did you take forever, but everything in here is gone. I'm not paying for this.");
+            _dialogueScr.CreateDialogue("Good job matey.");
+            _questManager.FinishActiveQuest(_questManager._questList[0]);
         }
-        else if (_questObject._health <= 0)
-        {
-            _dialogueScr.CreateDialogue("All of the contents are destroyed! I'm not paying you for this.");
+        else {
+            package.KILLYOURSELF();
+            Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
+            if (_questObject._health <= 0 && _questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+            {
+                _dialogueScr.CreateDialogue("Not only did you take forever, but everything in here is gone. I'm not paying for this.");
+            }
+            else if (_questObject._health <= 0)
+            {
+                _dialogueScr.CreateDialogue("All of the contents are destroyed! I'm not paying you for this.");
+            }
+            else if (_questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
+            {
+                _dialogueScr.CreateDialogue("You took too long! I'm not paying you for this.");
+            }
+            else
+            {
+                _dialogueScr.CreateDialogue("Thank you!");
+            }
+            if (_questManager._tutorialFlagsCompleted <= 5)
+            {
+                _questManager.FinishTutorialFlag();
+            }
+            _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
         }
-        else if (_questObject.GetTimeTaken() >= (50 + _questObject._latenessLeeway))
-        {
-            _dialogueScr.CreateDialogue("You took too long! I'm not paying you for this.");
-        }
-        else
-        {
-            _dialogueScr.CreateDialogue("Thank you!");
-        }
-        if (_questManager._tutorialFlagsCompleted <= 5)
-        {
-            _questManager.FinishTutorialFlag();
-        }
-        _questManager.FinishActiveQuest(_questManager.GetQuestByRecipient(name));
         _wantsQuest = false;
     }
 

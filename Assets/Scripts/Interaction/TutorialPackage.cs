@@ -4,8 +4,8 @@ public class TutorialPackage : MonoBehaviour
 {
     public void Start()
     {
-        print(gameObject.GetComponent<PickUp>()._questManager._tutorialFlagsCompleted);
-        if (gameObject.GetComponent<PickUp>()._questManager._tutorialFlagsCompleted > 3)
+        QuestManager _questManager = gameObject.GetComponent<PickUp>()._questManager;
+        if (_questManager._tutorialFlagsCompleted > 3 && _questManager._dangerLevel < 2 && !_questManager.hasQuestObject)
         {
             gameObject.SetActive(false);
         }
