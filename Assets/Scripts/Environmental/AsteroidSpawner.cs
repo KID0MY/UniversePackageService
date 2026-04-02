@@ -35,6 +35,7 @@ public class AsteroidSpawner : MonoBehaviour
 
         Vector3 spawnPoint = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
         GameObject _asteroid = Instantiate(rockPrefabs[rockType], spawnPoint, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+        _asteroid.transform.localScale = _asteroid.transform.localScale * Random.Range(6, 7);
         if (spawnCheck.Length == 1)
         {
             Debug.Log("pip");

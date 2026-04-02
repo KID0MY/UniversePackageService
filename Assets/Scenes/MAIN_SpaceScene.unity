@@ -859,12 +859,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidSpawner
   rockPrefabs:
-  - {fileID: 3383998030992823320, guid: 0b985d3e2a7944849abbef8c944e6b60, type: 3}
-  - {fileID: 4270117402183915417, guid: a3e0c2732b26ab54180a8ca66e9e857c, type: 3}
-  - {fileID: 6707333885420314667, guid: bc1953e399bed144082bf1477c03ae36, type: 3}
+  - {fileID: 5848261889420648032, guid: b8f4894fc3032c84b8f6f9fb5b795927, type: 3}
+  - {fileID: 1153400484507434943, guid: ecd5cee69ac490d4198e506f37c1b43d, type: 3}
+  - {fileID: 6471652563493693954, guid: 7a5e8578ef2d11346a91ca6927dfc622, type: 3}
   maxRange: 2000
   minRange: -2000
-  maxCount: 1000
+  maxCount: 200
 --- !u!1 &194355614
 GameObject:
   m_ObjectHideFlags: 0
