@@ -169,7 +169,7 @@ public class SpaceshipControl : MonoBehaviour
                 _questManager._dialoguer.CreateDialogue("When yer done with that, I told ya to come back to me.");
                 _questManager._dialoguer.CreateDialogue("And right now, I don't see ya doin' either of those.");
             }
-            if (Vector3.Distance(transform.position, _drasil.transform.position) > 1800 && !bossAggression)
+            if (Vector3.Distance(transform.position, _drasil.transform.position) > 5000)
             {
                 //good ending
             }
