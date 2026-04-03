@@ -864,10 +864,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2493181
-  m_Height: 1.816411
+  m_Radius: 0.2116217
+  m_Height: 1.5768524
   m_Direction: 1
-  m_Center: {x: 0.0024082214, y: 0.96599746, z: -0.06502273}
+  m_Center: {x: -0.0021860301, y: 0.9165204, z: -0.06502274}
 --- !u!1 &2651410392624830340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1625,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7956419826265285681}
   - component: {fileID: 2784413341368366342}
-  - component: {fileID: 8661322318548515293}
   m_Layer: 0
   m_Name: DelievryGuymC
   m_TagString: Player
@@ -1672,29 +1671,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &8661322318548515293
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5679039116519546958}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.2493181
-  m_Height: 1.816411
-  m_Direction: 1
-  m_Center: {x: 0.0024082214, y: 0.96599746, z: -0.06502273}
 --- !u!1 &5693111283753745639
 GameObject:
   m_ObjectHideFlags: 0
