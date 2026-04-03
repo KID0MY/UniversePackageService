@@ -39,11 +39,19 @@ public class Quest : MonoBehaviour
         }
         if (_dangerLevel == 1) //Base level
         {
-            _questIndex = Random.Range(1, 4);
+            _questIndex = Random.Range(1, 3);
         }
-        if (_dangerLevel == 2) //Finale level
+        if (_dangerLevel == 2)
+        {
+            _questIndex = 4;
+        }
+        if (_dangerLevel == 3)
         {
             _questIndex = 5;
+        }
+        if (_dangerLevel == 4) //Finale level
+        {
+            _questIndex = 6;
         }
         switch (_questIndex)
         {
@@ -79,12 +87,23 @@ public class Quest : MonoBehaviour
                 break;
             case 4:
                 _questName = "Obscure Delivery";
-                _description = "Bring this package to " + _recipient + " on " + _destination + ", specifically to the core of the planet, cause that's where the recipient lives.";
+                _destination = "Orbitron";
+                _recipient = "Dent";
+                _description = "bring this package to " + _recipient + " on " + _destination + ", up on the rooftops";
                 _payAmount = 40;
                 _damageMultiplier = 1f;
                 _latenessLeeway = 40;
                 break;
             case 5:
+                _questName = "Just toss it Delivery";
+                _destination = "Drasil";
+                _recipient = "Weed";
+                _description = "bring this package to " + _recipient + " on " + _destination + ", they're a ways up so just chuck it at them";
+                _payAmount = 50;
+                _damageMultiplier = 0.5f;
+                _latenessLeeway = 50;
+                break;
+            case 6:
                 _questName = "Final Delivery";
                 _destination = "Drasil";
                 _recipient = "";
@@ -128,14 +147,14 @@ public class Quest : MonoBehaviour
         {
             names = transform.parent.GetComponent<QuestManager>()._planetTwoRecipientNames;
         }
-        _recipient = names[Random.Range(0, names.Count)];
+        _recipient = names[Random.Range(0, names.Count - 1)];
     }
 
     public void TakeDamage(float amount)
     {
         _health -= ((amount*_damageMultiplier)/100);
         print(_health);
-        if (_health <= 0 && _dangerLevel == 2)
+        if (_health <= 0 && _dangerLevel == 4)
         {
             while (true)
             {

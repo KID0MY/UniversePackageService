@@ -42,11 +42,13 @@ public class QuestManager : MonoBehaviour
         {
             _planetOneRecipientNames.Add("Chrome");
             _planetOneRecipientNames.Add("Vanada");
+            _planetOneRecipientNames.Add("Dent");
         }
         if (_planetTwoRecipientNames.Count == 0)
         {
             _planetTwoRecipientNames.Add("Orchid");
             _planetTwoRecipientNames.Add("Azalea");
+            _planetTwoRecipientNames.Add("Weed");
         }
     }
 
@@ -108,6 +110,10 @@ public class QuestManager : MonoBehaviour
                 _questList.RemoveAt(x);
                 break;
             }
+        }
+        if (_dangerLevel < 3)
+        {
+            _dangerLevel = _completedQuestNum;
         }
     }
 
@@ -251,6 +257,7 @@ public class QuestManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Y)) //Y: boss will offer the ending package
             {
                 _completedQuestNum = _packagesForEnding;
+                _dangerLevel = 3;
             }
         }
     }
@@ -258,6 +265,7 @@ public class QuestManager : MonoBehaviour
     void autoendtutorial() //Just a plaaceholder function for funsies
     {
         _dangerLevel = 1;
+        _completedQuestNum = 1;
         _tutorialFlagsCompleted = 1000;
     }
 }
