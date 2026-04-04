@@ -859,9 +859,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidSpawner
   rockPrefabs:
-  - {fileID: 5848261889420648032, guid: b8f4894fc3032c84b8f6f9fb5b795927, type: 3}
-  - {fileID: 1153400484507434943, guid: ecd5cee69ac490d4198e506f37c1b43d, type: 3}
-  - {fileID: 6471652563493693954, guid: 7a5e8578ef2d11346a91ca6927dfc622, type: 3}
+  - {fileID: 7052543176109016989, guid: 14877da2eaa2691daab7101b83dccfd8, type: 3}
+  - {fileID: 2484080061212961243, guid: 78c3abb744097370c92a660b66b5a80f, type: 3}
+  - {fileID: 8925735063773249141, guid: 3f3ae223acf16e146a7099e707238c8d, type: 3}
   maxRange: 2000
   minRange: -2000
   maxCount: 200
@@ -1414,7 +1414,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.41125, y: 0, z: -987}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 107515552}
@@ -1509,6 +1509,18 @@ PrefabInstance:
     - target: {fileID: 493202653635332231, guid: e265d76b10d5970458751bafff01e587, type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612269979167263109, guid: e265d76b10d5970458751bafff01e587, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612269979167263109, guid: e265d76b10d5970458751bafff01e587, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612269979167263109, guid: e265d76b10d5970458751bafff01e587, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8612269979167263109, guid: e265d76b10d5970458751bafff01e587, type: 3}
       propertyPath: m_LocalPosition.x
