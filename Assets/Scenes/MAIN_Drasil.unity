@@ -2437,6 +2437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   _questManager: {fileID: 0}
   visualCue: {fileID: 1240130979}
+  waypoint: {fileID: 0}
   dialogueBox: {fileID: 537242533}
   _dialogueScr: {fileID: 537242535}
   _player: {fileID: 1574634946}
@@ -8085,6 +8086,11 @@ PrefabInstance:
 --- !u!4 &773729864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2329025077366308693, guid: 160c609a3dd09e749b94f761ce9888b3, type: 3}
+  m_PrefabInstance: {fileID: 773729863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &773729865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5391474038345655664, guid: 160c609a3dd09e749b94f761ce9888b3, type: 3}
   m_PrefabInstance: {fileID: 773729863}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &774511070
@@ -18856,6 +18862,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1080407244}
     m_Modifications:
     - target: {fileID: 5071284605231145451, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
+      propertyPath: waypoint
+      value: 
+      objectReference: {fileID: 1827527376}
+    - target: {fileID: 5071284605231145451, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
       propertyPath: _recieverNameId
       value: 2
       objectReference: {fileID: 0}
@@ -18908,6 +18918,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
+--- !u!1 &1827527376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2042046518720072383, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
+  m_PrefabInstance: {fileID: 1827527375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1829359221 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6919683763462532184, guid: 42f26acb99bd98949bd14761a2a881a7, type: 3}
@@ -19047,6 +19062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   _questManager: {fileID: 0}
   visualCue: {fileID: 1817909351}
+  waypoint: {fileID: 773729865}
   dialogueBox: {fileID: 537242533}
   _dialogueScr: {fileID: 537242535}
   _player: {fileID: 1574634946}
@@ -21920,6 +21936,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1574634946}
     - target: {fileID: 5071284605231145451, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
+      propertyPath: waypoint
+      value: 
+      objectReference: {fileID: 1367782698140236453}
+    - target: {fileID: 5071284605231145451, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 537242533}
@@ -21976,6 +21996,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
+--- !u!1 &1367782698140236453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2042046518720072383, guid: 4dde8477cd6b4d946b28b2aa94d43eb5, type: 3}
+  m_PrefabInstance: {fileID: 1367782698140236452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2000377872063791935
 PrefabInstance:
   m_ObjectHideFlags: 0

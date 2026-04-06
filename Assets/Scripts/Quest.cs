@@ -41,11 +41,11 @@ public class Quest : MonoBehaviour
         {
             _questIndex = Random.Range(1, 3);
         }
-        if (_dangerLevel == 2)
+        if (_dangerLevel == 2) //special quest
         {
             _questIndex = 4;
         }
-        if (_dangerLevel == 3)
+        if (_dangerLevel == 3) //special quest
         {
             _questIndex = 5;
         }
@@ -66,6 +66,8 @@ public class Quest : MonoBehaviour
                 break;
             case 1:
                 _questName = "Basic Delivery";
+                _destination = "Drasil";
+                GenerateRecipient();
                 _description = "Bring this package to " + _recipient + " on " + _destination + ".";
                 _payAmount = 20;
                 _damageMultiplier = 1f;
@@ -73,6 +75,8 @@ public class Quest : MonoBehaviour
                 break;
             case 2:
                 _questName = "Speedy Delivery";
+                _destination = "Drasil";
+                GenerateRecipient();
                 _description = "Bring this package to " + _recipient + " on " + _destination + ", make it quick, those contents aren't gonna last long.";
                 _payAmount = 30;
                 _damageMultiplier = 0.8f;
@@ -80,6 +84,8 @@ public class Quest : MonoBehaviour
                 break;
             case 3:
                 _questName = "Fragile Delivery";
+                _destination = "Drasil";
+                GenerateRecipient();
                 _description = "Bring this package to " + _recipient + " on " + _destination + " carefully. That package is fragile, and I'm not paying you if it breaks.";
                 _payAmount = 30;
                 _damageMultiplier = 3f;

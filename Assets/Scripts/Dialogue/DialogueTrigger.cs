@@ -7,6 +7,8 @@ public class DialogueTrigger : MonoBehaviour
     public QuestManager _questManager;    
 
     public GameObject visualCue;
+
+    public GameObject waypoint;
         
     public GameObject dialogueBox;
 
@@ -159,6 +161,11 @@ public class DialogueTrigger : MonoBehaviour
             else if (_wantsQuest)
             {
                 visualCue.SetActive(true);
+                waypoint.SetActive(true);
+            }
+            else if (!_wantsQuest)
+            {
+                waypoint.SetActive(false);
             }
         }
     }

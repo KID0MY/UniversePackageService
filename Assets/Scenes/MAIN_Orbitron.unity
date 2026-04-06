@@ -637,6 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   _questManager: {fileID: 0}
   visualCue: {fileID: 136859583}
+  waypoint: {fileID: 1276571215}
   dialogueBox: {fileID: 988503312}
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
@@ -2922,6 +2923,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6451619248144347893, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
+      propertyPath: waypoint
+      value: 
+      objectReference: {fileID: 1124086617}
+    - target: {fileID: 6451619248144347893, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 988503312}
@@ -2938,6 +2943,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
+--- !u!1 &1124086617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 314367324845698225, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
+  m_PrefabInstance: {fileID: 1124086616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1135960097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,6 +3751,11 @@ PrefabInstance:
 --- !u!4 &1276571214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2329025077366308693, guid: 160c609a3dd09e749b94f761ce9888b3, type: 3}
+  m_PrefabInstance: {fileID: 1276571213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1276571215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5391474038345655664, guid: 160c609a3dd09e749b94f761ce9888b3, type: 3}
   m_PrefabInstance: {fileID: 1276571213}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1293305088
@@ -6425,6 +6440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   _questManager: {fileID: 0}
   visualCue: {fileID: 1833905586}
+  waypoint: {fileID: 0}
   dialogueBox: {fileID: 988503312}
   _dialogueScr: {fileID: 0}
   _player: {fileID: 0}
@@ -6772,6 +6788,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6451619248144347893, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
+      propertyPath: waypoint
+      value: 
+      objectReference: {fileID: 360618803142338624}
+    - target: {fileID: 6451619248144347893, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 988503312}
@@ -6780,6 +6800,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
+--- !u!1 &360618803142338624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 314367324845698225, guid: 68209f0e88fd8f043bfc4dd92a08ebec, type: 3}
+  m_PrefabInstance: {fileID: 360618803142338623}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1193323840683266632
 PrefabInstance:
   m_ObjectHideFlags: 0
