@@ -161,11 +161,13 @@ public class DialogueTrigger : MonoBehaviour
             else if (_wantsQuest)
             {
                 visualCue.SetActive(true);
-                waypoint.SetActive(true);
+                if (waypoint != null)
+                    waypoint.SetActive(true);
             }
             else if (!_wantsQuest)
             {
-                waypoint.SetActive(false);
+                if (waypoint != null)
+                    waypoint.SetActive(false);
             }
         }
     }
