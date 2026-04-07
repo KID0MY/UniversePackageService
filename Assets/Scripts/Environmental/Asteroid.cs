@@ -6,6 +6,7 @@ public class Asteroid : MonoBehaviour
     Rigidbody _body;
     public SpaceshipControl _player;
     int _distanceForCollision = 1000;
+    int _maxSpeed = 10000;
     Vector3 _driftDir;
 
     private void Start()
@@ -13,7 +14,7 @@ public class Asteroid : MonoBehaviour
         _collider = GetComponent<MeshCollider>();
         _player = FindAnyObjectByType<SpaceshipControl>();
         _body = GetComponent<Rigidbody>();
-        _driftDir = new Vector3(Random.Range(-10000, 10000), Random.Range(-10000, 10000), Random.Range(-10000, 10000));
+        _driftDir = new Vector3(Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed));
         _body.AddForce(_driftDir);
     }
 
@@ -31,13 +32,13 @@ public class Asteroid : MonoBehaviour
 
     public void InvertDirection()
     {
-        _driftDir = _driftDir * -2;
+        _driftDir = _driftDir * -1;
         _body.AddForce(_driftDir);
     }
 
     public void TargetPlayer()
     {
-        _driftDir = ((_player.transform.position - transform.position).normalized * 2000) + new Vector3(Random.Range(-10000, 10000), Random.Range(-10000, 10000), Random.Range(-10000, 10000));
+        _driftDir = ((_player.transform.position - transform.position).normalized * 2000) + new Vector3(Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed));
         _body.AddForce(_driftDir);
     }
 

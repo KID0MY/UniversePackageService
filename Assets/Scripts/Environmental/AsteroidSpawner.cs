@@ -45,7 +45,7 @@ public class AsteroidSpawner : MonoBehaviour
 
         Vector3 spawnPoint = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
         GameObject _asteroid = Instantiate(rockPrefabs[rockType], spawnPoint, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-        _asteroid.transform.localScale = _asteroid.transform.localScale * Random.Range(40, 100);
+        _asteroid.transform.localScale = _asteroid.transform.localScale * Random.Range(20, 60);
         if (Vector3.Distance(_asteroid.transform.position, _orbitronLocation.position) < _planetLeeway)
         {
             Destroy(_asteroid);
