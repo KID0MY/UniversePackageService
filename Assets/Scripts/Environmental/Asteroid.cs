@@ -32,8 +32,8 @@ public class Asteroid : MonoBehaviour
 
     public void InvertDirection()
     {
-        _driftDir = _driftDir * -1;
-        _body.AddForce(_driftDir);
+        _driftDir = _driftDir * -1f;
+        _body.linearVelocity = _body.linearVelocity * -1f;
     }
 
     public void TargetPlayer()

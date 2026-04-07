@@ -868,9 +868,9 @@ MonoBehaviour:
   _drasilLocation: {fileID: 318097548}
   _playerLocation: {fileID: 205083078}
   _shipLocation: {fileID: 212578337}
-  _planetLeeway: 780
-  _playerLeeway: 30
-  _shipLeeway: 500
+  _planetLeeway: 1000
+  _playerLeeway: 100
+  _shipLeeway: 800
   maxCount: 200
   _asteroidObjects: []
 --- !u!1 &194355614
