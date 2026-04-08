@@ -859,12 +859,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidSpawner
   rockPrefabs:
-  - {fileID: 7052543176109016989, guid: 14877da2eaa2691daab7101b83dccfd8, type: 3}
-  - {fileID: 2484080061212961243, guid: 78c3abb744097370c92a660b66b5a80f, type: 3}
-  - {fileID: 8925735063773249141, guid: 3f3ae223acf16e146a7099e707238c8d, type: 3}
-  maxRange: 2000
-  minRange: -2000
+  - {fileID: 5848261889420648032, guid: b8f4894fc3032c84b8f6f9fb5b795927, type: 3}
+  - {fileID: 1153400484507434943, guid: ecd5cee69ac490d4198e506f37c1b43d, type: 3}
+  - {fileID: 6471652563493693954, guid: 7a5e8578ef2d11346a91ca6927dfc622, type: 3}
+  maxRange: 3000
+  minRange: -3000
+  _orbitronLocation: {fileID: 522444107}
+  _drasilLocation: {fileID: 318097548}
+  _playerLocation: {fileID: 205083078}
+  _shipLocation: {fileID: 212578337}
+  _planetLeeway: 1000
+  _playerLeeway: 100
+  _shipLeeway: 800
   maxCount: 200
+  _asteroidObjects: []
 --- !u!1 &194355614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,8 +1280,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.21, y: 3.47, z: 6.83}
-  m_Center: {x: 0, y: -0.51, z: 0}
+  m_Size: {x: 3.21, y: 2, z: 5}
+  m_Center: {x: 0, y: 0.5, z: -0.6}
 --- !u!4 &205083078
 Transform:
   m_ObjectHideFlags: 0
