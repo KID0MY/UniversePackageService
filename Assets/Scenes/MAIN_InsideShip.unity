@@ -7434,6 +7434,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 277439735868745774, guid: a9b323af906b8164296ce041549312b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1257443408}
+    - targetCorrespondingSourceObject: {fileID: 277439735868745774, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257443409}
     - targetCorrespondingSourceObject: {fileID: 233356417398222047, guid: a9b323af906b8164296ce041549312b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1225323496}
@@ -7468,10 +7471,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
   sceneMan: {fileID: 725677682}
-  questManager: {fileID: 1342518785}
-  player: {fileID: 151961203}
+  questManager: {fileID: 0}
+  player: {fileID: 0}
   returnShip: 0
   _dialogueBox: {fileID: 1877191774}
+--- !u!65 &1257443409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257443407}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.68689, y: 2.5337667, z: 7.167431}
+  m_Center: {x: 0.1132474, y: 0.32266426, z: -0.24013662}
 --- !u!1 &1284304456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2631439222664692431, guid: 9f527e2f918fdf14085a9ccce0c83a55, type: 3}
@@ -7899,6 +7923,7 @@ MonoBehaviour:
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
   tutorialDialogue: {fileID: 0}
+  lastScene: 
 --- !u!1001 &1346469505
 PrefabInstance:
   m_ObjectHideFlags: 0
