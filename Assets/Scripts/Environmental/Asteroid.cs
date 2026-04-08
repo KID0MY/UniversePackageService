@@ -2,25 +2,53 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public Timer timer;
-    [SerializeField] private float timeLoss;
-    [SerializeField] private float bounceStrength;
+    MeshCollider _collider;
+    Rigidbody _body;
+    public SpaceshipControl _player;
+    int _distanceForCollision = 1000;
+    int _maxSpeed = 10000;
+    Vector3 _driftDir;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        //timer = GameObject.FindFirstObjectByType<Timer>();
+        _collider = GetComponent<MeshCollider>();
+        _player = FindAnyObjectByType<SpaceshipControl>();
+        _body = GetComponent<Rigidbody>();
+        _driftDir = new Vector3(Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed));
+        _body.AddForce(_driftDir);
     }
+
+    public void CheckCollisionEnable()
+    {
+        if (Vector3.Distance(_player.transform.position, transform.position) < _distanceForCollision)
+        {
+            _collider.enabled = true;
+        }
+        else
+        {
+            _collider.enabled = false;
+        }
+    }
+
+    public void InvertDirection()
+    {
+        _driftDir = _driftDir * -1f;
+        _body.linearVelocity = _body.linearVelocity * -1f;
+    }
+
+    public void TargetPlayer()
+    {
+        _driftDir = ((_player.transform.position - transform.position).normalized * 2000) + new Vector3(Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed), Random.Range(-_maxSpeed, _maxSpeed));
+        _body.AddForce(_driftDir);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //timer.timeRemaining -= timeLoss;
             Vector3 colVeliocity = collision.gameObject.GetComponent<Rigidbody>().linearVelocity;
             Vector3 normal = collision.contacts[0].normal;
             Vector3 bounceDir = Vector3.Reflect(colVeliocity.normalized, normal);
-
-            collision.gameObject.GetComponent<Rigidbody>().linearVelocity = bounceDir * bounceStrength;
         }
     }
 }
