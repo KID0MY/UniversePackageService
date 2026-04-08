@@ -46,14 +46,8 @@ public class ShipTransition : Interactable
                     questManager._bombPlanted = true;
                 }
             }
-            if (!returnShip)
-            {
-                sceneMan.loadSpaceScene();
-            }
-            else
-            {
-                sceneMan.loadSpaceScene();
-            }
+            questManager.lastScene = SceneManager.GetActiveScene().name;
+            sceneMan.loadSpaceScene();
         }
         else
         {

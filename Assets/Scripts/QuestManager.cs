@@ -22,6 +22,7 @@ public class QuestManager : MonoBehaviour
     public bool hasQuestObject;
     public int _tutorialFlagsCompleted;
     public DialogueFinal tutorialDialogue;
+    public string lastScene;
 
     void Awake() //Makes this node persist between scenes
     {
