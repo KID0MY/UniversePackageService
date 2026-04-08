@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2542189535975751483, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5484203328448453167, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: _playerScr
       value: 
@@ -387,7 +391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1173935496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -625,7 +629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1931286182
 AudioListener:
   m_ObjectHideFlags: 0

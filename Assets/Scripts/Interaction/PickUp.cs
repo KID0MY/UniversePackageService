@@ -36,6 +36,7 @@ public class PickUp : Interactable
     {
         if (player.GetComponent<CharacterControl>().isHolding == false)
         {
+            _throwTimer = 0f;
             this.gameObject.layer = 7;
             collider.enabled = false;
             player.GetComponent<CharacterControl>().PickUpObject(this);
@@ -88,10 +89,8 @@ public class PickUp : Interactable
     {
 
     }
-
-    private void FixedUpdate()
+    private void Update()
     {
-        _speed = Vector3.Magnitude(_body.linearVelocity);
         if (_speed < _speedLastFrame && !player.GetComponent<CharacterControl>().isHolding)
         {
             float _speedDelta = _speedLastFrame - _speed;
@@ -100,6 +99,10 @@ public class PickUp : Interactable
                 _questManager._questList[0].GetComponent<Quest>().TakeDamage(_speedDelta);
             }
         }
+    }
+    private void FixedUpdate()
+    {
+        _speed = Vector3.Magnitude(_body.linearVelocity);
         _speedLastFrame = _speed;
         if (transform.position.y < -100)
         {

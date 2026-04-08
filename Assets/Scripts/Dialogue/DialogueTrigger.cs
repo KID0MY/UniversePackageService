@@ -7,6 +7,8 @@ public class DialogueTrigger : MonoBehaviour
     public QuestManager _questManager;    
 
     public GameObject visualCue;
+
+    public GameObject waypoint;
         
     public GameObject dialogueBox;
 
@@ -45,7 +47,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Start()
     {
-        if (_questManager._dangerLevel == 2 || _questManager._tutorialFlagsCompleted < 6)
+        if (_questManager._dangerLevel == 4 || _questManager._tutorialFlagsCompleted < 6)
         {
             _hasQuest = false;
             visualCue.SetActive(false);
@@ -104,7 +106,7 @@ public class DialogueTrigger : MonoBehaviour
                 {
                     if (_questManager.CheckForFinale())
                     {
-                        _questManager._dangerLevel = 2;
+                        _questManager._dangerLevel = 4;
                     }
                     GivePackage();
                     Quest _questObject = _questManager._questList[0].GetComponent<Quest>();
@@ -112,7 +114,7 @@ public class DialogueTrigger : MonoBehaviour
                     {
                         if (_questManager.CheckForFinale())
                         {
-                            _questManager._dangerLevel = 2;
+                            _questManager._dangerLevel = 4;
                             _dialogueScr.CreateDialogue("Good work out there matey.");
                             _dialogueScr.CreateDialogue("Here's a bomb.");
                             _dialogueScr.CreateDialogue("Good luck lmao.");
@@ -159,6 +161,13 @@ public class DialogueTrigger : MonoBehaviour
             else if (_wantsQuest)
             {
                 visualCue.SetActive(true);
+                if (waypoint != null)
+                    waypoint.SetActive(true);
+            }
+            else if (!_wantsQuest)
+            {
+                if (waypoint != null)
+                    waypoint.SetActive(false);
             }
         }
     }
