@@ -996,6 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205083078}
+  - component: {fileID: 205083080}
   - component: {fileID: 205083077}
   - component: {fileID: 205083076}
   - component: {fileID: 205083075}
@@ -1396,6 +1397,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &205083080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205083072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afcfe4d791e75c8b68473c353b728ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpaceSpawn
+  exitNodes: []
+  questManager: {fileID: 0}
+  playerShip: {fileID: 205083072}
 --- !u!1 &212578336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,29 +1595,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8612269979167263109, guid: e265d76b10d5970458751bafff01e587, type: 3}
       insertIndex: -1
       addedObject: {fileID: 610759579}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 493202653635332231, guid: e265d76b10d5970458751bafff01e587, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 304311472}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e265d76b10d5970458751bafff01e587, type: 3}
 --- !u!4 &304311471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8612269979167263109, guid: e265d76b10d5970458751bafff01e587, type: 3}
   m_PrefabInstance: {fileID: 304311470}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &304311472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101701418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcfe4d791e75c8b68473c353b728ea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpaceSpawn
-  exitNodes: []
 --- !u!1001 &318097547
 PrefabInstance:
   m_ObjectHideFlags: 0

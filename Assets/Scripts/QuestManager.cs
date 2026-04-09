@@ -106,6 +106,7 @@ public class QuestManager : MonoBehaviour
                     _currencyCounter.ShowGainedMoney(payout, _money);
                 }
                 _completedQuestNum++;
+                Debug.Log(_completedQuestNum);
                 Destroy(quest.gameObject);
                 hasQuestObject = false;
                 _questList.RemoveAt(x);
