@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MAIN_InsideShip.unity
     guid: 662502c166106e94fb5730dea531068d
+  - enabled: 1
+    path: Assets/Scenes/BAD_CUTSCENE.unity
+    guid: ec070b40a2efce84c9d135a7a8b30552
+  - enabled: 1
+    path: Assets/Scenes/GOOD_CUTSCENE.unity
+    guid: d5fc8d002f4e846418b7aea7e09483d6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -283,6 +283,9 @@ public class sceneManager_ : MonoBehaviour
             case 4:
                 audioManager.Instance.PlayMusic("MainSpaceTheme");
                 break;
+            case 5:
+                audioManager.Instance.StopMusic("MainSpaceTheme");
+                break;
             default:
                 break;
         }
@@ -317,7 +320,8 @@ public class sceneManager_ : MonoBehaviour
     IEnumerator loadGoodEnd()
     {
         animScript.anim_.Play("fadeIn", 0, 0);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
+        currentIndex = 5;
         SceneManager.LoadScene("GOOD_CUTSCENE");
 
     }
@@ -329,7 +333,8 @@ public class sceneManager_ : MonoBehaviour
     IEnumerator loadBadEnd()
     {
         animScript.anim_.Play("fadeIn", 0, 0);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
+        currentIndex = 5;
         SceneManager.LoadScene("BAD_CUTSCENE");
 
     }

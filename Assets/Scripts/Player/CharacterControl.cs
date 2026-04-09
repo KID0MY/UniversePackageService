@@ -241,6 +241,7 @@ public class CharacterControl : MonoBehaviour
             }
         }
 
+        //CharacterControl.cs
         if (collider.name == "BadEndTrigger"){
             if (_questManager._bombPlanted)
             {
