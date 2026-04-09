@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] rockPrefabs;

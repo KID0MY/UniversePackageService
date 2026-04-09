@@ -171,7 +171,7 @@ public class SpaceshipControl : MonoBehaviour
                 bossAggression = true;
             }
             //SpaceshipControl.cs
-            if (Vector3.Distance(transform.position, _drasil.transform.position) > 5000)
+            if (Vector3.Distance(transform.position, _drasil.transform.position) > 3000)
             {
                 sceneMan.loadGoodCutscene();
             }

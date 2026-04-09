@@ -20,7 +20,7 @@ Shader "Alvaro/URPGlassWithProperExtrusion"
         {
             "Queue"="Transparent"
             "RenderType"="Transparent"
-            "RenderPipeline"="UniversalRenderPipeline"
+            "RenderPipeline"="UniversalPipeline"
         }
 
         Pass

@@ -240,7 +240,7 @@ public class QuestManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Y)) //Y: boss will offer the ending package
             {
                 _completedQuestNum = _packagesForEnding;
-                _dangerLevel = 3;
+                _dangerLevel = 4;
             }
             if (Input.GetKeyDown(KeyCode.B)) //B: bomb will be planted
             {

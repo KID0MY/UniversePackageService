@@ -17,7 +17,7 @@ public class CredManBadEnd : MonoBehaviour
         if (waitTime > 13)
         {
             creditsUI.SetActive(true);
-
+            Cursor.lockState = CursorLockMode.None;
 
         }
     }
