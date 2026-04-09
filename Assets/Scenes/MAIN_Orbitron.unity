@@ -3959,6 +3959,7 @@ MonoBehaviour:
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
   tutorialDialogue: {fileID: 0}
+  lastScene: 
 --- !u!4 &1332673481
 Transform:
   m_ObjectHideFlags: 0

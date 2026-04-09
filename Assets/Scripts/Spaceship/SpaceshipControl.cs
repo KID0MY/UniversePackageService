@@ -163,15 +163,17 @@ public class SpaceshipControl : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, _drasil.transform.position) > 1800 && !bossAggression)
             {
-                bossAggression = true;
+                
                 _questManager._dialoguer.CreateDialogue("Didn'tcha hear me?");
                 _questManager._dialoguer.CreateDialogue("I told ya' to go to Drasil, and leave that package there.");
                 _questManager._dialoguer.CreateDialogue("When yer done with that, I told ya to come back to me.");
                 _questManager._dialoguer.CreateDialogue("And right now, I don't see ya doin' either of those.");
+                bossAggression = true;
             }
+            //SpaceshipControl.cs
             if (Vector3.Distance(transform.position, _drasil.transform.position) > 5000)
             {
-                //good ending
+                sceneMan.loadGoodCutscene();
             }
         }
     }
@@ -198,5 +200,7 @@ public class SpaceshipControl : MonoBehaviour
         {
             sceneMan.goToDrasil();
         }
+
+
     }
 }

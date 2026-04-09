@@ -309,4 +309,33 @@ public class sceneManager_ : MonoBehaviour
         Debug.Log("Current Index is "+ currentIndex);
         return currentIndex; 
     }
+
+    //katie cutscene stuff
+    //SceneManager.cs
+
+    IEnumerator loadGoodEnd()
+    {
+        animScript.anim_.Play("fadeIn", 0, 0);
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("GOOD_CUTSCENE");
+
+    }
+    public void loadGoodCutscene()
+    {
+        StartCoroutine(loadGoodEnd());
+    }
+
+    IEnumerator loadBadEnd()
+    {
+        animScript.anim_.Play("fadeIn", 0, 0);
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("BAD_CUTSCENE");
+
+    }
+    public void loadBadCutscene()
+    {
+        StartCoroutine(loadBadEnd());
+    }
+
+
 }

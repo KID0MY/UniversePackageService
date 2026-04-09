@@ -145,6 +145,7 @@ public class DialogueTrigger : MonoBehaviour
                 else if (_wantsQuest && _questManager._bombPlanted)
                 {
                     PackageDelivered(null);
+
                 }
                 else
                 {

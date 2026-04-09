@@ -37,7 +37,7 @@ public class CharacterControl : MonoBehaviour
 
     public Animator Bodyanimator;
 
-
+    public sceneManager_ sceneMan;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -238,6 +238,13 @@ public class CharacterControl : MonoBehaviour
             if (_questManager._tutorialFlagsCompleted <= 1)
             {
                 _questManager.FinishTutorialFlag();
+            }
+        }
+
+        if (collider.name == "BadEndTrigger"){
+            if (_questManager._bombPlanted)
+            {
+                sceneMan.loadBadCutscene();
             }
         }
     }

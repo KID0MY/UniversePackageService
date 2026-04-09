@@ -342,6 +342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TRANSITIONpanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4261481051806180877, guid: 78f44cd75a0bd694eb612232eae7024a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5399801545498741464, guid: 78f44cd75a0bd694eb612232eae7024a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -929,6 +933,7 @@ MonoBehaviour:
   hasQuestObject: 0
   _tutorialFlagsCompleted: 0
   tutorialDialogue: {fileID: 11400000, guid: e1c62d2a794a826458d2da26546fe812, type: 2}
+  lastScene: 
 --- !u!4 &711040563
 Transform:
   m_ObjectHideFlags: 0
