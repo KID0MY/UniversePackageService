@@ -1827,6 +1827,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 151961203}
     - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: sceneMan
+      value: 
+      objectReference: {fileID: 725677682}
+    - target: {fileID: 7320688529946326627, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: _questManager
       value: 
       objectReference: {fileID: 1342518785}
@@ -1844,8 +1848,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573885108984993322, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.076
+      value: 0.127
       objectReference: {fileID: 0}
+    - target: {fileID: 7677906721950300278, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 151961204}
     - target: {fileID: 7677906721950300278, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 25
@@ -1954,6 +1962,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473fee1fbdb35424c904731f8b15c826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterControl
+--- !u!20 &151961204 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7555607926762156329, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}
+  m_PrefabInstance: {fileID: 151961202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &157621458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5491,10 +5504,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2493181
-  m_Height: 1.42
+  m_Radius: 0.26362473
+  m_Height: 1.4917643
   m_Direction: 1
-  m_Center: {x: 0.0024082214, y: 0.96599746, z: -0.06502273}
+  m_Center: {x: 0.00866713, y: 1.0018795, z: 0.05507239}
 --- !u!114 &884924879 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5484203328448453167, guid: eda38ecd6f3aa0748b5b5256bf9c99bc, type: 3}

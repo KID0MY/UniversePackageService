@@ -804,6 +804,7 @@ MonoBehaviour:
   questObject: {fileID: 0}
   _questManager: {fileID: 0}
   Bodyanimator: {fileID: 2784413341368366342}
+  sceneMan: {fileID: 0}
 --- !u!54 &8709244625530757313
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -864,10 +865,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2116217
+  m_Radius: 0.26649266
   m_Height: 1.5768524
   m_Direction: 1
-  m_Center: {x: -0.0021860301, y: 0.9165204, z: -0.06502274}
+  m_Center: {x: -0.000043094158, y: 0.9165204, z: 0.17460036}
 --- !u!1 &2651410392624830340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1314,7 @@ Transform:
   m_GameObject: {fileID: 4717907944766398245}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.65, z: 0.16}
+  m_LocalPosition: {x: 0, y: 1.65, z: 0.317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
