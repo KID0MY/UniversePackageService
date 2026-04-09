@@ -232,7 +232,7 @@ public class QuestManager : MonoBehaviour
                 GameObject _questObject = Instantiate(_questObjectPrefab, GameObject.Find("Player").transform.position + Vector3.up, Quaternion.identity);
                 _questObject.GetComponent<PickUp>().OnInteract();
             }
-            if (Input.GetKeyUp(KeyCode.L)) //L: automatically end the tutorial
+            if (Input.GetKeyDown(KeyCode.L)) //L: automatically end the tutorial
             {
                 autoendtutorial();
             }
@@ -240,6 +240,10 @@ public class QuestManager : MonoBehaviour
             {
                 _completedQuestNum = _packagesForEnding;
                 _dangerLevel = 3;
+            }
+            if (Input.GetKeyDown(KeyCode.B)) //B: bomb will be planted
+            {
+                _bombPlanted = true;
             }
         }
     }

@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b710702881edfc748a426905cbd6ff5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
-  _questManager: {fileID: 0}
+  _questManager: {fileID: 1342518785}
   visualCue: {fileID: 1353190111}
   waypoint: {fileID: 0}
   dialogueBox: {fileID: 1877191774}
@@ -7507,8 +7507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipTransition
   sceneMan: {fileID: 725677682}
-  questManager: {fileID: 0}
-  player: {fileID: 0}
+  questManager: {fileID: 1342518785}
+  player: {fileID: 151961203}
   returnShip: 0
   _dialogueBox: {fileID: 1877191774}
 --- !u!65 &1257443409
