@@ -16324,6 +16324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship_Interactable Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1880433590647106512, guid: a9b323af906b8164296ce041549312b9, type: 3}
+      propertyPath: m_text
+      value: Theseus
+      objectReference: {fileID: 0}
     - target: {fileID: 1925614697472837875, guid: a9b323af906b8164296ce041549312b9, type: 3}
       propertyPath: m_Layer
       value: 6

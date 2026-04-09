@@ -117,7 +117,7 @@ public class sceneManager_ : MonoBehaviour
     public void closeSettings()
     {
         Cursor.lockState = CursorLockMode.Locked; 
-        Cursor.visible = false;
+        Cursor.visible = false; 
         resetTime();
     }
     public void resetTime()
@@ -142,6 +142,7 @@ public class sceneManager_ : MonoBehaviour
             Time.timeScale = 0.0f;
             Cursor.visible = true;
             pausePanel.SetActive(true);
+            settingsPanel.SetActive(true);
         }
         if (!paused&&!canPause)
         {

@@ -73,3 +73,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/TextMesh Pro/Fonts/METHANERSE Free Trial SDF.asset
+Assets/TextMesh Pro/Fonts/Radiant Pafista SDF.asset
+Assets/TextMesh Pro/Fonts/Universa-DEMO SDF.asset
