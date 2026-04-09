@@ -10,6 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12550e90c236e0541b910f7291e37631, type: 3}
-  m_Name: NPC_Orbitron2
+  m_Name: NPC_OrbitronLoreStuff 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
-  Node: []
+  Node:
+  - sentences:
+    - text: Hey, you heard the news
+    - text: they say big ol' UPS man wants to clear drasil for more factories.
+  - sentences:
+    - text: too bad really
+    - text: 'Always wanted to see the '

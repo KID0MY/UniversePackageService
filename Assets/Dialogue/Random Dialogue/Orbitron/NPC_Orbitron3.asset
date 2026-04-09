@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12550e90c236e0541b910f7291e37631, type: 3}
   m_Name: NPC_Orbitron3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
-  Node: []
+  Node:
+  - sentences:
+    - text: "Some people really hate AI. What\u2019d we ever do to them?"
+  - sentences:
+    - text: "Don\u2019t bother me, I\u2019ve got places to be."
+  - sentences:
+    - text: "Anytime I get a package from you guys its always got bumps and scraps
+        on it. Is there some kinda UPS policy that says you\u2019re supposed to throw
+        it around or what?"

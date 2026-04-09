@@ -37,6 +37,7 @@ public class PickUp : Interactable
         if (player.GetComponent<CharacterControl>().isHolding == false)
         {
             _throwTimer = 0f;
+            _canBeThrown = false;
             this.gameObject.layer = 7;
             collider.enabled = false;
             player.GetComponent<CharacterControl>().PickUpObject(this);

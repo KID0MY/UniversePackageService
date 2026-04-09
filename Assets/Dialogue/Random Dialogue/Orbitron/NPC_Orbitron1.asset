@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12550e90c236e0541b910f7291e37631, type: 3}
   m_Name: NPC_Orbitron1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
-  Node: []
+  Node:
+  - sentences:
+    - text: Hey, does UPS ship any good music discs? All anyone listens to here is
+        metal :(
+  - sentences:
+    - text: Oh hey, you're with UPS? I ordered some spare parts to my studio a while
+        back and they never arrived.
+  - sentences:
+    - text: "You got a funny shaped head UPS guy\u2026. \u2026. \u2026. OH DID I
+        SAY THAT OUT LOUD! I\u2019M SO SORRY!"
