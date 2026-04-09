@@ -284,7 +284,7 @@ public class sceneManager_ : MonoBehaviour
                 audioManager.Instance.PlayMusic("MainSpaceTheme");
                 break;
             case 5:
-                audioManager.Instance.StopMusic("MainSpaceTheme");
+                //audioManager.Instance.StopMusic("MainSpaceTheme");
                 break;
             default:
                 break;
@@ -328,6 +328,7 @@ public class sceneManager_ : MonoBehaviour
     public void loadGoodCutscene()
     {
         StartCoroutine(loadGoodEnd());
+        audioManager.Instance.StopMusic("MainSpaceTheme");
     }
 
     IEnumerator loadBadEnd()
@@ -335,6 +336,7 @@ public class sceneManager_ : MonoBehaviour
         animScript.anim_.Play("fadeIn", 0, 0);
         yield return new WaitForSeconds(0.5f);
         currentIndex = 5;
+        audioManager.Instance.StopMusic("MainSpaceTheme");
         SceneManager.LoadScene("BAD_CUTSCENE");
 
     }

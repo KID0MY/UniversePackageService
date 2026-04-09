@@ -18,8 +18,8 @@ public class CreditsManager : MonoBehaviour
         if (waitTime > 8)
         {
             creditsUI.SetActive(true);
-            
-
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

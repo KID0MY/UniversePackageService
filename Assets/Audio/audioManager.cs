@@ -60,7 +60,7 @@ public class audioManager : MonoBehaviour
             musicSource.Pause();
         }
     }
-
+    
     public void PlaySFX(string nameClip)
     {
         Sound s = Array.Find(sfxSounds, Matrix4x4 => Matrix4x4.nameClip == nameClip);
