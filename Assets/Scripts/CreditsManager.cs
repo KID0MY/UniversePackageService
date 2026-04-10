@@ -3,12 +3,13 @@ using UnityEngine;
 public class CreditsManager : MonoBehaviour
 {
     public GameObject creditsUI;
+    public QuestManager questManager;
     float waitTime = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        
+        questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
+
     }
 
     // Update is called once per frame
@@ -21,5 +22,9 @@ public class CreditsManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+    public void Reset()
+    {
+        questManager.Reset();
     }
 }

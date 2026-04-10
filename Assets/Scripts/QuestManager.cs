@@ -255,4 +255,15 @@ public class QuestManager : MonoBehaviour
         _completedQuestNum = 1;
         _tutorialFlagsCompleted = 1000;
     }
+
+    public void Reset()
+    {
+        _tutorialFlagsCompleted = 0;
+        _money = 0;
+        _dangerLevel = 0;
+        _completedQuestNum = 0;
+        _timePassed = 0f;
+        hasQuestObject = false;
+        _bombPlanted = false;
+    }
 }

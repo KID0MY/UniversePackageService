@@ -46,10 +46,9 @@ MonoBehaviour:
     - text: "Wow, yer really starting to impress me, newbie. Yer makin\u2019 us tons
         o\u2019 money!"
     - text: "Let\u2019s see what else I can give ye\u2026Ah!"
-    - text: "\u2018Ey\u2019re a sneaky lil creature, an\u2019 also pretty shy."
     - text: "There\u2019s a pretty unique lil\u2019 fella somewhere on Drasil that
-        needs a package from ye. \u2018Ey\u2019re a sneaky lil creature, an\u2019
-        also pretty shy."
+        needs a package from ye."
+    - text: "\u2018Ey\u2019re a sneaky lil critter, an\u2019 also pretty shy."
     - text: "Ye\u2019ll have to throw up the package t\u2019 them when ye find them."
     - text: "Make sure ye aim well! Give \u2018em a good ol\u2019 bonk. Now off witcha!"
   - sentences:
