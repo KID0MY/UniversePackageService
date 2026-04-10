@@ -136,7 +136,7 @@ public class sceneManager_ : MonoBehaviour
     {
      checkIfSettingActive();
         Debug.Log(paused);
-        if (paused&&canPause)
+        if (paused)
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.0f;
@@ -144,17 +144,21 @@ public class sceneManager_ : MonoBehaviour
             pausePanel.SetActive(true);
             settingsPanel.SetActive(true);
         }
-        if (!paused&&!canPause)
+        if (!paused&&checkIfSettingActive())
         {
             settingsPanel.SetActive(false);
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
+            settingsPanel.SetActive(false);
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-        }else if (!paused)
+            settingsPanel.SetActive(false) ;
+        }else if (!paused&&checkIfSettingActive()==false)
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
+           // settingsPanel.SetActive(false) ;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -292,18 +296,20 @@ public class sceneManager_ : MonoBehaviour
         Debug.Log("Current Index is " + currentIndex + ".Playing Respective music.");
     }
 
-    void checkIfSettingActive()
+     bool checkIfSettingActive()
     {
         //temp fix-- will rewrite the pause code later
         if (settingsPanel.activeInHierarchy)
         {
-            canPause = false;
+            return true;
+            //canPause = false;
             Debug.Log("Settings panel active");
            
         }
         else
         {
-            canPause = true;
+            return false;
+           // canPause = true;
             Debug.Log("Settings panel inactive");
         }
     }

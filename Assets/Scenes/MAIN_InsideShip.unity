@@ -3386,7 +3386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 157, y: -184.9}
+  m_AnchoredPosition: {x: -377, y: 138}
   m_SizeDelta: {x: 922.7501, y: 369.801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &478877418
@@ -3411,8 +3411,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LOADING....
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7019c3627a80ec744942a9aea4390cd1, type: 2}
+  m_sharedMaterial: {fileID: 3737243052886636382, guid: 7019c3627a80ec744942a9aea4390cd1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7829,6 +7829,10 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6471143300573099339, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6520900919582693980, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -240.9
@@ -7895,7 +7899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6785797217145625346, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6785797217145625346, guid: b443f581d8f25f44b89770a332f820f1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8211,14 +8215,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6217bb115dc4c084aadc9b1ad9e4a673, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

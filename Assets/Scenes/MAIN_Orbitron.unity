@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: _dialogueScr
       value: 
       objectReference: {fileID: 630289545}
+    - target: {fileID: 1132274512624859176, guid: af3d5ff4a8b1a0f489931330efb47620, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1594649221287865987, guid: af3d5ff4a8b1a0f489931330efb47620, type: 3}
       propertyPath: _player
       value: 
@@ -163,6 +167,10 @@ PrefabInstance:
       propertyPath: _dialogueScr
       value: 
       objectReference: {fileID: 630289545}
+    - target: {fileID: 4042357720650630698, guid: af3d5ff4a8b1a0f489931330efb47620, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4427127561915482035, guid: af3d5ff4a8b1a0f489931330efb47620, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.767
