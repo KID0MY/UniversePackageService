@@ -100,6 +100,10 @@ public class DialogueTrigger : MonoBehaviour
             {
                 visualCue.SetActive(false);
             }
+            else if (_questManager._dangerLevel == 4)
+            {
+                visualCue.SetActive(false);
+            }
             if (Input.GetKeyDown(KeyCode.E) && !_player._cutsceneMovementLock && _questManager._tutorialFlagsCompleted >= 5)
             {
                 if (_hasQuest && isQuestGiver && _questManager._questList.Count == 0)
@@ -153,7 +157,7 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
-            if (isQuestGiver && _hasQuest && _questManager._questList.Count == 0)
+            if (isQuestGiver && _hasQuest && _questManager._questList.Count == 0 && _questManager._dangerLevel < 4)
             {
                 visualCue.SetActive(true);
             }

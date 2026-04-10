@@ -161,7 +161,7 @@ public class SpaceshipControl : MonoBehaviour
     {
         if (_questManager._dangerLevel == 4 && (_questManager.hasQuestObject))
         {
-            if (Vector3.Distance(transform.position, _drasil.transform.position) > 1800 && !bossAggression)
+            if (Vector3.Distance(transform.position, _drasil.transform.position) > 2800 && !bossAggression)
             {
                 
                 _questManager._dialoguer.CreateDialogue("Didn'tcha hear me?");
@@ -171,7 +171,7 @@ public class SpaceshipControl : MonoBehaviour
                 bossAggression = true;
             }
             //SpaceshipControl.cs
-            if (Vector3.Distance(transform.position, _drasil.transform.position) > 3000)
+            if (Vector3.Distance(transform.position, _drasil.transform.position) > 4000)
             {
                 sceneMan.loadGoodCutscene();
             }

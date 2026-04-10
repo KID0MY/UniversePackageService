@@ -20,7 +20,7 @@ public class sceneManager_ : MonoBehaviour
 
     public bool _questMenuOpen = false;
     public GameObject _questMenu;
-    bool paused = false;
+    [SerializeField] bool paused = false;
      bool canPause = true;
     bool startGame = false;
     public int currentIndex;
@@ -53,6 +53,11 @@ public class sceneManager_ : MonoBehaviour
                 paused = !paused; //Otherwise pauses
                 pauseGame();
             }
+        }
+        if (sceneName.Equals("Main_Menu"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -104,6 +109,7 @@ public class sceneManager_ : MonoBehaviour
     public void loadSettings()
     {
         //if we want time to pause in settings
+        paused = true;
         Time.timeScale = 0.0f;
 
         Cursor.lockState = CursorLockMode.None;
@@ -123,6 +129,7 @@ public class sceneManager_ : MonoBehaviour
     public void resetTime()
     {
         Time.timeScale = 1.0f;
+        paused = false;
     }
 
     public void resetScene()
@@ -141,8 +148,10 @@ public class sceneManager_ : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.0f;
             Cursor.visible = true;
-            pausePanel.SetActive(true);
-            settingsPanel.SetActive(true);
+            if (pausePanel != null)
+                pausePanel.SetActive(true);
+            else
+                loadSettings();
         }
         if (!paused&&checkIfSettingActive())
         {
@@ -350,6 +359,4 @@ public class sceneManager_ : MonoBehaviour
     {
         StartCoroutine(loadBadEnd());
     }
-
-
 }

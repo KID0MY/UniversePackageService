@@ -5,6 +5,7 @@ public class PickUp : Interactable
 {
     public GameObject player;
     public GameObject playerCam;
+    public CharacterControl characterCamera;
     public Transform holdPos;
     public Transform baseSize;
     public Collider collider;
@@ -24,6 +25,7 @@ public class PickUp : Interactable
         _body = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
         playerCam = GameObject.Find("Camera");
+        characterCamera = player.GetComponent<CharacterControl>();
         holdPos = GameObject.Find("HoldPosition").transform;
         _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
     }
@@ -60,7 +62,7 @@ public class PickUp : Interactable
             if (_canBeThrown)
             {
                 transform.rotation = new Quaternion(playerCam.transform.rotation.x, player.transform.rotation.y, 0, player.transform.rotation.w);
-                _throwForce = transform.forward * 1000 * _throwTimer;
+                _throwForce = characterCamera.playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)).direction * 1000 * _throwTimer;
                 _throwTimer = 0f;
                 _canBeThrown = false;
                 _body.AddForce(_throwForce);

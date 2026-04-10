@@ -9,6 +9,7 @@ public class setting_ : MonoBehaviour
 {
  //   [Header("Sens Settings")]
     public CharacterCamera playerCam;
+    public QuestManager questManager;
     public Slider sensSlider;
     public float newMouseSens; 
     public float oldMouseSens;
@@ -28,9 +29,15 @@ public class setting_ : MonoBehaviour
 
     void  Start()
     {
+        questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>(); 
         sensSlider.onValueChanged.AddListener(changeSens);
-        oldMouseSens = playerCam.lookSensitivity;
-
+        oldMouseSens = questManager.currentSensitivity;
+        sensSlider.value = oldMouseSens;
+        if (playerCam != null)
+        {
+            playerCam.lookSensitivity = oldMouseSens;
+        }
+        questManager.currentSensitivity = sensSlider.value;
         isFullScreened = true;
 
         //setting up possible resolutions 
@@ -53,12 +60,13 @@ public class setting_ : MonoBehaviour
 
     public void changeSens(float newVal)
     {
-       // oldMouseSens = playerCam.lookSensitivity;
-        newMouseSens = newVal;
-        playerCam.lookSensitivity = newMouseSens;
+        // oldMouseSens = playerCam.lookSensitivity;
+        questManager.currentSensitivity = newVal;
         Debug.Log("Current sens value is " + playerCam.lookSensitivity);
-
-      
+        if (playerCam != null)
+        {
+            playerCam.lookSensitivity = questManager.currentSensitivity;
+        }
     }
     public void changeReso()
     {

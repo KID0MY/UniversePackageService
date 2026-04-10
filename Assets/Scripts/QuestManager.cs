@@ -23,6 +23,7 @@ public class QuestManager : MonoBehaviour
     public int _tutorialFlagsCompleted;
     public DialogueFinal tutorialDialogue;
     public string lastScene;
+    public float currentSensitivity;
 
     void Awake() //Makes this node persist between scenes
     {
@@ -246,6 +247,20 @@ public class QuestManager : MonoBehaviour
             {
                 _bombPlanted = true;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+                if (Input.GetKeyDown(KeyCode.Backslash))
+                    _enableDebug = true;
+        }   
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            _enableDebug = false;
+        }
+        if (_dangerLevel == 3 && hasQuestObject == false && _questList.Count > 0)
+        {
+            hasQuestObject = true;
         }
     }
 
