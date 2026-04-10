@@ -23,33 +23,35 @@ MonoBehaviour:
     - text: "Make sure yer checkin\u2019 yer ship log for delivery details. Wouldn\u2019
         want to make yer customer mad with a wrong delivery!"
     - text: "Get that package where it needs to go on that great big green hunk a\u2019dirt
-        Drasil fast as ye can! That is if ye wanna get paid, anyway\u2026"
+        Drasil fast as ye can!"
+    - text: "That is if ye wanna get paid, anyway\u2026"
   - sentences:
     - text: "Back already? Hmph, not bad, newbie. Nuthin\u2019 I like t\u2019see
         more than company time bein\u2019 used right!"
     - text: "In fact, I reckin\u2019 I\u2019ll have ya take care\u2019a a delivery
-        nonna the guys \u2018round \u2018ere like doing. Now don\u2019t get all fussed,
-        I ain\u2019t punishin\u2019 ya, I just want to see how ye\u2019ll handle
-        it."
+        nonna the guys \u2018round \u2018ere like doing."
+    - text: "Now don\u2019t get all fussed, I ain\u2019t punishin\u2019 ya, I just
+        want to see how ye\u2019ll handle it."
     - text: "This \u2018ere package needs to go to a bit o\u2019 a strange lad over
-        on Orbitron. \u2018e lives a bit outta the way, and ye\u2019ll need to do
-        some hoppin\u2019 around to get to \u2018em."
+        on Orbitron."
+    - text: "\u2018e lives a bit outta the way, and ye\u2019ll need to do some hoppin\u2019
+        around to get to \u2018em."
     - text: "Ye\u2019 may even need to toss that package a\u2019 \u2018is around
-        a\u2019wittle to get it where it needs going. Don\u2019 worry, it\u2019s
-        not as fragile as the last one, so long as you ain\u2019t slammin\u2019 it
-        around it\u2019ll be fine!"
+        a\u2019wittle to get it where it needs going."
+    - text: "Don\u2019 worry, it\u2019s not as fragile as the last one, so long as
+        you ain\u2019t slammin\u2019 it around it\u2019ll be fine!"
     - text: "Right, well, GO! Now\u2019s yer chance to prove yerself to me newbie,
         don\u2019t screw it up!"
   - sentences:
     - text: "Wow, yer really starting to impress me, newbie. Yer makin\u2019 us tons
         o\u2019 money!"
-    - text: "Let\u2019s see what else I can give ye\u2026Ah! \u2018Ere, a special
-        one just fer ye, to test yer knowledge o\u2019 Drasil an\u2019 allat."
+    - text: "Let\u2019s see what else I can give ye\u2026Ah!"
+    - text: "\u2018Ey\u2019re a sneaky lil creature, an\u2019 also pretty shy."
     - text: "There\u2019s a pretty unique lil\u2019 fella somewhere on Drasil that
         needs a package from ye. \u2018Ey\u2019re a sneaky lil creature, an\u2019
         also pretty shy."
-    - text: "Ye\u2019ll have to throw up the package t\u2019 them when ye find them.
-        Make sure ye aim well! Give \u2018em a good ol\u2019 bonk. Now off witcha!"
+    - text: "Ye\u2019ll have to throw up the package t\u2019 them when ye find them."
+    - text: "Make sure ye aim well! Give \u2018em a good ol\u2019 bonk. Now off witcha!"
   - sentences:
     - text: Well well well, ye really are a prodigy. Some fiiinnee work today, newbie,
         real fine work.
@@ -57,11 +59,15 @@ MonoBehaviour:
         a very special guy!"
     - text: "I\u2018m trusting ye with the big stuff. Don\u2019t screw it up! I want
         a perfect delivery \u2018ere, so lock in!"
+    - text: This package is bound for Drasil, leave it wher'ver ya want this time.
+    - text: Just be sure it's on Drasil.
+    - text: Be quick about it, this package needs to get there fast.
     - text: "But be kind t\u2019 it as well, \u2018cause if it gets busted up\u2026well,
         it won\u2019t be very pleased witcha."
     - text: "That\u2019s it, newbie. Get this last package where it needs t\u2019
-        go and yer done. Now, if you\u2019ve got any questions about the package
-        as you\u2019re deliverin\u2019 it, forget\u2018em."
+        go and yer done."
+    - text: "Now, if you\u2019ve got any questions about the package as you\u2019re
+        deliverin\u2019 it, forget\u2018em."
     - text: "All you gotta think about is getting that package delivered alright?
         I\u2019ll see ya soon, yeah?"
     - text: "Just DO NOT screw this delivery up, an\u2019 yer bound for success here

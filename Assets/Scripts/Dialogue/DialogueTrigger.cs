@@ -119,6 +119,7 @@ public class DialogueTrigger : MonoBehaviour
                         }
                         else
                         {
+                            Debug.Log("boss words: " + (_questManager._dangerLevel - 1).ToString());
                             _dialogueScr.CreateDialogue(dialogueLines.Node[_questManager._dangerLevel - 1]);
                         }
                     }
