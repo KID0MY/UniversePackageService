@@ -115,14 +115,11 @@ public class DialogueTrigger : MonoBehaviour
                         if (_questManager.CheckForFinale())
                         {
                             _questManager._dangerLevel = 4;
-                            _dialogueScr.CreateDialogue("Good work out there matey.");
-                            _dialogueScr.CreateDialogue("Here's a bomb.");
-                            _dialogueScr.CreateDialogue("Good luck lmao.");
+                            _dialogueScr.CreateDialogue(dialogueLines.Node[_questManager._dangerLevel - 1]);
                         }
                         else
                         {
-                            _dialogueScr.CreateDialogue("'Ere's another package for ya'. It's gotta go to " + _questObject._recipient + " on " + _questObject._destination + ".");
-                            _dialogueScr.CreateDialogue("Keep up the good work an' all that.");
+                            _dialogueScr.CreateDialogue(dialogueLines.Node[_questManager._dangerLevel - 1]);
                         }
                     }
                     else
