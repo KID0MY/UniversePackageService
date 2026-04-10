@@ -15,6 +15,7 @@ public class PickUp : Interactable
     public bool _canBeThrown = false;
     public bool _shouldBeThrown = true;
     public float _throwTimer = 0.0f;
+    public float _respawnTimer = 0.0f;
     public Vector3 _throwForce;
 
     public override void Awake()
@@ -107,9 +108,19 @@ public class PickUp : Interactable
         _speedLastFrame = _speed;
         if (transform.position.y < -100)
         {
-            transform.position = new Vector3(0, 10, 0);
-            _body.linearVelocity = new Vector3(0, 0, 0);
-            _speedLastFrame = 0f;
+            Respawn();
+        }
+        if (transform.position.y > 3 && player.GetComponent<CharacterControl>().isHolding == false)
+        {
+            _respawnTimer += Time.deltaTime;
+        }
+        else
+        {
+            _respawnTimer = 0f;
+        }
+        if (_respawnTimer >= 5.0f)
+        {
+            Respawn();
         }
         if (_throwTimer >= 1.0f && _throwTimer < 3.0f)
         {
@@ -123,5 +134,13 @@ public class PickUp : Interactable
         {
             _throwTimer = 3.0f;
         }
+    }
+
+    private void Respawn()
+    {
+        transform.position = new Vector3(0, 10, 0);
+        _body.linearVelocity = new Vector3(0, 0, 0);
+        _speedLastFrame = 0f;
+        _respawnTimer = 0f;
     }
 }
