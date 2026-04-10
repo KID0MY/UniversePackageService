@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12550e90c236e0541b910f7291e37631, type: 3}
-  m_Name: NPC_VanadaSpecial
+  m_Name: NPC_Drasil 5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
   Node:
   - sentences:
-    - text: AAAAAAHHHH!!!
-    - text: MY ARM!!
-    - text: AAAAAAHHHH!!!
+    - text: Is it true that some life forms out there actually enjoy the scent of
+        recently mutilated grass? Sickos!
   - sentences:
-    - text: Oh hi
-    - text: something wrong with my arm?
-    - text: what are you talking about?
+    - text: "Have you visited Drasil\u2019s central tree yet? It\u2019s my favourite
+        spot to just plant myself for an evening and relax, you should check it out."
   - sentences:
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHH
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHH
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHH
+    - text: "What\u2019s it like to fly all around the galaxy? It must be so fun,
+        I hope I can work for UPS one day!"

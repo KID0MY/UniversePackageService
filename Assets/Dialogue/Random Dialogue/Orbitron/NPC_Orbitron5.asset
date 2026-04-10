@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
   Node:
   - sentences:
-    - text: "You know, they say unity is our greatest strength\u2026. In my experience
-        it causes too many issues."
+    - text: "You know, they say unity is our greatest strength\u2026."
+    - text: In my experience it causes too many issues.
   - sentences:
     - text: "You know I hear there\u2019s some new cloning advancements that companies
         are going to start using to create self-replicating bio-workers."
@@ -23,10 +23,12 @@ MonoBehaviour:
     - text: What jobs are all the hardworking robots like me going to do then?!
   - sentences:
     - text: "Do you know what Orbitron is named after? No? We actually don\u2019t
-        know either! It was lost in our records long ago unfortunately, but there
-        are many theories!"
+        know either!"
+    - text: It was lost in our records long ago unfortunately, but there are many
+        theories!
     - text: Some say ours was the first spherical planet ever discovered and was
-        hence named after its shape. Some say our founders just liked the sound of
-        it!
+        hence named after its shape.
+    - text: Some say our founders just liked the sound of it!
     - text: "Some theories even suggest the name was given to appease some unholy
-        force terrorizing innocents\u2026\u2026 Like I said, there are many theories."
+        force terrorizing innocents\u2026\u2026"
+    - text: Like I said, there are many theories.

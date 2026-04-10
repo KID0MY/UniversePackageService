@@ -10,18 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12550e90c236e0541b910f7291e37631, type: 3}
-  m_Name: NPC_VanadaSpecial
+  m_Name: NPC_DrasilPVZHater
   m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
   Node:
   - sentences:
-    - text: AAAAAAHHHH!!!
-    - text: MY ARM!!
-    - text: AAAAAAHHHH!!!
-  - sentences:
-    - text: Oh hi
-    - text: something wrong with my arm?
-    - text: what are you talking about?
-  - sentences:
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHH
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHH
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHH
+    - text: "I\u2019d stay away from that plant over there if I were you."
+    - text: "They\u2019re super protective of their lawn and always raving about
+        how one day zombies will take over and that they need to prepare to defend
+        their lawn from the undead. What a whacko."

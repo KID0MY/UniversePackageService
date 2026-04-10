@@ -10,18 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12550e90c236e0541b910f7291e37631, type: 3}
-  m_Name: NPC_VanadaSpecial
+  m_Name: NPC_DrasilPVZ
   m_EditorClassIdentifier: Assembly-CSharp::DialogueFinal
   Node:
   - sentences:
-    - text: AAAAAAHHHH!!!
-    - text: MY ARM!!
-    - text: AAAAAAHHHH!!!
-  - sentences:
-    - text: Oh hi
-    - text: something wrong with my arm?
-    - text: what are you talking about?
-  - sentences:
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHH
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHH
-    - text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHH
+    - text: "...\U0001F3B5a zombie on your laaawwn, there\u2019s a..-"
+    - text: HEY! OFF. THE. LAWN!
